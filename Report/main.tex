@@ -1,0 +1,121 @@
+\documentclass[11pt, openany]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{libertine}
+\usepackage[pdftex]{graphicx}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+\begin{document}
+\title{SAHEM: FullStack Developpment d'une platforme de financement participatif de projets  }
+\author{Taha Bouhsine}
+\date{}
+
+
+\thispagestyle{empty}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter. #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection. #1}}
+
+%% legends
+
+\makeatletter
+\def\figurename{{\protect\sc \protect\small\bfseries Fig.}}
+\let\captionORI\caption
+\def\caption#1{\captionORI{\rm\small #1}}
+\makeatother
+
+
+\begin{titlepage}
+  \begin{sffamily}
+  \begin{center}
+
+    % Upper part of the page. The '~' is needed because \\
+    % only works if a paragraph has started.
+    \textsc{\LARGE Université Ibn Zohr AGADIR\\
+        Faculté des Sciences\\[1cm]
+        }
+    \includegraphics[scale=0.35]{assets/fsa.png}~\\[1cm]
+
+    \textsc{ Pour l’obtention de la \\
+    \Large Licence en Sciences Mathématiques et Informatique }\\[1.5cm]
+
+    % Title
+    \HRule \\[0.4cm]
+    { \huge \bfseries  SAHEM: FullStack Developpment d'une platforme de financement participatif de projets \\[0.4cm] }
+
+    \HRule \\[2cm]
+    % Author and supervisor
+    \begin{minipage}{0.6\textwidth}
+      \begin{flushleft} \large
+        \emph{Encadré par : } Pr. \textsc{BELAQZIZ Salwa}\\
+        \emph{Filière : } Science Mathematique Et Informatique - SMI \\
+        
+      \end{flushleft}
+    \end{minipage}
+    \newline \vskip1.5cm
+    \begin{minipage}{0.5\textwidth}
+      \begin{center} \large
+        \emph{Realizé Par:} \\
+                            \textsc{BOUHSINE Taha}\\
+                         
+      \end{center}
+    \end{minipage}
+    \vskip1.5cm
+    \vfill
+
+    % Bottom of the page
+    {\large \emph{Année universitaire : } 2019 - 2020}
+
+  \end{center}
+  \end{sffamily}
+  \thispagestyle{empty}
+\end{titlepage}
+\pagenumbering{Roman}
+
+
+\clearpage
+
+\renewcommand{\baselinestretch}{1.18}\small \normalsize
+
+\chapter*{Dédicace}
+
+\chapter*{Remerciement}
+
+\chapter*{Résumé }
+
+\chapter*{Abstract }
+
+  
+
+\renewcommand{\baselinestretch}{1.30}\small \normalsize
+
+\tableofcontents
+\listoffigures
+\listoftables
+\renewcommand{\baselinestretch}{1.18}\small \normalsize
+\newpage
+\pagenumbering{arabic}
+
+\chapter*{Introduction générale }
+\markboth{INTRODUCTION}{}
+
+
+\addcontentsline{toc}{chapter}{Introduction}
+This memory is a report for of the End Of Study Project prepared to obtain the Licence degree in Mathematics and Computer Science - SMI at the Université Ibn Zohr in Agadir, the faculty of science.\\
+
+
+\vskip12mm
+
+\clearpage   
+\chapter{Business Objectives}
+\section*{Introduction}
+
+
+
+
+\end{document}

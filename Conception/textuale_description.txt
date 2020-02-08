@@ -1,0 +1,45 @@
+Actors:
+A1 User:
+    Actor Type and Stereotype: main, primary, direct, Abstract
+    Actor Description: this is an abstract actor representing all the typse of users intereacting with SAHEM System.
+    Actor Relationship:
+        Actors: 
+            This Actor is specialized into A2-Visitor, A3-Registred, A4-Normal, A5-Administrator, A6-Reviewer.
+        Usecases:
+    Interface Specifications:
+
+    Author and History:
+
+    Reference Material:
+
+
+A2 Visitor:
+A Unregistred User that will be having the ability to see a list of projects with the permession to only see the description of the projects displayed in our web application.
+    Actor Type and Stereotype: main, primary, direct, Concrete
+    Actor Description: A Unregistred User that will be having the ability to see a list of projects with the permession to only see the description of the projects displayed in our web application.
+    Actor Relationship:
+        Actors: 
+            This Actor is derived from A1-User.
+        Usecases:
+    Interface Specifications:
+
+    Author and History:
+
+    Reference Material:
+
+A3 Registred:
+
+
+A4 Normal:
+
+
+A5 Administrator:
+
+
+A6 Reviewer:
+
+
+A7 PaymentInterface:
+
+
+
