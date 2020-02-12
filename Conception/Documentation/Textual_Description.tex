@@ -4,6 +4,7 @@
 \usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{libertine}
 \usepackage[pdftex]{graphicx}
+\usepackage[output=svg]{plantuml}
 
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
@@ -94,12 +95,492 @@
 \pagenumbering{arabic}
 
 \chapter{ Business Objective }
-\section*{What}
+\section{What}
 Provide a platform for crowdfunding startups, Ideas and projects.
-\section*{How}
+\section{How}
 Developing and implementing a crossplatform web application.
-\section*{Why} 
+\section{Why} 
 Resulting to an international reach for Ideas owners and inovators to share and start with their projects.
+
+\chapter{ Technologies }
+\section{Frontend}
+\subsection{ Native vs Webview}
+\paragraph{Native}
+\paragraph{Webview}
+\subsection{ Cross Platform vs Platform Independent }
+\paragraph{Cross Platform}
+\subparagraph{Pros}
+\subparagraph{Cons}
+\paragraph{Platform Independent}
+\subparagraph{Pros}
+\subparagraph{Cons}
+
+\section{ Backend }
+\subsection{ NodeJs vs PHP vs J2EE }
+\subsubsection{NodeJs}
+\paragraph{Pros}
+\paragraph{Cons}
+\subsubsection{PHP}
+\paragraph{Pros}
+\paragraph{Cons}
+
+\subsubsection{J2EE}
+
+\paragraph{Pros}
+\paragraph{Cons}
+
+\chapter{Problem Space}
+\section*{Introduction}
+
+\clearpage
+\section{Actors}
+% Template for An actor documentation
+% \subsection{A1-User}
+% \label{A1}
+% \subsubsection{Actor Type and Stereotype}
+% \subsubsection{Actor Description}
+% \subsubsection{Actor Relationship}
+% \subsubsection{Interface Specification}
+% \subsubsection{Author and History}
+% \subsubsection{Reference Material}
+
+
+\subsection{A1-User}
+\label{A1}
+\subsubsection{Actor Type and Stereotype:}
+direct, abstract.
+\subsubsection{Actor Description:}
+This is an abstract actor representing all the types of users intereacting with SAHEM System.
+\\He will be having the ability to see a list of projects with the permession to only see the description of the projects displayed in our web application.
+Can Register, Login, Forgot Password.
+Can share links to social media.
+\subsubsection{Actor Relationship:}
+This Actor is specialized into A2-Visitor, A3-Registred, A5-Administrator, A6-Reviewer.
+
+\subsubsection{Interface Specification:}
+\subsubsection{Author and History:}
+Taha Bouhsine.
+\subsubsection{Reference Material:}
+
+\clearpage
+
+\subsection{A2-Visitor}
+\label{A2}
+\subsubsection{Actor Type and Stereotype:}
+secondary, direct, Concrete.
+\subsubsection{Actor Description:}
+Derived from A1-User, this actor will have a more specialized way of listing projects, will only have the ability to look to the project name, owner, description.
+\subsubsection{Actor Relationship:}
+This Actor is derived from A1-User.
+\subsubsection{Interface Specification:}
+\subsubsection{Author and History:}
+\subsubsection{Reference Material:}
+
+\clearpage
+
+\subsection{A3-Registred User}
+\label{A3}
+\subsubsection{Actor Type and Stereotype:}
+primary, direct, Concrete.
+\subsubsection{Actor Description:}
+This is the main benifitor from our system, derived from the A1-User, this actor will be intereacting with the system by adding a project, editing, deleting owned projects, funding a project.\\
+List all the projects and their details, the same as for the A2-visitor but can have the access to more information about the project.\\
+Up voting a project that he thinks should be funded by others.\\
+Have a wallet that will be linked to the Payment interface.\\
+can comment, contribute.\\
+Can follow other registred users, follow the progress of projects.\\
+Have an activity feed that will be showing all the posts from other users in the system.
+\subsubsection{Actor Relationship:}
+This Actor is derived from A1-User.
+\subsubsection{Interface Specification:}
+\subsubsection{Author and History:}
+Taha Boushine
+\subsubsection{Reference Material:}
+
+% \subsection{A4-Normal User?}
+% \label{A4}
+% \subsubsection{Actor Type and Stereotype}
+% \subsubsection{Actor Description}
+% \subsubsection{Actor Relationship}
+% \subsubsection{Interface Specification}
+% \subsubsection{Author and History}
+% \subsubsection{Reference Material}
+
+\clearpage
+
+\subsection{A5-Administrator:}
+\label{A5}
+\subsubsection{Actor Type and Stereotype:}
+secondary, direct, Concrete.
+\subsubsection{Actor Description:}
+This is user have the most permession in our system, have the access to everything and can do everything, derived from A3-Registred User.
+Accept, Delete, Ban Users etc..
+\subsubsection{Actor Relationship:}
+
+This Actor is derived from A3-User.
+
+\subsubsection{Interface Specification:}
+\subsubsection{Author and History:}BOUHISNE Taha
+\subsubsection{Reference Material:}
+\subsection{A6-SahemSystem}
+\label{A6}
+\subsubsection{Actor Type and Stereotype:}
+\subsubsection{Actor Description:}
+
+\subsubsection{Actor Relationship:}
+\subsubsection{Interface Specification:}
+\subsubsection{Author and History:}
+\subsubsection{Reference Material:}
+
+\clearpage
+\subsection{A7-Payment Interface}
+\label{A7}
+\subsubsection{Actor Type and Stereotype:}
+\subsubsection{Actor Description:}
+\subsubsection{Actor Relationship:}
+The interface that will handle every aspects of the user payments, either recharging his account or withdrawing budget after his project it's goal.
+\subsubsection{Interface Specification:}
+\subsubsection{Author and History:}
+BOUHSINE Taha
+\subsubsection{Reference Material:}
+
+\clearpage
+\subsection{A8-Project}
+\label{A8}
+\subsubsection{Actor Type and Stereotype:}
+\subsubsection{Actor Description:}
+A project that can be owned by one A3-RegistredUser, and can be either funded or voted on by other users of the same type as A3-RegistredUser.
+can be funded by a registred user.\\
+have a coment section.\\
+have a vote counter.\\
+have a contributer list that contains all the users that funded the project.\\
+
+\subsubsection{Actor Relationship:}
+Owned by the A3-RegistredUser that can have one or many projects.
+\subsubsection{Interface Specification:}
+\subsubsection{Author and History:}
+BOUHSINE Taha
+\subsubsection{Reference Material:}
+
+\clearpage
+\subsection{A9-Post}
+\label{A9}
+\subsubsection{Actor Type and Stereotype:}
+<<Business>> <<RegistredUser>>
+\subsubsection{Actor Description:}
+A post owned by one A3-RegistredUser, up or down voted or commented on by other users of the same type as A3-RegistredUser.
+can be funded by a registred user.\\
+have a coment section.\\
+have a vote counter.\\
+have a contributer list that contains all the users that funded the project.\\
+
+\subsubsection{Actor Relationship:}
+Owned by the A3-RegistredUser that can have one or many Posts.
+\subsubsection{Interface Specification:}
+\subsubsection{Author and History:}
+BOUHSINE Taha
+\subsubsection{Reference Material:}
+
+\clearpage
+
+\section{Use Cases Simplified}
+\
+% template for the simplified use cases documentation
+% \subsection{UC1-Register}
+% \label{UC1:s}
+% \subsubsection*{Use Case Thumbnail}
+% \subsubsection*{Actors}
+% \subsubsection*{Use Case Description}
+
+\subsection{UC1-Register}
+\label{sUC1}
+\subsubsection*{Use Case Thumbnail:}
+UC1-Register
+\subsubsection*{Actors:}
+A1-User
+\subsubsection*{Use Case Description:}
+This is use case will handle the user registering request.
+
+\subsection{UC2-Login}
+\label{sUC2}
+\subsubsection*{Use Case Thumbnail:}
+UC2-Login
+\subsubsection*{Actors:}
+A1-Visitor
+\subsubsection*{Use Case Description:}
+This is use case will handle the user log in request.
+
+\subsection{UC3-ForgotPassword}
+\label{sUC3}
+\subsubsection*{Use Case Thumbnail:}
+UC3-ForgotPassword
+\subsubsection*{Actors:}
+A1-User
+\subsubsection*{Use Case Description:}
+This is use case will handle the user's reseting password request. \\
+
+\subsection{UC4-ShareToSocialMedia}
+\label{sUC4}
+\subsubsection*{Use Case Thumbnail:}
+UC4-ShareToSocialMedia
+\subsubsection*{Actors:}
+A1-User
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+\subsection{UC5-CreateProject}
+\label{sUC5}
+\subsubsection*{Use Case Thumbnail:}
+UC5-CreateProject
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+\subsection{UC6-EditProject}
+\label{sUC6}
+\subsubsection*{Use Case Thumbnail:}
+UC6-EditProject
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+\subsection{UC7-DeleteProject}
+\label{sUC7}
+\subsubsection*{Use Case Thumbnail:}
+UC7-DeleteProject
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+\subsection{UC8-FundProject}
+\label{sUC8}
+\subsubsection*{Use Case Thumbnail:}
+UC8-FundProject
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+\subsection{UC10-VoteOnProject}
+\label{sUC10}
+\subsubsection*{Use Case Thumbnail:}
+UC10-VoteOnProject
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+
+\subsection{UC11-CommentOnProject}
+\label{sUC11}
+\subsubsection*{Use Case Thumbnail:}
+UC11-CommentOnProject
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+
+\subsection{UC12-FollowUser}
+\label{sUC12}
+\subsubsection*{Use Case Thumbnail:}
+UC12-FollowUser
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+
+\subsection{UC13-GetAllFollowedUserPosts}
+\label{sUC13}
+\subsubsection*{Use Case Thumbnail:}
+UC13-PostToActivityFeed
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+
+\subsection{UC14-PostToActivityFeed}
+\label{sUC14}
+\subsubsection*{Use Case Thumbnail:}
+UC13-PostToActivityFeed
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+
+\subsection{UC15-CommentOnUserPost}
+\label{sUC15}
+\subsubsection*{Use Case Thumbnail:}
+UC15-CommentOnUserPost
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+
+\subsection{UC16-VoteOnUserPost}
+\label{sUC16}
+\subsubsection*{Use Case Thumbnail:}
+UC16-VoteOnUserPost
+\subsubsection*{Actors:}
+A3-RegistredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a user sharing a project or user profile link.
+
+
+\section{ Use Cases }
+% template for the complex Use cases documentation
+% \subsection{UC1-Register}
+% \label{UC1}
+% \subsubsection*{Use Case Thumbnail}
+% \subsubsection*{Use Case Description}
+% \subsubsection*{Use Case Stereotype and Package}
+% \subsubsection*{Preconditions}
+% \subsubsection*{Postcondition}
+% \subsubsection*{Actors}
+% \subsubsection*{Use Case Relationships}
+% \subsubsection*{Basic Flow}
+% \subsubsection*{Alternative Flow}
+% \subsubsection*{Exceptions}
+% \subsubsection*{Constraints}
+% \subsubsection*{User Interface Specification}
+% \subsubsection*{Metrics}
+% \subsubsection*{Priority}
+% \subsubsection*{Status}
+% \subsubsection*{Author and History}
+% \subsubsection*{Reference Material}
+
+\subsection{UC1-Register}
+\label{UC1}
+\subsubsection{Use Case Thumbnail:}
+UC1-Register
+\subsubsection{Use Case Description:}
+A request from a A2-Visitor to register in the application.
+\subsubsection{Use Case Stereotype and Package:}
+<< Business >> - << User >>
+\subsubsection{Preconditions:}
+Not registred
+\subsubsection{Postcondition:}
+Registred
+\subsubsection{Actors:}
+A2-Visitor
+\subsubsection{Use Case Relationships:}
+Associated with actors A2-Visitor,
+\subsubsection{Basic Flow:}
+1-The visitor will click on the register button.
+2-Fill the personal information form.
+  2.1- the system will check if the information are valid.
+
+3-Fill the payments method form.
+  3.1- the system will check if the information are valid.
+4-Confirm Email.
+5-System will save the user's information.
+6-System will confirm the users's registration.
+7-redirect the User to the sign in form.
+\subsubsection{Alternative Flow:}
+< -Informations are not valid/complete. >
+\subsubsection{Exceptions:}
+None
+\subsubsection{Constraints:}
+None
+\subsubsection{User Interface Specification:}
+\subsubsection{Metrics:}
+medium
+\subsubsection{Priority:}
+High
+\subsubsection{Status:}
+Minor
+\subsubsection{Author and History:}
+Taha Bouhsine
+\subsubsection{Reference Material:}
+
+
+\subsection{UC2-Login}
+\label{UC2}
+\subsubsection{Use Case Thumbnail:}
+UC2-Login
+\subsubsection{Use Case Description:}
+A request from a A2-Visitor to register in the application.
+\subsubsection{Use Case Stereotype and Package:}
+<< Business >> - << Visitor >>
+\subsubsection{Preconditions:}
+Loged out
+\subsubsection{Postcondition:}
+Loged in.
+\subsubsection{Actors:}
+A2-Visitor
+\subsubsection{Use Case Relationships:}
+Associated with actors A2-Visitor,
+\subsubsection{Basic Flow:}
+1-The visitor will click on the Login button.
+2-Fill the username and password form.
+  2.1- the system will check if the information are valid.
+3-System will log the user's Session.
+7-redirect the User to the main page.
+\subsubsection{Alternative Flow:}
+< -Informations are not valid/complete. >
+\subsubsection{Exceptions:}
+None
+\subsubsection{Constraints:}
+None
+\subsubsection{User Interface Specification:}
+\subsubsection{Metrics:}
+simple
+\subsubsection{Priority:}
+High
+\subsubsection{Status:}
+Minor
+\subsubsection{Author and History:}
+Taha Bouhsine
+\subsubsection{Reference Material:}
+
+\subsection{UC3-ForgotPassword}
+\label{UC3}
+\subsubsection{Use Case Thumbnail:}
+UC3-ForgotPassword
+\subsubsection{Use Case Description:}
+A request from a A2-Visitor to reset the passwod.
+\subsubsection{Use Case Stereotype and Package:}
+<< Business >> - << Visitor >>
+\subsubsection{Preconditions:}
+Old Password
+\subsubsection{Postcondition:}
+New Password
+\subsubsection{Actors:}
+A2-Visitor
+\subsubsection{Use Case Relationships:}
+Associated with actors A2-Visitor,
+\subsubsection{Basic Flow:}
+1-The visitor will click on the Forgot Password button.
+2-Fill the Email and UserName form.
+  2.1- the system will check if the information are valid.
+  2.2- The System will send an reset email to the User Email.
+3- the user will click on the link.
+7- the user will fill the form with the new email.
+  7.1- check if the password is valid.
+8- the user will be redirected to the login page.
+\subsubsection{Alternative Flow:}
+< -Informations are not valid/complete. >
+\subsubsection{Exceptions:}
+None
+\subsubsection{Constraints:}
+None
+\subsubsection{User Interface Specification:}
+\subsubsection{Metrics:}
+simple
+\subsubsection{Priority:}
+High
+\subsubsection{Status:}
+Minor
+\subsubsection{Author and History:}
+Taha Bouhsine
+\subsubsection{Reference Material:}
 
 
 \end{document}

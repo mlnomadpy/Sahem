@@ -1,0 +1,12 @@
+@startuml User
+usecase (UC1-Register) as UC1
+usecase (UC2-Login) as UC2
+usecase (UC3-ForgotPassword) as UC3
+usecase (UC4-ShareToSocialMedia) as UC4
+actor A1-User as A1
+actor A6-SahemSystem as A6
+A1 -> UC1
+A1 -> UC2
+A1 -> UC3
+A1 -> UC4
+@enduml
