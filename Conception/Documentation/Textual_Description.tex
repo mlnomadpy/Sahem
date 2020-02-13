@@ -14,7 +14,7 @@
 
 \begin{document}
 \title{SAHEM: Documentation  }
-\author{Taha Bouhsine}
+\author{BOUSHINE Taha}
 \date{}
 
 
@@ -42,8 +42,8 @@
         }
     \includegraphics[scale=0.35]{assets/fsa.png}~\\[1cm]
 
-    \textsc{ Pour l’obtention de la \\
-    \Large Licence en Sciences Mathématiques et Informatique }\\[1.5cm]
+    % \textsc{ Pour l’obtention de la \\
+    % \Large Licence en Sciences Mathématiques et Informatique }\\[1.5cm]
 
     % Title
     \HRule \\[0.4cm]
@@ -61,7 +61,7 @@
     \newline \vskip1.5cm
     \begin{minipage}{0.5\textwidth}
       \begin{center} \large
-        \emph{Realizé Par:} \\
+        \emph{Realisé Par:} \\
                             \textsc{BOUHSINE Taha}\\
                          
       \end{center}
@@ -100,7 +100,7 @@ Provide a platform for crowdfunding startups, Ideas and projects.
 \section{How}
 Developing and implementing a crossplatform web application.
 \section{Why} 
-Resulting to an international reach for Ideas owners and inovators to share and start with their projects.
+Resulting to an international reach for Ideas owners and innovators to share and start with their projects.
 
 \chapter{ Technologies }
 \section{Frontend}
@@ -150,16 +150,16 @@ Resulting to an international reach for Ideas owners and inovators to share and 
 \subsubsection{Actor Type and Stereotype:}
 direct, abstract.
 \subsubsection{Actor Description:}
-This is an abstract actor representing all the types of users intereacting with SAHEM System.
-\\He will be having the ability to see a list of projects with the permession to only see the description of the projects displayed in our web application.
+This is an abstract actor representing all the types of users interacting with SAHEM System.
+\\He will be having the ability to see a list of projects with the permission to only see the description of the projects displayed in our web application.
 Can Register, Login, Forgot Password.
 Can share links to social media.
 \subsubsection{Actor Relationship:}
-This Actor is specialized into A2-Visitor, A3-Registred, A5-Administrator, A6-Reviewer.
+This Actor is specialized into A2-Visitor, A3-Registered, A5-Administrator, A6-Reviewer.
 
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
-Taha Bouhsine.
+BOUSHINE Taha
 \subsubsection{Reference Material:}
 
 \clearpage
@@ -178,23 +178,23 @@ This Actor is derived from A1-User.
 
 \clearpage
 
-\subsection{A3-Registred User}
+\subsection{A3-Registered User}
 \label{A3}
 \subsubsection{Actor Type and Stereotype:}
 primary, direct, Concrete.
 \subsubsection{Actor Description:}
-This is the main benifitor from our system, derived from the A1-User, this actor will be intereacting with the system by adding a project, editing, deleting owned projects, funding a project.\\
+This is the main benefactor from our system, derived from the A1-User, this actor will be interacting with the system by adding a project, editing, deleting owned projects, funding a project.\\
 List all the projects and their details, the same as for the A2-visitor but can have the access to more information about the project.\\
 Up voting a project that he thinks should be funded by others.\\
 Have a wallet that will be linked to the Payment interface.\\
 can comment, contribute.\\
-Can follow other registred users, follow the progress of projects.\\
+Can follow other registered users, follow the progress of projects.\\
 Have an activity feed that will be showing all the posts from other users in the system.
 \subsubsection{Actor Relationship:}
 This Actor is derived from A1-User.
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
-Taha Boushine
+BOUHSINE Taha
 \subsubsection{Reference Material:}
 
 % \subsection{A4-Normal User?}
@@ -213,7 +213,7 @@ Taha Boushine
 \subsubsection{Actor Type and Stereotype:}
 secondary, direct, Concrete.
 \subsubsection{Actor Description:}
-This is user have the most permession in our system, have the access to everything and can do everything, derived from A3-Registred User.
+This is user have the most permissions in our system, have the access to everything and can do everything, derived from A3-Registered User.
 Accept, Delete, Ban Users etc..
 \subsubsection{Actor Relationship:}
 
@@ -249,14 +249,14 @@ BOUHSINE Taha
 \label{A8}
 \subsubsection{Actor Type and Stereotype:}
 \subsubsection{Actor Description:}
-A project that can be owned by one A3-RegistredUser, and can be either funded or voted on by other users of the same type as A3-RegistredUser.
-can be funded by a registred user.\\
-have a coment section.\\
+A project that can be owned by one A3-RegisteredUser, and can be either funded or voted on by other users of the same type as A3-RegisteredUser.
+can be funded by a registered user.\\
+have a comment section.\\
 have a vote counter.\\
-have a contributer list that contains all the users that funded the project.\\
+have a contributors list that contains all the users that funded the project.\\
 
 \subsubsection{Actor Relationship:}
-Owned by the A3-RegistredUser that can have one or many projects.
+Owned by the A3-RegisteredUser that can have one or many projects.
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
 BOUHSINE Taha
@@ -266,16 +266,35 @@ BOUHSINE Taha
 \subsection{A9-Post}
 \label{A9}
 \subsubsection{Actor Type and Stereotype:}
-<<Business>> <<RegistredUser>>
+<<Business>> <<RegisteredUser>>
 \subsubsection{Actor Description:}
-A post owned by one A3-RegistredUser, up or down voted or commented on by other users of the same type as A3-RegistredUser.
-can be funded by a registred user.\\
-have a coment section.\\
+A post owned by one A3-RegisteredUser, up or down voted or commented on by other users of the same type as A3-RegisteredUser.
+can be funded by a registered user.\\
+have a comment section.\\
 have a vote counter.\\
-have a contributer list that contains all the users that funded the project.\\
+have a contributors list that contains all the users that funded the project.\\
 
 \subsubsection{Actor Relationship:}
-Owned by the A3-RegistredUser that can have one or many Posts.
+Owned by the A3-RegisteredUser that can have one or many Posts.
+\subsubsection{Interface Specification:}
+\subsubsection{Author and History:}
+BOUHSINE Taha
+\subsubsection{Reference Material:}
+
+\clearpage
+\subsection{A10-}
+\label{A10}
+\subsubsection{Actor Type and Stereotype:}
+<<Business>> <<RegisteredUser>>
+\subsubsection{Actor Description:}
+A post owned by one A3-RegisteredUser, up or down voted or commented on by other users of the same type as A3-RegisteredUser.
+can be funded by a registered user.\\
+have a comment section.\\
+have a vote counter.\\
+have a contributors list that contains all the users that funded the project.\\
+
+\subsubsection{Actor Relationship:}
+Owned by the A3-RegisteredUser that can have one or many Posts.
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
 BOUHSINE Taha
@@ -317,7 +336,7 @@ UC3-ForgotPassword
 \subsubsection*{Actors:}
 A1-User
 \subsubsection*{Use Case Description:}
-This is use case will handle the user's reseting password request. \\
+This is use case will handle the user's resetting password request. \\
 
 \subsection{UC4-ShareToSocialMedia}
 \label{sUC4}
@@ -333,7 +352,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC5-CreateProject
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -342,7 +361,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC6-EditProject
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -351,7 +370,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC7-DeleteProject
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -360,7 +379,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC8-FundProject
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -369,7 +388,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC10-VoteOnProject
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -379,7 +398,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC11-CommentOnProject
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -389,7 +408,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC12-FollowUser
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -399,7 +418,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC13-PostToActivityFeed
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -409,7 +428,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC13-PostToActivityFeed
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -419,7 +438,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC15-CommentOnUserPost
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -429,7 +448,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC16-VoteOnUserPost
 \subsubsection*{Actors:}
-A3-RegistredUser
+A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -465,9 +484,9 @@ A request from a A2-Visitor to register in the application.
 \subsubsection{Use Case Stereotype and Package:}
 << Business >> - << User >>
 \subsubsection{Preconditions:}
-Not registred
+Not registered
 \subsubsection{Postcondition:}
-Registred
+Registered
 \subsubsection{Actors:}
 A2-Visitor
 \subsubsection{Use Case Relationships:}
@@ -484,7 +503,7 @@ Associated with actors A2-Visitor,
 6-System will confirm the users's registration.
 7-redirect the User to the sign in form.
 \subsubsection{Alternative Flow:}
-< -Informations are not valid/complete. >
+< -information's are not valid/complete. >
 \subsubsection{Exceptions:}
 None
 \subsubsection{Constraints:}
@@ -497,7 +516,7 @@ High
 \subsubsection{Status:}
 Minor
 \subsubsection{Author and History:}
-Taha Bouhsine
+BOUHSINE Taha
 \subsubsection{Reference Material:}
 
 
@@ -510,9 +529,9 @@ A request from a A2-Visitor to register in the application.
 \subsubsection{Use Case Stereotype and Package:}
 << Business >> - << Visitor >>
 \subsubsection{Preconditions:}
-Loged out
+Logged out
 \subsubsection{Postcondition:}
-Loged in.
+Logged in.
 \subsubsection{Actors:}
 A2-Visitor
 \subsubsection{Use Case Relationships:}
@@ -524,7 +543,7 @@ Associated with actors A2-Visitor,
 3-System will log the user's Session.
 7-redirect the User to the main page.
 \subsubsection{Alternative Flow:}
-< -Informations are not valid/complete. >
+< -information's are not valid/complete. >
 \subsubsection{Exceptions:}
 None
 \subsubsection{Constraints:}
@@ -537,7 +556,7 @@ High
 \subsubsection{Status:}
 Minor
 \subsubsection{Author and History:}
-Taha Bouhsine
+BOUHSINE Taha
 \subsubsection{Reference Material:}
 
 \subsection{UC3-ForgotPassword}
@@ -545,7 +564,7 @@ Taha Bouhsine
 \subsubsection{Use Case Thumbnail:}
 UC3-ForgotPassword
 \subsubsection{Use Case Description:}
-A request from a A2-Visitor to reset the passwod.
+A request from a A2-Visitor to reset the password.
 \subsubsection{Use Case Stereotype and Package:}
 << Business >> - << Visitor >>
 \subsubsection{Preconditions:}
@@ -566,7 +585,7 @@ Associated with actors A2-Visitor,
   7.1- check if the password is valid.
 8- the user will be redirected to the login page.
 \subsubsection{Alternative Flow:}
-< -Informations are not valid/complete. >
+< -information's are not valid/complete. >
 \subsubsection{Exceptions:}
 None
 \subsubsection{Constraints:}
@@ -579,7 +598,7 @@ High
 \subsubsection{Status:}
 Minor
 \subsubsection{Author and History:}
-Taha Bouhsine
+BOUHSINE Taha
 \subsubsection{Reference Material:}
 
 
