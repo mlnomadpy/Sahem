@@ -8,3 +8,4 @@
 *.gz
 *.fls
 *.out
+.vscode/settings.json

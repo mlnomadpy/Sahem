@@ -33,46 +33,46 @@
 
 \begin{titlepage}
   \begin{sffamily}
-  \begin{center}
+    \begin{center}
 
-    % Upper part of the page. The '~' is needed because \\
-    % only works if a paragraph has started.
-    \textsc{\LARGE Université Ibn Zohr AGADIR\\
+      % Upper part of the page. The '~' is needed because \\
+      % only works if a paragraph has started.
+      \textsc{\LARGE Université Ibn Zohr AGADIR\\
         Faculté des Sciences\\[1cm]
-        }
-    \includegraphics[scale=0.35]{assets/fsa.png}~\\[1cm]
+      }
+      \includegraphics[scale=0.35]{assets/fsa.png}~\\[1cm]
 
-    % \textsc{ Pour l’obtention de la \\
-    % \Large Licence en Sciences Mathématiques et Informatique }\\[1.5cm]
+      % \textsc{ Pour l’obtention de la \\
+      % \Large Licence en Sciences Mathématiques et Informatique }\\[1.5cm]
 
-    % Title
-    \HRule \\[0.4cm]
-    { \huge \bfseries  SAHEM: Documentation \\[0.4cm] }
+      % Title
+      \HRule \\[0.4cm]
+      { \huge \bfseries  SAHEM: Documentation \\[0.4cm] }
 
-    \HRule \\[2cm]
-    % Author and supervisor
-    \begin{minipage}{0.6\textwidth}
-      \begin{flushleft} \large
-        \emph{Encadré par : } Pr. \textsc{BELAQZIZ Salwa}\\
-        \emph{Filière : } Science Mathematique Et Informatique - SMI \\
-        
-      \end{flushleft}
-    \end{minipage}
-    \newline \vskip1.5cm
-    \begin{minipage}{0.5\textwidth}
-      \begin{center} \large
-        \emph{Realisé Par:} \\
-                            \textsc{BOUHSINE Taha}\\
-                         
-      \end{center}
-    \end{minipage}
-    \vskip1.5cm
-    \vfill
+      \HRule \\[2cm]
+      % Author and supervisor
+      \begin{minipage}{0.6\textwidth}
+        \begin{flushleft} \large
+          \emph{Encadré par : } Pr. \textsc{BELAQZIZ Salwa}\\
+          \emph{Filière : } Science Mathematique Et Informatique - SMI \\
 
-    % Bottom of the page
-    {\large \emph{Année universitaire : } 2019 - 2020}
+        \end{flushleft}
+      \end{minipage}
+      \newline \vskip1.5cm
+      \begin{minipage}{0.5\textwidth}
+        \begin{center} \large
+          \emph{Realisé Par:} \\
+          \textsc{BOUHSINE Taha}\\
 
-  \end{center}
+        \end{center}
+      \end{minipage}
+      \vskip1.5cm
+      \vfill
+
+      % Bottom of the page
+      {\large \emph{Année universitaire : } 2019 - 2020}
+
+    \end{center}
   \end{sffamily}
   \thispagestyle{empty}
 \end{titlepage}
@@ -95,42 +95,58 @@
 \pagenumbering{arabic}
 
 \chapter{ Business Objective }
+\section*{ Introduction }
 \section{What}
 Provide a platform for crowdfunding startups, Ideas and projects.
 \section{How}
 Developing and implementing a crossplatform web application.
-\section{Why} 
+\section{Why}
 Resulting to an international reach for Ideas owners and innovators to share and start with their projects.
 
 \chapter{ Technologies }
-\section{Frontend}
-\subsection{ Native vs Webview}
-\paragraph{Native}
-\paragraph{Webview}
-\subsection{ Cross Platform vs Platform Independent }
-\paragraph{Cross Platform}
-\subparagraph{Pros}
-\subparagraph{Cons}
-\paragraph{Platform Independent}
-\subparagraph{Pros}
-\subparagraph{Cons}
+  \section{ Tools }
+    \subsection{ Github }
+    
+    \subsection{ PlantUml }
 
-\section{ Backend }
-\subsection{ NodeJs vs PHP vs J2EE }
-\subsubsection{NodeJs}
-\paragraph{Pros}
-\paragraph{Cons}
-\subsubsection{PHP}
-\paragraph{Pros}
-\paragraph{Cons}
+    \subsection{ Latex }
 
-\subsubsection{J2EE}
+    \subsection{ Vs Code }
 
-\paragraph{Pros}
-\paragraph{Cons}
+    \subsection{ Photoshop }
 
+    \subsection{ MongoDB Compass}
+
+  \section{Frontend}
+    \subsection{ Native vs Webview}
+      \paragraph{Native}
+      \paragraph{Webview}
+    \subsection{ Cross Platform vs Platform Independent }
+      \paragraph{Cross Platform}
+        \subparagraph{Pros}
+        \subparagraph{Cons}
+      \paragraph{Platform Independent}
+        \subparagraph{Pros}
+        \subparagraph{Cons}
+    \subsection{ Angular }
+    \subsection{ NativeScript }
+  \section{ Backend }
+    \subsection{ NodeJs vs PHP vs J2EE }
+      \subsubsection{NodeJs}
+        \paragraph{Pros}
+        \paragraph{Cons}
+      \subsubsection{PHP}
+        \paragraph{Pros}
+        \paragraph{Cons}
+
+      \subsubsection{J2EE}
+
+        \paragraph{Pros}
+        \paragraph{Cons}
+
+    \subsection{ ExpressJs }
 \chapter{Problem Space}
-\section*{Introduction}
+  \section*{Introduction}
 
 \clearpage
 \section{Actors}
@@ -220,16 +236,21 @@ Accept, Delete, Ban Users etc..
 This Actor is derived from A3-User.
 
 \subsubsection{Interface Specification:}
-\subsubsection{Author and History:}BOUHISNE Taha
+\subsubsection{Author and History:}
+BOUHISNE Taha
 \subsubsection{Reference Material:}
+
+\clearpage
 \subsection{A6-SahemSystem}
 \label{A6}
 \subsubsection{Actor Type and Stereotype:}
+<< System >> << Business >>
 \subsubsection{Actor Description:}
-
+A non human actor that represents our system.
 \subsubsection{Actor Relationship:}
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
+BOUHSINE Taha
 \subsubsection{Reference Material:}
 
 \clearpage
@@ -254,7 +275,7 @@ can be funded by a registered user.\\
 have a comment section.\\
 have a vote counter.\\
 have a contributors list that contains all the users that funded the project.\\
-
+have a progress feed that contains zero or many posts.
 \subsubsection{Actor Relationship:}
 Owned by the A3-RegisteredUser that can have one or many projects.
 \subsubsection{Interface Specification:}
@@ -266,14 +287,12 @@ BOUHSINE Taha
 \subsection{A9-Post}
 \label{A9}
 \subsubsection{Actor Type and Stereotype:}
-<<Business>> <<RegisteredUser>>
+<<Business>> << Post >>
 \subsubsection{Actor Description:}
 A post owned by one A3-RegisteredUser, up or down voted or commented on by other users of the same type as A3-RegisteredUser.
-can be funded by a registered user.\\
 have a comment section.\\
 have a vote counter.\\
 have a contributors list that contains all the users that funded the project.\\
-
 \subsubsection{Actor Relationship:}
 Owned by the A3-RegisteredUser that can have one or many Posts.
 \subsubsection{Interface Specification:}
@@ -282,19 +301,15 @@ BOUHSINE Taha
 \subsubsection{Reference Material:}
 
 \clearpage
-\subsection{A10-}
+\subsection{A10-Wallet}
 \label{A10}
 \subsubsection{Actor Type and Stereotype:}
 <<Business>> <<RegisteredUser>>
 \subsubsection{Actor Description:}
-A post owned by one A3-RegisteredUser, up or down voted or commented on by other users of the same type as A3-RegisteredUser.
-can be funded by a registered user.\\
-have a comment section.\\
-have a vote counter.\\
-have a contributors list that contains all the users that funded the project.\\
-
+A wallet that holds money.
 \subsubsection{Actor Relationship:}
-Owned by the A3-RegisteredUser that can have one or many Posts.
+An A3-RegisteredUser have a wallet.\\
+A project have a wallet.
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
 BOUHSINE Taha
@@ -316,7 +331,9 @@ BOUHSINE Taha
 \subsubsection*{Use Case Thumbnail:}
 UC1-Register
 \subsubsection*{Actors:}
-A1-User
+A1-User\\
+A2-Visitor\\
+A3-SahemSystem
 \subsubsection*{Use Case Description:}
 This is use case will handle the user registering request.
 
@@ -325,7 +342,9 @@ This is use case will handle the user registering request.
 \subsubsection*{Use Case Thumbnail:}
 UC2-Login
 \subsubsection*{Actors:}
-A1-Visitor
+A1-User\\
+A2-Visitor\\
+A3-SahemSystem
 \subsubsection*{Use Case Description:}
 This is use case will handle the user log in request.
 
@@ -334,7 +353,9 @@ This is use case will handle the user log in request.
 \subsubsection*{Use Case Thumbnail:}
 UC3-ForgotPassword
 \subsubsection*{Actors:}
-A1-User
+A1-User\\
+A2-Visitor\\
+A3-SahemSystem
 \subsubsection*{Use Case Description:}
 This is use case will handle the user's resetting password request. \\
 
@@ -343,7 +364,9 @@ This is use case will handle the user's resetting password request. \\
 \subsubsection*{Use Case Thumbnail:}
 UC4-ShareToSocialMedia
 \subsubsection*{Actors:}
-A1-User
+A1-User\\
+A2-Visitor\\
+A3-SahemSystem
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a user sharing a project or user profile link.
 
@@ -352,105 +375,154 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC5-CreateProject
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-RegisteredUser\\
+A3-SahemSystem
+
 \subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+This use case will handle the act of a registered user creating a project.
 
 \subsection{UC6-EditProject}
 \label{sUC6}
 \subsubsection*{Use Case Thumbnail:}
 UC6-EditProject
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-RegisteredUser\\
+A3-SahemSystem
+
 \subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+This use case will handle the act of a registered user editing his existing project.
 
 \subsection{UC7-DeleteProject}
 \label{sUC7}
 \subsubsection*{Use Case Thumbnail:}
 UC7-DeleteProject
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-RegisteredUser\\
+A3-SahemSystem
+
 \subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+This use case will handle the act of a registered user deleting his project after entering the edit menu.
 
 \subsection{UC8-FundProject}
 \label{sUC8}
 \subsubsection*{Use Case Thumbnail:}
 UC8-FundProject
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-RegisteredUser\\
+A3-SahemSystem
+
 \subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+This use case will handle the act of a registered user funding a project.
 
 \subsection{UC10-VoteOnProject}
 \label{sUC10}
 \subsubsection*{Use Case Thumbnail:}
 UC10-VoteOnProject
 \subsubsection*{Actors:}
-A3-RegisteredUser
-\subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+A3-RegisteredUser\\
+A3-SahemSystem
 
+\subsubsection*{Use Case Description:}
+This use case will handle the act of a registered user voting on a project.
 
 \subsection{UC11-CommentOnProject}
 \label{sUC11}
 \subsubsection*{Use Case Thumbnail:}
 UC11-CommentOnProject
 \subsubsection*{Actors:}
-A3-RegisteredUser
-\subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+A3-RegisteredUser\\
+A3-SahemSystem
 
+\subsubsection*{Use Case Description:}
+This use case will handle the act of a registered user voting on a project
 
 \subsection{UC12-FollowUser}
 \label{sUC12}
 \subsubsection*{Use Case Thumbnail:}
 UC12-FollowUser
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-RegisteredUser\\
+A3-SahemSystem
+
 \subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+This use case will handle the act of a registered user following another registered user.
 
-
-\subsection{UC13-GetAllFollowedUserPosts}
+\subsection{UC13-ViewAcivityFeed}
 \label{sUC13}
 \subsubsection*{Use Case Thumbnail:}
-UC13-PostToActivityFeed
+UC13-ViewAcivityFeed
 \subsubsection*{Actors:}
 A3-RegisteredUser
 \subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+This is use case will handle the act of a registered user getting all the posts published by other registered users or projects.
 
 
-\subsection{UC14-PostToActivityFeed}
+\subsection{UC14-CreatePost}
 \label{sUC14}
 \subsubsection*{Use Case Thumbnail:}
-UC13-PostToActivityFeed
+UC14-CreatePost
 \subsubsection*{Actors:}
 A3-RegisteredUser
 \subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+This is use case will handle the act of a registered user publishing a post.
 
-
-\subsection{UC15-CommentOnUserPost}
+\subsection{UC15-EditPost}
 \label{sUC15}
 \subsubsection*{Use Case Thumbnail:}
-UC15-CommentOnUserPost
+UC15-EditPost
 \subsubsection*{Actors:}
 A3-RegisteredUser
 \subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+This is use case will handle the act of a registered user editing his own post. 
 
 
-\subsection{UC16-VoteOnUserPost}
+\subsection{UC16-DeletePost}
 \label{sUC16}
+\subsubsection*{Use Case Thumbnail:}
+UC16-DeletePost
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user deleting his post.
+
+\subsection{UC17-CommentOnPost}
+\label{sUC17}
+\subsubsection*{Use Case Thumbnail:}
+UC17-CommentOnPost
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user Commenting on a post.
+
+
+\subsection{UC18-EditComment}
+\label{sUC18}
+\subsubsection*{Use Case Thumbnail:}
+UC18-EditComment
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user editing a comment.
+
+
+\subsection{UC19-DeleteComment}
+\label{sUC19}
+\subsubsection*{Use Case Thumbnail:}
+UC19-DeleteComment
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user deleting a comment.
+
+
+\subsection{UC20-VoteOnUserPost}
+\label{sUC20}
 \subsubsection*{Use Case Thumbnail:}
 UC16-VoteOnUserPost
 \subsubsection*{Actors:}
 A3-RegisteredUser
 \subsubsection*{Use Case Description:}
-This is use case will handle the act of a user sharing a project or user profile link.
+This is use case will handle the act of a registered user voting on a post.
 
 
 \section{ Use Cases }
@@ -494,10 +566,10 @@ Associated with actors A2-Visitor,
 \subsubsection{Basic Flow:}
 1-The visitor will click on the register button.
 2-Fill the personal information form.
-  2.1- the system will check if the information are valid.
+2.1- the system will check if the information are valid.
 
 3-Fill the payments method form.
-  3.1- the system will check if the information are valid.
+3.1- the system will check if the information are valid.
 4-Confirm Email.
 5-System will save the user's information.
 6-System will confirm the users's registration.
@@ -539,7 +611,7 @@ Associated with actors A2-Visitor,
 \subsubsection{Basic Flow:}
 1-The visitor will click on the Login button.
 2-Fill the username and password form.
-  2.1- the system will check if the information are valid.
+2.1- the system will check if the information are valid.
 3-System will log the user's Session.
 7-redirect the User to the main page.
 \subsubsection{Alternative Flow:}
@@ -578,11 +650,11 @@ Associated with actors A2-Visitor,
 \subsubsection{Basic Flow:}
 1-The visitor will click on the Forgot Password button.
 2-Fill the Email and UserName form.
-  2.1- the system will check if the information are valid.
-  2.2- The System will send an reset email to the User Email.
+2.1- the system will check if the information are valid.
+2.2- The System will send an reset email to the User Email.
 3- the user will click on the link.
 7- the user will fill the form with the new email.
-  7.1- check if the password is valid.
+7.1- check if the password is valid.
 8- the user will be redirected to the login page.
 \subsubsection{Alternative Flow:}
 < -information's are not valid/complete. >
