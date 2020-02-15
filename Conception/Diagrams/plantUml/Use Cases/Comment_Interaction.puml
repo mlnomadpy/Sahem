@@ -1,0 +1,22 @@
+@startuml CommentInteractions
+left to right direction
+skinparam packageStyle rectangle
+actor RegisteredUser as A3 << Human >>
+actor Comment as A10 << DataBase >>
+' actor Comment as A8 << Database >>
+
+' usecase (UC4-ShareToSocialMedia) as UC4
+' A1 -- (UC4)
+' (UC4) -- A6
+
+rectangle CommentInteractions {
+    usecase (UC27-VoteOnComment) as UC27
+    usecase (UC28-ReportComment) as UC28
+    
+    (UC27) -- A10
+    (UC28) -- A10
+    A3 -- (UC27)
+    A3 -- (UC28)
+}
+
+@enduml

@@ -12,7 +12,7 @@ rectangle UserMaintainence {
     usecase (UC1-Register) as UC1
     usecase (UC2-Login) as UC2
     usecase (UC3-ForgotPassword) as UC3
-    A1 -- (UC1)
+    A1 -- (UC1) 
     A1 -- (UC2)
     A1 -- (UC3)
 

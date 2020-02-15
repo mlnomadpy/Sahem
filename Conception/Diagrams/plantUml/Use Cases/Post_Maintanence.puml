@@ -1,27 +1,27 @@
-@startuml PostsMaintainence
+@startuml PostMaintainence
 left to right direction
 skinparam packageStyle rectangle
-actor User as A1 << Human >>
 actor RegisteredUser as A3 << Human >>
 actor SahemSystem as A6 << System >>
-actor Post as A9 << Database >>
+' actor Post as A9 << Database >>
 
 ' usecase (UC4-ShareToSocialMedia) as UC4
 ' A1 -- (UC4)
 ' (UC4) -- A6
 
-rectangle PostsMaintainence {
-    usecase (UC1-Register) as UC1
-    usecase (UC2-Login) as UC2
-    usecase (UC3-ForgotPassword) as UC3
-    A1 -- (UC1)
-    A1 -- (UC2)
-    A1 -- (UC3)
+rectangle PostMaintainence {
+    usecase (UC14-CreatePost) as UC14
+    usecase (UC15-EditPost) as UC15
+    usecase (UC16-DeletePost) as UC16
+    
+    A3 -- (UC14)
+    A3 -- (UC15)
+    A3 -- (UC16)
 
-    (UC1) -- A6
-    (UC2) -- A6
-    (UC3) -- A6
-
+    (UC14) -- A6
+    (UC15) -- A6
+    (UC16) -- A6
+    
 }
 
 @enduml

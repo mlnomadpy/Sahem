@@ -1,0 +1,70 @@
+@startuml User
+class User {
+    String addressIp
+    Location location
+    Date visitTime
+    Time sessionDuration
+}
+class RegisteredUser {
+    String _id
+    String aboutMe
+    Location address
+    Project[] projects
+    Contact[] socialMedia
+    Post[] posts
+    Conversation[] conversations
+    Project[] backedProjects
+}
+class Conversation{
+    String _id
+    Message[] messages
+    RegisteredUser[] participants
+}
+class Message{
+    String _id
+    Date sentTime
+    Date receivedTime
+    RegisteredUser owner
+}
+class Location{
+    Country country
+    City city
+    Double longitude
+    Double latitude
+}
+class Post{
+    String _id
+    RegisteredUser Owner
+    Image[] images
+    Video[] videos
+    String content
+    Comment[] comments
+    Vote[] votes
+}
+class Vote{
+    boolean upVote
+    Date timeOfVote
+    RegisteredUser Owner
+}
+class Project{
+    String _id
+    RegisteredUser owner
+    String description
+    Double fundGoal
+    Double fundRaised
+    Date endDate
+    RegisteredUser[] backers
+    Image[] images
+    Video[] videos
+    Vote[] votes
+    Comment[] comments
+}
+
+class Comment{
+String _id
+RegisteredUser Owner
+String content
+Comment[] comments
+Vote[] votes
+}
+@enduml

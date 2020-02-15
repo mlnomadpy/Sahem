@@ -1,0 +1,28 @@
+
+@startuml PostInteractions
+left to right direction
+skinparam packageStyle rectangle
+actor RegisteredUser as A3 << Human >>
+actor Post as A8 << DataBase >>
+' actor Post as A8 << Database >>
+
+' usecase (UC4-ShareToSocialMedia) as UC4
+' A1 -- (UC4)
+' (UC4) -- A6
+
+rectangle PostInteractions {
+    usecase (UC17-CommentOnPost) as UC17
+    usecase (UC25-SharePost) as UC25
+    usecase (UC20-VoteOnPost) as UC20
+    usecase (UC20-ReportPost) as UC29
+    (UC17) -- A8
+    (UC25) -- A8
+    (UC20) -- A8
+    (UC29) -- A8
+    A3 -- (UC17)
+    A3 -- (UC25)
+    A3 -- (UC20)
+    A3 -- (UC29)
+}
+
+@enduml

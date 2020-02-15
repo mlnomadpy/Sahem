@@ -115,7 +115,6 @@ Resulting to an international reach for Ideas owners and innovators to share and
 
     \subsection{ Photoshop }
 
-    \subsection{ MongoDB Compass}
 
   \section{Frontend}
     \subsection{ Native vs Webview}
@@ -145,6 +144,8 @@ Resulting to an international reach for Ideas owners and innovators to share and
         \paragraph{Cons}
 
     \subsection{ ExpressJs }
+  \section{ DataBase Server }
+    \subsection{MongoDB}
 \chapter{Problem Space}
   \section*{Introduction}
 
@@ -177,8 +178,8 @@ This Actor is specialized into A2-Visitor, A3-Registered, A5-Administrator, A6-R
 \subsubsection{Author and History:}
 BOUSHINE Taha
 \subsubsection{Reference Material:}
-
 \clearpage
+
 
 \subsection{A2-Visitor}
 \label{A2}
@@ -206,6 +207,9 @@ Have a wallet that will be linked to the Payment interface.\\
 can comment, contribute.\\
 Can follow other registered users, follow the progress of projects.\\
 Have an activity feed that will be showing all the posts from other users in the system.
+Update personal information.\\
+Update email.\\
+update Password.\\
 \subsubsection{Actor Relationship:}
 This Actor is derived from A1-User.
 \subsubsection{Interface Specification:}
@@ -475,7 +479,6 @@ A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user editing his own post. 
 
-
 \subsection{UC16-DeletePost}
 \label{sUC16}
 \subsubsection*{Use Case Thumbnail:}
@@ -515,7 +518,7 @@ A3-RegisteredUser
 This is use case will handle the act of a registered user deleting a comment.
 
 
-\subsection{UC20-VoteOnUserPost}
+\subsection{UC20-VoteOnPost}
 \label{sUC20}
 \subsubsection*{Use Case Thumbnail:}
 UC16-VoteOnUserPost
@@ -524,6 +527,97 @@ A3-RegisteredUser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
+\subsection{UC21-UpdatePassword}
+\label{sUC21}
+\subsubsection*{Use Case Thumbnail:}
+UC21-UpdatePassword
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user voting on a post.
+
+\subsection{UC22-UpdateEmail}
+\label{sUC22}
+\subsubsection*{Use Case Thumbnail:}
+UC22-UpdateEmail
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user voting on a post.
+
+\subsection{UC23-UpdatePersonalInformation}
+\label{sUC23}
+\subsubsection*{Use Case Thumbnail:}
+UC23-UpdatePersonalInformation
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user voting on a post.
+
+\subsection{UC24-VoteOn}
+\label{sUC24}
+\subsubsection*{Use Case Thumbnail:}
+UC23-UpdatePersonalInformation
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user voting on a post.
+
+
+\subsection{UC25-SharePost}
+\label{sUC25}
+\subsubsection*{Use Case Thumbnail:}
+UC15-EditPost
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user editing his own post. 
+
+\subsection{UC26-ShareProject}
+\label{sUC26}
+\subsubsection*{Use Case Thumbnail:}
+UC15-EditPost
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user editing his own post. 
+
+\subsection{UC27-VoteOnComment}
+\label{sUC27}
+\subsubsection*{Use Case Thumbnail:}
+UC27-VoteOnComment
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user voting on a post.
+
+\subsection{UC28-ReportComment}
+\label{sUC28}
+\subsubsection*{Use Case Thumbnail:}
+UC28-ReportComment
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user voting on a post.
+
+\subsection{UC29-ReportPost}
+\label{sUC29}
+\subsubsection*{Use Case Thumbnail:}
+UC28-ReportPost
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user voting on a post.
+
+
+\subsection{UC30-ReportProject}
+\label{sUC30}
+\subsubsection*{Use Case Thumbnail:}
+UC30-ReportProject
+\subsubsection*{Actors:}
+A3-RegisteredUser
+\subsubsection*{Use Case Description:}
+This is use case will handle the act of a registered user voting on a post.
 
 \section{ Use Cases }
 % template for the complex Use cases documentation
