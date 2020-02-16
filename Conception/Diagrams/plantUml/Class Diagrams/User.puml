@@ -8,13 +8,11 @@
 
 package Content{
     class Post extends Article{
-        String _id
-        RegisteredUser Owner
-        Image[] images
-        Video[] videos
-        String content
-        Comment[] comments
-        Vote[] votes
+        _id : String
+        Owner : RegisteredUser
+        content String
+        comments Comment[]
+        votes Vote[]
     }
     class Vote{
         boolean upVote
@@ -29,8 +27,6 @@ package Content{
         Double raisedFunding
         Date endDate
         RegisteredUser[] backers
-        Image[] images
-        Video[] videos
     }
 
     class Comment extends Article{
@@ -40,12 +36,29 @@ package Content{
         Article originArticle
     }
     class Article{
-        String _id
-        RegisteredUser owner
-        String type
-        Vote[] votes
-        Comment[] comments
+        _id : String
+        owner : RegisteredUser
+        type : String
+        votes : Vote[]
+        comments : Comment[]
+        medias : Media[]
     }
+    class Media{
+        _id : String
+        format : String
+        fileLink : String
+    }
+    class Image extends Media{
+
+    }
+    class Video extends Media{
+
+    }
+    Article o-* Vote
+    Article *-right-* Comment
+    Project o-left- Post
+    Article o-- Media
+    
 }
 package Messanging {
 
@@ -69,47 +82,46 @@ package Messanging {
 
 }
 package User{
-    
+
     class User {
-        String addressIp
-        Location location
-        Date visitTime
-        Time sessionDuration
+        addressIp : String
+        visitingTime : Date
+        leavingTime : Date
+        sessionDuration : Time
+
+        calculateSessionDuration() : void
     }
 
 
     class RegisteredUser extends User{
-        String _id
-        String aboutMe
-        Location address
-        Project[] projects
-        RegisteredUser[] following
-        RegisteredUser[] followers
-        Contact[] socialMedia
-        Post[] posts
-        MessageBox messageBox
-        Project[] fundedProjects
+        _id : String
+        aboutMe : String
+        address : Location
+        projects : Project[]
+        following : RegisteredUser[]
+        followers : RegisteredUser[]
+        socialMedia : ContactMe[]
+        posts : Post[]
+        messageBox : MessageBox
+        fundedProjects : Project[]
+
     }
     class Visitor extends User{
     }
     class Location{
-        Country country
-        State state
-        City city
-        String line1
-        String line2
-        String zipCode
-        Double longitude
-        Double latitude
+        country : Country
+        state : State
+        city : City
+        line1 : String
+        line2 : String
+        zipCode : String
+        longitude : Double
+        latitude : Double
     }
 }
 MessageBox  *--*  RegisteredUser
 
-Article o-* Vote
 
-
-Article *--* Comment
-Project o- Post
 
 Article  *--*  RegisteredUser
 
