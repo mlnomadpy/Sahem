@@ -1,70 +1,123 @@
 @startuml User
-class User {
-    String addressIp
-    Location location
-    Date visitTime
-    Time sessionDuration
-}
-class RegisteredUser {
-    String _id
-    String aboutMe
-    Location address
-    Project[] projects
-    Contact[] socialMedia
-    Post[] posts
-    Conversation[] conversations
-    Project[] backedProjects
-}
-class Conversation{
-    String _id
-    Message[] messages
-    RegisteredUser[] participants
-}
-class Message{
-    String _id
-    Date sentTime
-    Date receivedTime
-    RegisteredUser owner
-}
-class Location{
-    Country country
-    City city
-    Double longitude
-    Double latitude
-}
-class Post{
-    String _id
-    RegisteredUser Owner
-    Image[] images
-    Video[] videos
-    String content
-    Comment[] comments
-    Vote[] votes
-}
-class Vote{
-    boolean upVote
-    Date timeOfVote
-    RegisteredUser Owner
-}
-class Project{
-    String _id
-    RegisteredUser owner
-    String description
-    Double fundGoal
-    Double fundRaised
-    Date endDate
-    RegisteredUser[] backers
-    Image[] images
-    Video[] videos
-    Vote[] votes
-    Comment[] comments
-}
 
-class Comment{
-String _id
-RegisteredUser Owner
-String content
-Comment[] comments
-Vote[] votes
+
+
+
+
+
+
+package Content{
+    class Post extends Article{
+        String _id
+        RegisteredUser Owner
+        Image[] images
+        Video[] videos
+        String content
+        Comment[] comments
+        Vote[] votes
+    }
+    class Vote{
+        boolean upVote
+        Date timeOfVote
+        RegisteredUser Owner
+        Article originArticle
+    }
+    class Project extends Article{
+        String _id
+        String description
+        Double fundGoal
+        Double raisedFunding
+        Date endDate
+        RegisteredUser[] backers
+        Image[] images
+        Video[] videos
+    }
+
+    class Comment extends Article{
+        String _id
+        RegisteredUser Owner
+        String content
+        Article originArticle
+    }
+    class Article{
+        String _id
+        RegisteredUser owner
+        String type
+        Vote[] votes
+        Comment[] comments
+    }
 }
+package Messanging {
+
+    class MessageBox{
+        String _id
+        Conversation[] conversations
+        RegisteredUser owner
+    }
+    class Conversation{
+        String _id
+        Message[] messages
+        RegisteredUser[] participants
+    }
+    class Message{
+        String _id
+        Date sentTime
+        Date receivedTime
+        RegisteredUser owner
+    }
+
+
+}
+package User{
+    
+    class User {
+        String addressIp
+        Location location
+        Date visitTime
+        Time sessionDuration
+    }
+
+
+    class RegisteredUser extends User{
+        String _id
+        String aboutMe
+        Location address
+        Project[] projects
+        RegisteredUser[] following
+        RegisteredUser[] followers
+        Contact[] socialMedia
+        Post[] posts
+        MessageBox messageBox
+        Project[] fundedProjects
+    }
+    class Visitor extends User{
+    }
+    class Location{
+        Country country
+        State state
+        City city
+        String line1
+        String line2
+        String zipCode
+        Double longitude
+        Double latitude
+    }
+}
+MessageBox  *--*  RegisteredUser
+
+Article o-* Vote
+
+
+Article *--* Comment
+Project o- Post
+
+Article  *--*  RegisteredUser
+
+RegisteredUser *--* Location
+Vote  *---*  RegisteredUser
+
+MessageBox  *-down-*  Conversation
+Message  *-up-*  Conversation
+
+
 @enduml
