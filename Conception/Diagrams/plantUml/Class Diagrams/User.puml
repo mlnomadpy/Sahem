@@ -1,11 +1,6 @@
 @startuml User
 
 
-
-
-
-
-
 package Content{
     class Post extends Article{
         _id : String
@@ -45,8 +40,18 @@ package Content{
     }
     class Media{
         _id : String
-        format : String
-        fileLink : String
+        name : String
+        hash : String
+        sha256 : String
+        ext : String
+        mime : String
+        size : 0
+        url : String
+        provider : String
+        provider_metadata : {}
+        related : String
+
+
     }
     class Image extends Media{
 
@@ -58,7 +63,7 @@ package Content{
     Article *-right-* Comment
     Project o-left- Post
     Article o-- Media
-    
+
 }
 package Messanging {
 
@@ -81,6 +86,7 @@ package Messanging {
 
 
 }
+
 package User{
 
     class User {
@@ -119,9 +125,10 @@ package User{
         latitude : Double
     }
 }
+
+
+
 MessageBox  *--*  RegisteredUser
-
-
 
 Article  *--*  RegisteredUser
 

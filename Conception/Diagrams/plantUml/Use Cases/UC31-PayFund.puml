@@ -1,0 +1,27 @@
+@startuml UC31-PayFund
+
+left to right direction
+skinparam packageStyle rectangle
+actor RegisteredUser as A3 << Human >>
+' actor Project as A9 << DataBase >>
+actor PaymentInterface as A7 << Interface >>
+' usecase (UC4-ShareToSocialMedia) as UC4
+' A1 -- (UC4)
+' (UC4) -- A6
+
+    
+
+rectangle UC31-PayFund {
+    usecase (UC32-FillCreditCardInfo) as UC32
+    usecase (UC33-ChoseAmount) as UC33
+    usecase (UC34-ConfirmPayments) as UC34
+    A3 -- (UC32)
+    A3 -- (UC33)
+    A3 -- (UC34)
+    (UC32) <. (UC33)
+    (UC33) <. (UC34)
+    UC34 -- A7
+
+}
+
+@enduml
