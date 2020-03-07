@@ -19,7 +19,6 @@ rectangle ProjectFunding {
     (UC31) -- A7
     (UC8) .> (UC31) : include
 
-
 }
 
 @enduml

@@ -3,44 +3,41 @@
 
 package Content{
     class Post extends Article{
-        _id : String
-        Owner : RegisteredUser
-        content String
-        comments Comment[]
-        votes Vote[]
     }
     class Vote{
-        boolean upVote
-        Date timeOfVote
-        RegisteredUser Owner
-        Article originArticle
+        upVote : boolean
+        timeOfVote : Date 
+        Owner : RegisteredUser
+        originArticle : Article
     }
     class Project extends Article{
-        String _id
-        String description
-        Double fundGoal
-        Double raisedFunding
-        Date endDate
-        RegisteredUser[] backers
+        description: String
+        fundGoal : Double
+        raisedFunding : Double
+        endDate : Date
+        createdDate : Date
+        fundRaisers : RegisteredUser[]
     }
 
     class Comment extends Article{
-        String _id
-        RegisteredUser Owner
-        String content
-        Article originArticle
+        originArticle: Article
     }
     class Article{
         _id : String
         owner : RegisteredUser
         type : String
+        content: String
         votes : Vote[]
         comments : Comment[]
-        medias : Media[]
+        media : Media[]
     }
     class Media{
         _id : String
         name : String
+
+
+    }
+    class Image extends Media{
         hash : String
         sha256 : String
         ext : String
@@ -51,13 +48,11 @@ package Content{
         provider_metadata : {}
         related : String
 
-
-    }
-    class Image extends Media{
-
     }
     class Video extends Media{
-
+        url: String
+        title : String
+        platform : String
     }
     Article o-* Vote
     Article *-right-* Comment
@@ -91,13 +86,16 @@ package User{
 
     class User {
         addressIp : String
-        visitingTime : Date
-        leavingTime : Date
-        sessionDuration : Time
-
-        calculateSessionDuration() : void
+        previousSession: Session
+        currentSession: Session
     }
 
+    class Session{
+        _id: String
+        addressIp: String
+        visitingTime: Date
+        leavingTime: Date
+    }
 
     class RegisteredUser extends User{
         _id : String
@@ -123,6 +121,10 @@ package User{
         zipCode : String
         longitude : Double
         latitude : Double
+    }
+    class SocialMedia{
+        type: String
+        tag: String
     }
 }
 

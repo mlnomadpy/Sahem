@@ -1,0 +1,41 @@
+const mongoose = require('mongoose');
+const Fundraiser = require('../models/User/fundraiser').FundraiserModel;
+const fundraisersList = (req, res) => {
+    Fundraiser
+        .find({}, '', (error, Fundraisers) => {
+            if (error) { console.error(error); }
+            if (Fundraisers) {
+                res
+                    .status(200)
+                    .send({
+                        fundraisers: fundraisers
+                    });
+            }
+            else {
+                res
+                    .status(404)
+                    .send("not Found");
+            }
+        });
+
+
+};
+const fundraisersCreate = (req, res) => { };
+const fundraisersReadOne = (req, res) => {
+    console.log("res");
+    res
+        .status(200)
+        .json({
+            name: "success"
+        });
+};
+const fundraisersUpdateOne = (req, res) => { };
+const fundraisersDeleteOne = (req, res) => { };
+
+module.exports = {
+    fundraisersList,
+    fundraisersCreate,
+    fundraisersReadOne,
+    fundraisersUpdateOne,
+    fundraisersDeleteOne
+};
