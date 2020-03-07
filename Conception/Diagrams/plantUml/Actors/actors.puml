@@ -1,7 +1,7 @@
 @startuml Actors
 actor User as A1 << Human >>
 actor Visitor as A2
-actor RegisteredUser as A3
+actor Fundraiser as A3
 actor Administrator as A5
 A1 <|-down- A3
 A1 <|-down- A2

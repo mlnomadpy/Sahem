@@ -20,7 +20,26 @@ const fundraisersList = (req, res) => {
 
 
 };
-const fundraisersCreate = (req, res) => { };
+const fundraisersCreate = (req, res) => {
+    Project
+        .create({
+            content: req.body.content,
+            description: req.body.description,
+            fundGoal: req.body.fundGoal,
+            endDate: req.body.endDate
+        }, (err, project) => {
+            if (err) {
+                res
+                    .status(404)
+                    .json(err);
+            }
+            else {
+                res
+                    .status(201)
+                    .json(location);
+            }
+        });
+};
 const fundraisersReadOne = (req, res) => {
     console.log("res");
     res
@@ -29,8 +48,12 @@ const fundraisersReadOne = (req, res) => {
             name: "success"
         });
 };
-const fundraisersUpdateOne = (req, res) => { };
-const fundraisersDeleteOne = (req, res) => { };
+const fundraisersUpdateOne = (req, res) => {
+
+};
+const fundraisersDeleteOne = (req, res) => {
+
+};
 
 module.exports = {
     fundraisersList,

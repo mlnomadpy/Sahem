@@ -5,19 +5,19 @@ const Schema = mongoose.Schema;
 const projectSchema = new Schema({
     owner: {
         type: Fundraiser,
-        required: true
+        // required: true
     },
     content: {
         type: String,
-        required: true
+        // required: true
     },
     description: {
         type: String,
-        required: true
+        // required: true
     },
     fundGoal: {
         type: Number,
-        required: true
+        // required: true
     },
     fundRaised: {
         type: Number,
@@ -29,16 +29,12 @@ const projectSchema = new Schema({
     },
     endDate: {
         type: Date,
-        required: true
+        // required: true  
     },
     fundraisers: {
-        type: [Fundraiser]
-    },
-    votes: {
-        type: {
-            vote: String
-        }
-    },
+        type: [Fundraiser],
+        default: null
+    }
 
 });
 const ProjectModel = mongoose.model("Project", projectSchema);

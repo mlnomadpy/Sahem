@@ -1,7 +1,7 @@
 @startuml ProjectMaintainence
 left to right direction
 skinparam packageStyle rectangle
-actor RegisteredUser as A3 << Human >>
+actor Fundraiser as A3 << Human >>
 actor SahemSystem as A6 << System >>
 ' actor Project as A8 << Database >>
 

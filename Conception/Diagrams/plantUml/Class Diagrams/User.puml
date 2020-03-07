@@ -6,9 +6,9 @@ package Content{
     }
     class Vote{
         upVote : boolean
-        timeOfVote : Date 
+        timeOfVote : Date
         Owner : RegisteredUser
-        originArticle : Article
+        parent : Article
     }
     class Project extends Article{
         description: String
@@ -16,11 +16,11 @@ package Content{
         raisedFunding : Double
         endDate : Date
         createdDate : Date
-        fundRaisers : RegisteredUser[]
+        fundRaisers : Fundraiser[]
     }
 
     class Comment extends Article{
-        originArticle: Article
+        parent: Article
     }
     class Article{
         _id : String
@@ -63,20 +63,20 @@ package Content{
 package Messanging {
 
     class MessageBox{
-        String _id
-        Conversation[] conversations
-        RegisteredUser owner
+        _id: String
+        conversations: Conversation[]
+        owner: Fundraiser
     }
     class Conversation{
-        String _id
-        Message[] messages
-        RegisteredUser[] participants
+        _id: String
+        messages: Message[]
+        participants: Fundraiser[]
     }
     class Message{
-        String _id
-        Date sentTime
-        Date receivedTime
-        RegisteredUser owner
+        _id: String 
+        sentTime: Date 
+        receivedTime: Date 
+        owner: Fundraiser
     }
 
 
@@ -97,13 +97,13 @@ package User{
         leavingTime: Date
     }
 
-    class RegisteredUser extends User{
+    class Fundraiser extends User{
         _id : String
         aboutMe : String
         address : Location
         projects : Project[]
-        following : RegisteredUser[]
-        followers : RegisteredUser[]
+        following : Fundraiser[]
+        followers : Fundraiser[]
         socialMedia : ContactMe[]
         posts : Post[]
         messageBox : MessageBox
@@ -130,12 +130,12 @@ package User{
 
 
 
-MessageBox  *--*  RegisteredUser
+MessageBox  *--*  Fundraiser
 
-Article  *--*  RegisteredUser
+Article  *--*  Fundraiser
 
-RegisteredUser *--* Location
-Vote  *---*  RegisteredUser
+Fundraiser *--* Location
+Vote  *---*  Fundraiser
 
 MessageBox  *-down-*  Conversation
 Message  *-up-*  Conversation

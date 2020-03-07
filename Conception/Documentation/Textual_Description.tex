@@ -172,7 +172,7 @@ This is an abstract actor representing all the types of users interacting with S
 Can Register, Login, Forgot Password.
 Can share links to social media.
 \subsubsection{Actor Relationship:}
-This Actor is specialized into A2-Visitor, A3-Registered, A5-Administrator, A6-Reviewer.
+This Actor is specialized into A2-Visitor, A3-Fundraiser, A5-Administrator, A6-Reviewer.
 
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
@@ -195,7 +195,7 @@ This Actor is derived from A1-User.
 
 \clearpage
 
-\subsection{A3-Registered User}
+\subsection{A3-Fundraiser}
 \label{A3}
 \subsubsection{Actor Type and Stereotype:}
 primary, direct, Concrete.
@@ -237,7 +237,7 @@ This is user have the most permissions in our system, have the access to everyth
 Accept, Delete, Ban Users etc..
 \subsubsection{Actor Relationship:}
 
-This Actor is derived from A3-User.
+This Actor is derived from A3-Fundraiser.
 
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
@@ -274,14 +274,14 @@ BOUHSINE Taha
 \label{A8}
 \subsubsection{Actor Type and Stereotype:}
 \subsubsection{Actor Description:}
-A project that can be owned by one A3-RegisteredUser, and can be either funded or voted on by other users of the same type as A3-RegisteredUser.
+A project that can be owned by one A3-Fundraiser, and can be either funded or voted on by other users of the same type as A3-Fundraiser.
 can be funded by a registered user.\\
 have a comment section.\\
 have a vote counter.\\
 have a contributors list that contains all the users that funded the project.\\
 have a progress feed that contains zero or many posts.
 \subsubsection{Actor Relationship:}
-Owned by the A3-RegisteredUser that can have one or many projects.
+Owned by the A3-Fundraiser that can have one or many projects.
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
 BOUHSINE Taha
@@ -293,12 +293,12 @@ BOUHSINE Taha
 \subsubsection{Actor Type and Stereotype:}
 <<Business>> << Post >>
 \subsubsection{Actor Description:}
-A post owned by one A3-RegisteredUser, up or down voted or commented on by other users of the same type as A3-RegisteredUser.
+A post owned by one A3-Fundraiser, up or down voted or commented on by other users of the same type as A3-Fundraiser.
 have a comment section.\\
 have a vote counter.\\
 have a contributors list that contains all the users that funded the project.\\
 \subsubsection{Actor Relationship:}
-Owned by the A3-RegisteredUser that can have one or many Posts.
+Owned by the A3-Fundraiser that can have one or many Posts.
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
 BOUHSINE Taha
@@ -308,11 +308,11 @@ BOUHSINE Taha
 \subsection{A10-Wallet}
 \label{A10}
 \subsubsection{Actor Type and Stereotype:}
-<<Business>> <<RegisteredUser>>
+<<Business>> <<Fundraiser>>
 \subsubsection{Actor Description:}
 A wallet that holds money.
 \subsubsection{Actor Relationship:}
-An A3-RegisteredUser have a wallet.\\
+An A3-Fundraiser have a wallet.\\
 A project have a wallet.
 \subsubsection{Interface Specification:}
 \subsubsection{Author and History:}
@@ -379,7 +379,7 @@ This is use case will handle the act of a user sharing a project or user profile
 \subsubsection*{Use Case Thumbnail:}
 UC5-CreateProject
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A3-SahemSystem
 
 \subsubsection*{Use Case Description:}
@@ -390,7 +390,7 @@ This use case will handle the act of a registered user creating a project.
 \subsubsection*{Use Case Thumbnail:}
 UC6-EditProject
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A3-SahemSystem
 
 \subsubsection*{Use Case Description:}
@@ -401,7 +401,7 @@ This use case will handle the act of a registered user editing his existing proj
 \subsubsection*{Use Case Thumbnail:}
 UC7-DeleteProject
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A3-SahemSystem
 
 \subsubsection*{Use Case Description:}
@@ -412,7 +412,7 @@ This use case will handle the act of a registered user deleting his project afte
 \subsubsection*{Use Case Thumbnail:}
 UC8-FundProject
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A3-SahemSystem
 
 \subsubsection*{Use Case Description:}
@@ -423,7 +423,7 @@ This use case will handle the act of a registered user funding a project.
 \subsubsection*{Use Case Thumbnail:}
 UC10-VoteOnProject
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A3-SahemSystem
 
 \subsubsection*{Use Case Description:}
@@ -434,7 +434,7 @@ This use case will handle the act of a registered user voting on a project.
 \subsubsection*{Use Case Thumbnail:}
 UC11-CommentOnProject
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A3-SahemSystem
 
 \subsubsection*{Use Case Description:}
@@ -445,7 +445,7 @@ This use case will handle the act of a registered user voting on a project
 \subsubsection*{Use Case Thumbnail:}
 UC12-FollowUser
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A3-SahemSystem
 
 \subsubsection*{Use Case Description:}
@@ -456,7 +456,7 @@ This use case will handle the act of a registered user following another registe
 \subsubsection*{Use Case Thumbnail:}
 UC13-ViewAcivityFeed
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user getting all the posts published by other registered users or projects.
 
@@ -466,7 +466,7 @@ This is use case will handle the act of a registered user getting all the posts 
 \subsubsection*{Use Case Thumbnail:}
 UC14-CreatePost
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user publishing a post.
 
@@ -475,7 +475,7 @@ This is use case will handle the act of a registered user publishing a post.
 \subsubsection*{Use Case Thumbnail:}
 UC15-EditPost
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user editing his own post. 
 
@@ -484,7 +484,7 @@ This is use case will handle the act of a registered user editing his own post.
 \subsubsection*{Use Case Thumbnail:}
 UC16-DeletePost
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user deleting his post.
 
@@ -493,7 +493,7 @@ This is use case will handle the act of a registered user deleting his post.
 \subsubsection*{Use Case Thumbnail:}
 UC17-CommentOnPost
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user Commenting on a post.
 
@@ -503,7 +503,7 @@ This is use case will handle the act of a registered user Commenting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC18-EditComment
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user editing a comment.
 
@@ -513,7 +513,7 @@ This is use case will handle the act of a registered user editing a comment.
 \subsubsection*{Use Case Thumbnail:}
 UC19-DeleteComment
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user deleting a comment.
 
@@ -523,7 +523,7 @@ This is use case will handle the act of a registered user deleting a comment.
 \subsubsection*{Use Case Thumbnail:}
 UC16-VoteOnUserPost
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
@@ -532,7 +532,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC21-UpdatePassword
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
@@ -541,7 +541,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC22-UpdateEmail
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
@@ -550,7 +550,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC23-UpdatePersonalInformation
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
@@ -559,7 +559,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC23-UpdatePersonalInformation
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
@@ -569,7 +569,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC15-EditPost
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user editing his own post. 
 
@@ -578,7 +578,7 @@ This is use case will handle the act of a registered user editing his own post.
 \subsubsection*{Use Case Thumbnail:}
 UC15-EditPost
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user editing his own post. 
 
@@ -587,7 +587,7 @@ This is use case will handle the act of a registered user editing his own post.
 \subsubsection*{Use Case Thumbnail:}
 UC27-VoteOnComment
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
@@ -596,7 +596,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC28-ReportComment
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
@@ -605,7 +605,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC28-ReportPost
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
@@ -615,7 +615,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC30-ReportProject
 \subsubsection*{Actors:}
-A3-RegisteredUser
+A3-Fundraiser
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
 
@@ -624,7 +624,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC31-PayFunds
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A7-PaymentInterface\\
 A8-Project
 \subsubsection*{Use Case Description:}
@@ -635,7 +635,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC32-FillCreditCardInfo
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A7-PaymentInterface\\
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
@@ -645,7 +645,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC33-ChoseAmount
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A7-PaymentInterface\\
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.
@@ -655,7 +655,7 @@ This is use case will handle the act of a registered user voting on a post.
 \subsubsection*{Use Case Thumbnail:}
 UC34-ConfirmPayments
 \subsubsection*{Actors:}
-A3-RegisteredUser\\
+A3-Fundraiser\\
 A7-PaymentInterface\\
 \subsubsection*{Use Case Description:}
 This is use case will handle the act of a registered user voting on a post.

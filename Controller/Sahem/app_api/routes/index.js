@@ -14,11 +14,11 @@ router
     .delete(ctrlProjects.projectsDeleteOne);
 // reviews
 // router
-//     .route('/locations/:locationid/reviews')
-//     .post(ctrlReviews.reviewsCreate);
+//     .route('/locations/:fundraiserid/fundraiser')
+//     .post(ctrlReviews.fundraiserCreate);
 // router
-//     .route('/locations/:locationid/reviews/:reviewid')
-//     .get(ctrlReviews.reviewsReadOne)
-//     .put(ctrlReviews.reviewsUpdateOne)
-//     .delete(ctrlReviews.reviewsDeleteOne);
+//     .route('/locations/:fundraiserid/fundraiser/:fundraiserid')
+//     .get(ctrlReviews.fundraiserReadOne)
+//     .put(ctrlReviews.fundraiserUpdateOne)
+//     .delete(ctrlReviews.fundraiserDeleteOne);
 module.exports = router;
