@@ -2,14 +2,30 @@
   "name": "sahem",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "node ./bin/www"
+    "server": "node ./dist-server/bin/www",
+    "transpile": "babel ./server --out-dir dist-server",
+    "clean": "rimraf dist-server",
+    "build": "npm-run-all clean transpile",
+    "dev": "NODE_ENV=development npm-run-all build server"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "mongoose": "^5.9.1",
-    "morgan": "~1.9.1"
+    "mongoose-timestamp": "^0.6.0",
+    "morgan": "~1.9.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
   }
 }

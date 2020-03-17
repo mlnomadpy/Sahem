@@ -7,11 +7,12 @@ package Content{
     class Vote{
         upVote : boolean
         timeOfVote : Date
-        Owner : RegisteredUser
+        Owner : Fundraiser
         parent : Article
     }
     class Project extends Article{
         description: String
+        category: String
         fundGoal : Double
         raisedFunding : Double
         endDate : Date
@@ -24,7 +25,7 @@ package Content{
     }
     class Article{
         _id : String
-        owner : RegisteredUser
+        owner : Fundraiser
         type : String
         content: String
         votes : Vote[]
@@ -60,12 +61,11 @@ package Content{
     Article o-- Media
 
 }
-package Messanging {
+package Chat {
 
     class MessageBox{
         _id: String
         conversations: Conversation[]
-        owner: Fundraiser
     }
     class Conversation{
         _id: String
@@ -73,9 +73,12 @@ package Messanging {
         participants: Fundraiser[]
     }
     class Message{
-        _id: String 
-        sentTime: Date 
-        receivedTime: Date 
+        _id: String
+        sent_time: Date
+        received_time: Date
+        read: Date
+        read_by: Fundraiser[]
+        delivred_to: Fundraiser[]
         owner: Fundraiser
     }
 
@@ -85,22 +88,20 @@ package Messanging {
 package User{
 
     class User {
-        addressIp : String
-        previousSession: Session
-        currentSession: Session
+        isAuthentified: boolean
     }
 
     class Session{
-        _id: String
-        addressIp: String
-        visitingTime: Date
-        leavingTime: Date
+        ' _id: String
+        ' address_ip: String
+        ' visiting_time: Date
+        ' leaving_time: Date
     }
 
     class Fundraiser extends User{
         _id : String
-        aboutMe : String
-        address : Location
+        personalInformation: PersonalInformation;
+        paymentInformation: PaymentInformation
         projects : Project[]
         following : Fundraiser[]
         followers : Fundraiser[]
@@ -111,6 +112,7 @@ package User{
 
     }
     class Visitor extends User{
+
     }
     class Location{
         country : Country
@@ -126,6 +128,15 @@ package User{
         type: String
         tag: String
     }
+    class PersonalInformation{
+        userTag: String
+        first_name: String
+        last_name: String
+        bio:String
+        birth_date: Date
+        address: Location
+
+    }
 }
 
 
@@ -137,7 +148,7 @@ Article  *--*  Fundraiser
 Fundraiser *--* Location
 Vote  *---*  Fundraiser
 
-MessageBox  *-down-*  Conversation
+MessageBox  *-down-  Conversation
 Message  *-up-*  Conversation
 
 
