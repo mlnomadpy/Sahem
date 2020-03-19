@@ -1,11 +1,12 @@
-// var express = require('express');
+// const express = require('express');
 import express from 'express';
-var router = express.Router();
+const router = express.Router();
+// const ctrlProjects = require('../controllers/projects');
+import ctrlSignUp from '../controllers/signup';
+// const ctrlReviews = require('../controllers/reviews');
+// locations
+router
+    .route('/signup')
+    .post(ctrlSignUp.createUser);
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Sahem: Innovate, without worries' });
-});
 export default router;
-
-// module.exports = router;

@@ -5,7 +5,7 @@ import timestamps from 'mongoose-timestamp';
 export const PostSchema = new Schema({
     owner: {
         type: mongoose.Types.ObjectId,
-        ref: 'Fundraiser'
+        ref: 'Creator'
         // required: true
     },
     content: {

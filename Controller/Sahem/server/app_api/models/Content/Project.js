@@ -39,7 +39,7 @@ export const ProjectSchema = new Schema({
     },
     fundraisers: {
         type: [Schema.Types.ObjectId],
-        ref: 'Fundraiser',
+        ref: 'Creator',
         default: null
     },
     votes: {

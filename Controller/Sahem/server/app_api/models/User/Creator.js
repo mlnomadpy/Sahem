@@ -3,7 +3,7 @@ import timestamps from 'mongoose-timestamp';
 
 import { PersonalInformationSchema } from "./PersonalInformation";
 
-export const FundRaiserSchema = new Schema({
+export const CreatorSchema = new Schema({
     user_id: {
         type: mongoose.Types.ObjectId,
         ref: 'User'

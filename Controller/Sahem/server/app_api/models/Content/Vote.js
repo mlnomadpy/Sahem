@@ -14,7 +14,7 @@ export const VoteSchema = new Schema({
     },
     owner: {
         type: Schema.Types.ObjectId,
-        ref: 'Fundraiser'
+        ref: 'Creator'
     }
 });
 VoteSchema.plugin(timestamps);

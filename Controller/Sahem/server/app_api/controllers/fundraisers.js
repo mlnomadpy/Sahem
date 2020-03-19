@@ -1,16 +1,16 @@
 // const mongoose = require('mongoose');
 import mongoose from "mongoose";
 // const Fundraiser = require('../models/User/fundraiser').Fundraiser;
-import { Fundraiser } from "../models/User/Fundraiser";
-export const fundraisersList = (req, res) => {
-    Fundraiser
-        .find({}, '', (error, Fundraisers) => {
+import { Creator } from "../models/User/Creator";
+export const creatorsList = (req, res) => {
+    Creator
+        .find({}, '', (error, creators) => {
             if (error) { console.error(error); }
-            if (Fundraisers) {
+            if (Creators) {
                 res
                     .status(200)
                     .send({
-                        fundraisers: fundraisers
+                        creators: creators
                     });
             }
             else {
@@ -22,13 +22,12 @@ export const fundraisersList = (req, res) => {
 
 
 };
-export const fundraisersCreate = (req, res) => {
+export const creatorsCreate = (req, res) => {
     Project
         .create({
-            content: req.body.content,
-            description: req.body.description,
-            fundGoal: req.body.fundGoal,
-            endDate: req.body.endDate
+            personal_information: req.body.personal_information,
+            address: req.body.address,
+            user_id: req.body.user_id,
         }, (err, project) => {
             if (err) {
                 res
@@ -42,7 +41,7 @@ export const fundraisersCreate = (req, res) => {
             }
         });
 };
-export const fundraisersReadOne = (req, res) => {
+export const creatorsReadOne = (req, res) => {
     console.log("res");
     res
         .status(200)
@@ -50,10 +49,10 @@ export const fundraisersReadOne = (req, res) => {
             name: "success"
         });
 };
-export const fundraisersUpdateOne = (req, res) => {
+export const creatorsUpdateOne = (req, res) => {
 
 };
-export const fundraisersDeleteOne = (req, res) => {
+export const creatorsDeleteOne = (req, res) => {
 
 };
 

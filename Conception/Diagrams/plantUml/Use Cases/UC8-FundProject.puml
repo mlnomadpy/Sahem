@@ -2,7 +2,7 @@
 @startuml FundingProject
 left to right direction
 skinparam packageStyle rectangle
-actor Fundraiser as A3 << Human >>
+actor Creator as A3 << Human >>
 ' actor Project as A9 << DataBase >>
 actor Project as A8 << Database >>
 actor PaymentInterface as A7 << Interface >>

@@ -2,7 +2,7 @@
 @startuml PostInteractions
 left to right direction
 skinparam packageStyle rectangle
-actor Fundraiser as A3 << Human >>
+actor Creator as A3 << Human >>
 actor Post as A8 << DataBase >>
 ' actor Post as A8 << Database >>
 

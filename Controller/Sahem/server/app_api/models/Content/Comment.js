@@ -4,7 +4,7 @@ import VoteSchema from './Vote';
 export const CommentSchema = new Schema({
     owner: {
         type: Schema.Types.ObjectId,
-        ref: 'Fundraiser',
+        ref: 'Creator',
     },
     content: {
         type: String

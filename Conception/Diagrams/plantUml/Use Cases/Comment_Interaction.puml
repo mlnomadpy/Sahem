@@ -1,7 +1,7 @@
 @startuml CommentInteractions
 left to right direction
 skinparam packageStyle rectangle
-actor Fundraiser as A3 << Human >>
+actor Creator as A3 << Human >>
 actor Comment as A10 << DataBase >>
 ' actor Comment as A8 << Database >>
 

@@ -6,8 +6,8 @@
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
+// import bodyParser from 'body-parser';
 import logger from 'morgan';
-
 // const indexRouter = require('./app_server/routes/index');
 // const apiRouter = require('./app_api/routes/index');
 // const usersRouter = require('./app_server/routes/users');
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 //define routes
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
-app.use('/users', usersRouter);
-app.use('/projects', projectsRouter);
-
+// app.use('/users', usersRouter);
+// app.use('/projects', projectsRouter);
+// app.use('/register', registerRouter);
 export default app;

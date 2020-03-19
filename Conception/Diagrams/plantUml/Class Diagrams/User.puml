@@ -7,7 +7,7 @@ package Content{
     class Vote{
         upVote : boolean
         timeOfVote : Date
-        Owner : Fundraiser
+        Owner : Creator
         parent : Article
     }
     class Project extends Article{
@@ -17,7 +17,7 @@ package Content{
         raisedFunding : Double
         endDate : Date
         createdDate : Date
-        fundRaisers : Fundraiser[]
+        funders : Creator[]
     }
 
     class Comment extends Article{
@@ -25,7 +25,7 @@ package Content{
     }
     class Article{
         _id : String
-        owner : Fundraiser
+        owner : Creator
         type : String
         content: String
         votes : Vote[]
@@ -70,16 +70,16 @@ package Chat {
     class Conversation{
         _id: String
         messages: Message[]
-        participants: Fundraiser[]
+        participants: Creator[]
     }
     class Message{
         _id: String
         sent_time: Date
         received_time: Date
         read: Date
-        read_by: Fundraiser[]
-        delivred_to: Fundraiser[]
-        owner: Fundraiser
+        read_by: Creator[]
+        delivred_to: Creator[]
+        owner: Creator
     }
 
 
@@ -88,6 +88,10 @@ package Chat {
 package User{
 
     class User {
+        _id: String
+        username: String
+        password: String
+        email: String
         isAuthentified: boolean
     }
 
@@ -98,13 +102,14 @@ package User{
         ' leaving_time: Date
     }
 
-    class Fundraiser extends User{
+    class Creator extends User{
         _id : String
+        user_id: String
         personalInformation: PersonalInformation;
         paymentInformation: PaymentInformation
         projects : Project[]
-        following : Fundraiser[]
-        followers : Fundraiser[]
+        following : Creator[]
+        followers : Creator[]
         socialMedia : ContactMe[]
         posts : Post[]
         messageBox : MessageBox
@@ -141,12 +146,12 @@ package User{
 
 
 
-MessageBox  *--*  Fundraiser
+MessageBox  *--*  Creator
 
-Article  *--*  Fundraiser
+Article  *--*  Creator
 
-Fundraiser *--* Location
-Vote  *---*  Fundraiser
+Creator *--* Location
+Vote  *---*  Creator
 
 MessageBox  *-down-  Conversation
 Message  *-up-*  Conversation

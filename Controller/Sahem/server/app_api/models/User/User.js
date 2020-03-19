@@ -14,6 +14,10 @@ export const UserSchema = new Schema({
     password: {
         type: String,
         require: true
+    },
+    emailIsConfirmed: {
+        type: Boolean,
+        default: false
     }
 });
 UserSchema.plugin(timestamps);
