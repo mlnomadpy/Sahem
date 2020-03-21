@@ -7,18 +7,16 @@ exports["default"] = void 0;
 
 var _express = _interopRequireDefault(require("express"));
 
+var _signup = _interopRequireDefault(require("../controllers/signup"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-// var express = require('express');
-var router = _express["default"].Router();
-/* GET home page. */
+// const express = require('express');
+var router = _express["default"].Router(); // const ctrlProjects = require('../controllers/projects');
 
 
-router.get('/', function (req, res, next) {
-  res.render('index', {
-    title: 'Sahem: Innovate, without worries'
-  });
-});
-var _default = router; // module.exports = router;
-
+// const ctrlReviews = require('../controllers/reviews');
+// locations
+router.route('/signup').post(_signup["default"].createUser);
+var _default = router;
 exports["default"] = _default;

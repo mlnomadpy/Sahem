@@ -29,7 +29,7 @@ var VoteSchema = new _mongoose.Schema({
   },
   owner: {
     type: _mongoose.Schema.Types.ObjectId,
-    ref: 'Fundraiser'
+    ref: 'Creator'
   }
 });
 exports.VoteSchema = VoteSchema;

@@ -3,25 +3,25 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fundraisersDeleteOne = exports.fundraisersUpdateOne = exports.fundraisersReadOne = exports.fundraisersCreate = exports.fundraisersList = void 0;
+exports.creatorsDeleteOne = exports.creatorsUpdateOne = exports.creatorsReadOne = exports.creatorsCreate = exports.creatorsList = void 0;
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
-var _Fundraiser = require("../models/User/Fundraiser");
+var _Creator = require("../models/User/Creator");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 // const mongoose = require('mongoose');
 // const Fundraiser = require('../models/User/fundraiser').Fundraiser;
-var fundraisersList = function fundraisersList(req, res) {
-  _Fundraiser.Fundraiser.find({}, '', function (error, Fundraisers) {
+var creatorsList = function creatorsList(req, res) {
+  _Creator.Creator.find({}, '', function (error, creators) {
     if (error) {
       console.error(error);
     }
 
-    if (Fundraisers) {
+    if (Creators) {
       res.status(200).send({
-        fundraisers: fundraisers
+        creators: creators
       });
     } else {
       res.status(404).send("not Found");
@@ -29,14 +29,13 @@ var fundraisersList = function fundraisersList(req, res) {
   });
 };
 
-exports.fundraisersList = fundraisersList;
+exports.creatorsList = creatorsList;
 
-var fundraisersCreate = function fundraisersCreate(req, res) {
+var creatorsCreate = function creatorsCreate(req, res) {
   Project.create({
-    content: req.body.content,
-    description: req.body.description,
-    fundGoal: req.body.fundGoal,
-    endDate: req.body.endDate
+    personal_information: req.body.personal_information,
+    address: req.body.address,
+    user_id: req.body.user_id
   }, function (err, project) {
     if (err) {
       res.status(404).json(err);
@@ -46,22 +45,22 @@ var fundraisersCreate = function fundraisersCreate(req, res) {
   });
 };
 
-exports.fundraisersCreate = fundraisersCreate;
+exports.creatorsCreate = creatorsCreate;
 
-var fundraisersReadOne = function fundraisersReadOne(req, res) {
+var creatorsReadOne = function creatorsReadOne(req, res) {
   console.log("res");
   res.status(200).json({
     name: "success"
   });
 };
 
-exports.fundraisersReadOne = fundraisersReadOne;
+exports.creatorsReadOne = creatorsReadOne;
 
-var fundraisersUpdateOne = function fundraisersUpdateOne(req, res) {};
+var creatorsUpdateOne = function creatorsUpdateOne(req, res) {};
 
-exports.fundraisersUpdateOne = fundraisersUpdateOne;
+exports.creatorsUpdateOne = creatorsUpdateOne;
 
-var fundraisersDeleteOne = function fundraisersDeleteOne(req, res) {}; // module.exports = {
+var creatorsDeleteOne = function creatorsDeleteOne(req, res) {}; // module.exports = {
 //     fundraisersList,
 //     fundraisersCreate,
 //     fundraisersReadOne,
@@ -70,4 +69,4 @@ var fundraisersDeleteOne = function fundraisersDeleteOne(req, res) {}; // module
 // };
 
 
-exports.fundraisersDeleteOne = fundraisersDeleteOne;
+exports.creatorsDeleteOne = creatorsDeleteOne;

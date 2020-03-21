@@ -21,7 +21,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var PostSchema = new _mongoose.Schema({
   owner: {
     type: _mongoose["default"].Types.ObjectId,
-    ref: 'Fundraiser' // required: true
+    ref: 'Creator' // required: true
 
   },
   content: {

@@ -16,9 +16,14 @@ var router = _express["default"].Router(); // const ctrlProjects = require('../c
 
 
 // const ctrlReviews = require('../controllers/reviews');
-// locations
+// projects
 router.route('/projects').get(_projects["default"].projectsList).post(_projects["default"].projectsCreate);
-router.route('/projects/:projectid').get(_projects["default"].projectsReadOne).put(_projects["default"].projectsUpdateOne)["delete"](_projects["default"].projectsDeleteOne); // reviews
+router.route('/projects/:projectid').get(_projects["default"].projectsReadOne).put(_projects["default"].projectsUpdateOne)["delete"](_projects["default"].projectsDeleteOne);
+router.route('/').get('index.html', function (res, rej) {
+  res.render('index', {
+    title: 'Express'
+  });
+}); // reviews
 // router
 //     .route('/locations/:fundraiserid/fundraiser')
 //     .post(ctrlReviews.fundraiserCreate);

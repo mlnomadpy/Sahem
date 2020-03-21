@@ -29,6 +29,10 @@ var UserSchema = new _mongoose.Schema({
   password: {
     type: String,
     require: true
+  },
+  emailIsConfirmed: {
+    type: Boolean,
+    "default": false
   }
 });
 exports.UserSchema = UserSchema;

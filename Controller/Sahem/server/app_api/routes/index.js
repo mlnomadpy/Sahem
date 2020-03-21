@@ -4,7 +4,7 @@ const router = express.Router();
 // const ctrlProjects = require('../controllers/projects');
 import ctrlProjects from '../controllers/projects';
 // const ctrlReviews = require('../controllers/reviews');
-// locations
+// projects
 router
     .route('/projects')
     .get(ctrlProjects.projectsList)
@@ -14,6 +14,13 @@ router
     .get(ctrlProjects.projectsReadOne)
     .put(ctrlProjects.projectsUpdateOne)
     .delete(ctrlProjects.projectsDeleteOne);
+
+
+router
+    .route('/')
+    .get('index.html', (res, rej) => {
+        res.render('index', { title: 'Express' });
+    });
 // reviews
 // router
 //     .route('/locations/:fundraiserid/fundraiser')

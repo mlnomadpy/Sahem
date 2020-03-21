@@ -10,7 +10,7 @@ export const createUser = (res, rej) => {
     if (password === confirmPassword) {
 
         // Check if user with the same email is also registered
-        if (User.find({ username: username, email: email })) {
+        if ( User.find({ username: username, email: email }) ) {
 
             res.render('register', {
                 message: 'User already registered.',

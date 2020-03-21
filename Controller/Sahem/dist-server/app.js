@@ -11,15 +11,13 @@ var _path = _interopRequireDefault(require("path"));
 
 var _cookieParser = _interopRequireDefault(require("cookie-parser"));
 
+var _bodyParser = _interopRequireDefault(require("body-parser"));
+
 var _morgan = _interopRequireDefault(require("morgan"));
 
 var _index = _interopRequireDefault(require("./app_server/routes/index"));
 
 var _index2 = _interopRequireDefault(require("./app_api/routes/index"));
-
-var _users = _interopRequireDefault(require("./app_server/routes/users"));
-
-var _projects = _interopRequireDefault(require("./app_server/routes/projects"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -31,6 +29,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 // const apiRouter = require('./app_api/routes/index');
 // const usersRouter = require('./app_server/routes/users');
 // const projectsRouter = require('./app_server/routes/projects');
+// import usersRouter from './app_server/routes/users';
+// import projectsRouter from './app_server/routes/projects';
 require('./app_api/models/db'); //connect to db
 //init app
 
@@ -45,8 +45,9 @@ app.use((0, _cookieParser["default"])());
 app.use(_express["default"]["static"](_path["default"].join(__dirname, '../public'))); //define routes
 
 app.use('/', _index["default"]);
-app.use('/api', _index2["default"]);
-app.use('/users', _users["default"]);
-app.use('/projects', _projects["default"]);
+app.use('/api', _index2["default"]); // app.use('/users', usersRouter);
+// app.use('/projects', projectsRouter);
+// app.use('/register', registerRouter);
+
 var _default = app;
 exports["default"] = _default;

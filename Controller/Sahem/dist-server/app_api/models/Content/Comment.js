@@ -22,7 +22,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var CommentSchema = new _mongoose.Schema({
   owner: {
     type: _mongoose.Schema.Types.ObjectId,
-    ref: 'Fundraiser'
+    ref: 'Creator'
   },
   content: {
     type: String

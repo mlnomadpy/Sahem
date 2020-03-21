@@ -6,7 +6,7 @@
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
-// import bodyParser from 'body-parser';
+import bodyParser from 'body-parser';
 import logger from 'morgan';
 // const indexRouter = require('./app_server/routes/index');
 // const apiRouter = require('./app_api/routes/index');
@@ -14,19 +14,20 @@ import logger from 'morgan';
 // const projectsRouter = require('./app_server/routes/projects');
 import indexRouter from './app_server/routes/index';
 import apiRouter from './app_api/routes/index';
-import usersRouter from './app_server/routes/users';
-import projectsRouter from './app_server/routes/projects';
+// import usersRouter from './app_server/routes/users';
+// import projectsRouter from './app_server/routes/projects';
 
 require('./app_api/models/db');
 //connect to db
 
 //init app
 
-var app = express();
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 

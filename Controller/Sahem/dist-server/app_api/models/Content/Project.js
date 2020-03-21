@@ -56,7 +56,7 @@ var ProjectSchema = new _mongoose.Schema({
   },
   fundraisers: {
     type: [_mongoose.Schema.Types.ObjectId],
-    ref: 'Fundraiser',
+    ref: 'Creator',
     "default": null
   },
   votes: {

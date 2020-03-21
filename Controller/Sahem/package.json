@@ -3,13 +3,21 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "nodemonConfig": { 
+    "exec": "npm run dev",
+    "watch": ["server/*", "public/*"],
+    "ignore": ["**/__tests__/**", "*.test.js", "*.spec.js"]
+  },
   "scripts": {
+    "start": "npm ./dist-server/bin/www",
     "server": "node ./dist-server/bin/www",
     "transpile": "babel ./server --out-dir dist-server",
     "clean": "rimraf dist-server",
     "build": "npm-run-all clean transpile",
-    "dev": "NODE_ENV=development npm-run-all build server"
+    "watch:dev": "nodemon",
+    "dev": " SET NODE_ENV=development npm-run-all build server"
   },
+
   "babel": {
     "presets": [
       "@babel/preset-env"
