@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const dbURI = 'mongodb://localhost/sahem';
+mongoose.set('useCreateIndex', true);
+
+
 mongoose.connect(dbURI, { useNewUrlParser: true });
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${dbURI}`);

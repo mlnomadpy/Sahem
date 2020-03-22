@@ -37,7 +37,7 @@ export const projectsCreate = (req, res) => {
             else {
                 res
                     .status(201)
-                    .json(location);
+                    .json(project);
             }
         });
 };

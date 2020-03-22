@@ -7,18 +7,28 @@ import ctrlProjects from '../controllers/projects';
 // projects
 router
     .route('/projects')
-    .get(ctrlProjects.projectsList)
-    .post(ctrlProjects.projectsCreate);
+    .get((req, res) => {
+        ctrlProjects.projectsList
+    })
+    .post((req, res) => {
+        ctrlProjects.projectsCreate
+    });
 router
     .route('/projects/:projectid')
-    .get(ctrlProjects.projectsReadOne)
-    .put(ctrlProjects.projectsUpdateOne)
-    .delete(ctrlProjects.projectsDeleteOne);
+    .get((req, res) => {
+        ctrlProjects.projectsReadOne
+    })
+    .put((req, res) => {
+        ctrlProjects.projectsUpdateOne
+    })
+    .delete((req, res) => {
+        ctrlProjects.projectsDeleteOne
+    });
 
 
 router
     .route('/')
-    .get('index.html', (res, rej) => {
+    .get((res, rej) => {
         res.render('index', { title: 'Express' });
     });
 // reviews

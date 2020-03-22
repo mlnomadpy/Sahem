@@ -1,6 +1,8 @@
+import mongoose from "mongoose";
 import { User } from '../../app_api/models/User/User';
 import { getHashedPassword } from "../crypto";
-export const createUser = (res, rej) => {
+
+const createUser = (res, rej) => {
 
     const { email, username, password, confirmPassword } = req.body;
     // TODO sanatize the inputs here
@@ -41,3 +43,4 @@ export const createUser = (res, rej) => {
     }
 
 }
+export default createUser;

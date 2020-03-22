@@ -7,6 +7,8 @@ import ctrlSignUp from '../controllers/signup';
 // locations
 router
     .route('/signup')
-    .post(ctrlSignUp.createUser);
+    .post((req, res) => {
+        ctrlSignUp.createUser
+    });
 
 export default router;

@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 const projects = (res, rej, next) => {
     res.render('index', { title: 'projects' });
 
