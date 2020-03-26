@@ -12,14 +12,22 @@ export const CommentSchema = new Schema({
     votes: {
         type: [VoteSchema]
     },
-    origin_id: {
+    origin_post: {
         type: Schema.Types.ObjectId,
-        ref: 'Comment'
+        ref: 'Post'
     },
-    subcomments_count: {
-        type: Number,
-        default: 0
+    origin_project: {
+        type: Schema.Types.ObjectId,
+        ref: 'Article'
     }
+    // origin_comment: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Comment'
+    // },
+    // subcomments_count: {
+    //     type: Number,
+    //     default: 0
+    // }
 });
 CommentSchema.plugin(timestamps);
 CommentSchema.index({ createdAt: 1, updatedAt: 1 });

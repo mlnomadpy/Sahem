@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { Project } from "../models/Content/project";
 // const Project = require('../models/Content/project').Project;
-export const projectsList = (req, res) => {
+const projectsList = (req, res) => {
     Project
         .find({}, '', (error, projects) => {
             if (error) { console.error(error); }
@@ -21,7 +21,7 @@ export const projectsList = (req, res) => {
 
 
 };
-export const projectsCreate = (req, res) => {
+const projectsCreate = (req, res) => {
     Project
         .create({
             content: req.body.content,
@@ -41,7 +41,7 @@ export const projectsCreate = (req, res) => {
             }
         });
 };
-export const projectsReadOne = (req, res) => {
+const projectsReadOne = (req, res) => {
     Project
         .findById(req.params.projectid)
         .exec((err, project) => {
@@ -63,7 +63,7 @@ export const projectsReadOne = (req, res) => {
 
 
 };
-export const projectsUpdateOne = (req, res) => {
+const projectsUpdateOne = (req, res) => {
     Project
         .findById(req.body.projectid)
         .execc((err, project) => {
@@ -82,7 +82,7 @@ export const projectsUpdateOne = (req, res) => {
             })
         })
 };
-export const projectsDeleteOne = (req, res) => {
+const projectsDeleteOne = (req, res) => {
     const { projectid } = req.params;
     if (projectid) {
         Project
@@ -119,10 +119,10 @@ export const projectsDeleteOne = (req, res) => {
 
 
 
-// module.exports = {
-//     projectsList,
-//     projectsCreate,
-//     projectsReadOne,
-//     projectsUpdateOne,
-//     projectsDeleteOne
-// };
+module.exports = {
+    projectsList,
+    projectsCreate,
+    projectsReadOne,
+    projectsUpdateOne,
+    projectsDeleteOne
+};

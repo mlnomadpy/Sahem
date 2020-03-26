@@ -5,7 +5,7 @@ import { PersonalInformationSchema } from "./PersonalInformation";
 
 export const CreatorSchema = new Schema({
     user_id: {
-        type: mongoose.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User'
     },
     personal_information: {

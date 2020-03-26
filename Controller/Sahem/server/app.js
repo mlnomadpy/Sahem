@@ -1,35 +1,29 @@
-// const express = require('express');
-// const path = require('path');
-// const cookieParser = require('cookie-parser');
-// const logger = require('morgan');
+
 
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
-// const indexRouter = require('./app_server/routes/index');
-// const apiRouter = require('./app_api/routes/index');
-// const usersRouter = require('./app_server/routes/users');
-// const projectsRouter = require('./app_server/routes/projects');
-import indexRouter from './app_server/routes/index';
+
+import dotenv from 'dotenv';
+import passport from 'passport';
 import apiRouter from './app_api/routes/index';
-// import usersRouter from './app_server/routes/users';
-// import projectsRouter from './app_server/routes/projects';
+import indexRouter from './app_server/routes/index';
 
-require('./app_api/models/db');
+dotenv.config();
 //connect to db
-
+require('./app_api/models/db');
+require('./app_api/config/passport');
 //init app
 const app = express();
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(passport.initialize());
 
 //define routes
 app.use('/', indexRouter);

@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
-const dbURI = 'mongodb://localhost/sahem';
+import mongoose from 'mongoose';
+const dbURI = process.env.DB_URL;
+// const dbURI = 'mongodb://localhost/sahem';
 mongoose.set('useCreateIndex', true);
 
 

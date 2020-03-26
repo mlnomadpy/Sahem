@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 // const Fundraiser = require('../models/User/fundraiser').Fundraiser;
 import { Creator } from "../models/User/Creator";
-export const creatorsList = (req, res) => {
+ const creatorsList = (req, res) => {
     Creator
         .find({}, '', (error, creators) => {
             if (error) { console.error(error); }
@@ -22,7 +22,7 @@ export const creatorsList = (req, res) => {
 
 
 };
-export const creatorsCreate = (req, res) => {
+ const creatorsCreate = (req, res) => {
     Project
         .create({
             personal_information: req.body.personal_information,
@@ -41,7 +41,7 @@ export const creatorsCreate = (req, res) => {
             }
         });
 };
-export const creatorsReadOne = (req, res) => {
+ const creatorsReadOne = (req, res) => {
     console.log("res");
     res
         .status(200)
@@ -49,17 +49,17 @@ export const creatorsReadOne = (req, res) => {
             name: "success"
         });
 };
-export const creatorsUpdateOne = (req, res) => {
+ const creatorsUpdateOne = (req, res) => {
 
 };
-export const creatorsDeleteOne = (req, res) => {
+ const creatorsDeleteOne = (req, res) => {
 
 };
 
-// module.exports = {
-//     fundraisersList,
-//     fundraisersCreate,
-//     fundraisersReadOne,
-//     fundraisersUpdateOne,
-//     fundraisersDeleteOne
-// };
+module.exports = {
+    creatorsList,
+    creatorsCreate,
+    creatorsReadOne,
+    creatorsUpdateOne,
+    creatorsDeleteOne
+};

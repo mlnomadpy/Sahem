@@ -1,14 +1,23 @@
 // const express = require('express');
 import express from 'express';
+import User from '../../app_api/models/User/User';
+import ctrlAuth from '../controllers/auth';
 const router = express.Router();
 // const ctrlProjects = require('../controllers/projects');
-import ctrlSignUp from '../controllers/signup';
 // const ctrlReviews = require('../controllers/reviews');
-// locations
+//Auth Routes
 router
-    .route('/signup')
+    .route('/register')
     .post((req, res) => {
-        ctrlSignUp.createUser
+        ctrlAuth.register(req, res);
     });
+
+router
+    .route('/login')
+    .post((req, res) => {
+        ctrlAuth.login(req, res);
+    });
+
+//end of Auth Routes
 
 export default router;

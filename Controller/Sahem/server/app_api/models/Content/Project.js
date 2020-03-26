@@ -10,7 +10,7 @@ export const ProjectSchema = new Schema({
     },
     owner: {
         type: Schema.Types.ObjectId,
-        ref: 'Fundraiser',
+        ref: 'Creator',
         // required: true
     },
     content: {
@@ -37,7 +37,7 @@ export const ProjectSchema = new Schema({
         type: Date,
         // required: true  
     },
-    fundraisers: {
+    funders: {
         type: [Schema.Types.ObjectId],
         ref: 'Creator',
         default: null
