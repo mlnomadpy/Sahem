@@ -10,6 +10,7 @@ import dotenv from 'dotenv';
 import passport from 'passport';
 import apiRouter from './app_api/routes/index';
 import indexRouter from './app_server/routes/index';
+import authRouter from './app_server/routes/auth';
 
 dotenv.config();
 //connect to db
@@ -27,8 +28,13 @@ app.use(passport.initialize());
 
 //define routes
 app.use('/', indexRouter);
+app.use('/auth', authRouter);
 app.use('/api', apiRouter);
-// app.use('/users', usersRouter);
+//TODO route to get, create and edit creators info
+// app.use('/creators', creatorsRouter);
+//TODO route to edit user info
+// app.use('/user', userRouter);
+
 // app.use('/projects', projectsRouter);
 // app.use('/register', registerRouter);
 export default app;

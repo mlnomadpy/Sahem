@@ -9,7 +9,7 @@ const register = (req, res) => {
             .json({ "message": "All fields required" });
     }
 
-    //check if the password are matches
+    //check if the password are matches DONE
     if (!(req.body.password === req.body.confirmPassword)) {
         return res
             .status(400)
@@ -17,7 +17,7 @@ const register = (req, res) => {
     }
     //TODO check if the user exist
 
-    //TODO save the user in db
+    //TODO save the user in db DONE
     const username = req.body.username;
     const email = req.body.email;
     const user = new User();

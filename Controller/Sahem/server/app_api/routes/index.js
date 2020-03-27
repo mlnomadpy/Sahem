@@ -1,5 +1,6 @@
 // const express = require('express');
 import express from 'express';
+import { authenticateJWT } from '../../middleware/authenticateJWT';
 const router = express.Router();
 // const ctrlProjects = require('../controllers/projects');
 import ctrlProjects from '../controllers/projects';
@@ -18,7 +19,7 @@ router
     .get((req, res) => {
         ctrlProjects.projectsList(req, res);
     })
-    .post((req, res) => {
+    .post(authenticateJWT, (req, res) => {
         ctrlProjects.projectsCreate(req, res);
     });
 router
@@ -26,10 +27,10 @@ router
     .get((req, res) => {
         ctrlProjects.projectsReadOne(req, res);
     })
-    .put((req, res) => {
+    .put(authenticateJWT, (req, res) => {
         ctrlProjects.projectsUpdateOne(req, res);
     })
-    .delete((req, res) => {
+    .delete(authenticateJWT, (req, res) => {
         ctrlProjects.projectsDeleteOne(req, res);
     });
 

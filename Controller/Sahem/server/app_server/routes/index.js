@@ -6,17 +6,18 @@ const router = express.Router();
 // const ctrlProjects = require('../controllers/projects');
 // const ctrlReviews = require('../controllers/reviews');
 //Auth Routes
-router
-    .route('/register')
-    .post((req, res) => {
-        ctrlAuth.register(req, res);
-    });
 
-router
-    .route('/login')
-    .post((req, res) => {
-        ctrlAuth.login(req, res);
-    });
+// router
+//     .route('/register')
+//     .post((req, res) => {
+//         ctrlAuth.register(req, res);
+//     });
+
+// router
+//     .route('/login')
+//     .post((req, res) => {
+//         ctrlAuth.login(req, res);
+//     });
 
 //end of Auth Routes
 
