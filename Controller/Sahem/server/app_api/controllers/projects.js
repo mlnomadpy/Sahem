@@ -15,15 +15,17 @@ const projectsList = (req, res) => {
             else {
                 res
                     .status(404)
-                    .send("not Found");
+                    .send("Not Found");
             }
         });
 
 
 };
 const projectsCreate = (req, res) => {
+    console.log(req.user);
     Project
         .create({
+            // owner: req.user._id,
             content: req.body.content,
             description: req.body.description,
             fundGoal: req.body.fundGoal,

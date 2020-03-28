@@ -29,6 +29,21 @@ export const CommentSchema = new Schema({
     //     default: 0
     // }
 });
+
+CommentSchema.methods.addVote = function (upVote, owner) {
+    this.votes.forEach(vote => {
+        if (vote.owner == owner) {
+            vote.upVote == upVote;
+            return;
+        }
+    });
+    vote = new Vote({ upVote, owner });
+    this.votes.push(vote);
+
+};
+
+
+
 CommentSchema.plugin(timestamps);
 CommentSchema.index({ createdAt: 1, updatedAt: 1 });
 export const Comment = mongoose.model('Comment', CommentSchema);

@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import timestamps from 'mongoose-timestamp';
-
+import { User } from './User';
 import { PersonalInformationSchema } from "./PersonalInformation";
 
 export const CreatorSchema = new Schema({
@@ -24,6 +24,11 @@ export const CreatorSchema = new Schema({
         ref: 'Project'
     }
 });
+
+CreatorSchema.methods.getCreatorByUserId = function (id, callback) {
+    Creator.find({user_id: id}, callback);
+};
+
 FundraiserSchema.plugin(timestamps);
 FundraiserSchema.index({ createdAt: 1, updatedAt: 1 });
 export const Fundraiser = mongoose.model('Fundraiser', fundRaiserSchema);

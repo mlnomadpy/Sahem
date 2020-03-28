@@ -1,11 +1,11 @@
-// const express = require('express');
 import express from 'express';
-import { authenticateJWT } from '../../middleware/authenticateJWT';
+// import { authenticateJWT } from '../../middleware/authenticateJWT';
+import passport from 'passport';
 const router = express.Router();
-// const ctrlProjects = require('../controllers/projects');
 import ctrlProjects from '../controllers/projects';
 // const ctrlReviews = require('../controllers/reviews');
 // projects
+require('../../middleware/passport')(passport);
 
 
 router
@@ -19,7 +19,8 @@ router
     .get((req, res) => {
         ctrlProjects.projectsList(req, res);
     })
-    .post(authenticateJWT, (req, res) => {
+    .post(passport.authenticate('jwt', { session: false }), (req, res) => {
+        console.log(req.user);
         ctrlProjects.projectsCreate(req, res);
     });
 router
@@ -27,10 +28,10 @@ router
     .get((req, res) => {
         ctrlProjects.projectsReadOne(req, res);
     })
-    .put(authenticateJWT, (req, res) => {
+    .put(passport.authenticate('jwt', { session: false }), (req, res) => {
         ctrlProjects.projectsUpdateOne(req, res);
     })
-    .delete(authenticateJWT, (req, res) => {
+    .delete(passport.authenticate('jwt', { session: false }), (req, res) => {
         ctrlProjects.projectsDeleteOne(req, res);
     });
 

@@ -8,10 +8,10 @@ export const VoteSchema = new Schema({
         type: Boolean,
         required: true
     },
-    timeOfVote: {
-        type: Date,
-        default: Date.now
-    },
+    // timeOfVote: {
+    //     type: Date,
+    //     default: Date.now
+    // },
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'Creator'
