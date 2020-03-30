@@ -51,23 +51,25 @@ const login = (req, res) => {
             .json({ "message": "All fields required" });
     }
     passport.authenticate('local', (err, user, info) => {
-        let token;
-        if (err) {
-            return res
-                .status(404)
-                .json(err);
+        if (err || !user) {
+            return res.status(400).json({
+                message: info ? info.message : 'Login failed',
+                user: user
+            });
         }
-        if (user) {
-            token = user.generateJwt();
-            res
-                .status(200)
-                .json({ token });
-        } else {
-            res
-                .status(401)
-                .json(info);
-        }
-    })(req, res);
+        req.login(user, { session: false }, (err) => {
+            if (err) {
+                res.send(err);
+            }
+
+            const token = user.generateJwt();
+
+            return res.json({ token });
+        });
+
+    })
+        (req, res);
+
 };
 
 module.exports = {

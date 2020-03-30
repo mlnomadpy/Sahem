@@ -11,7 +11,7 @@ const FundSchema = new Schema({
         ref: 'Project'
     },
     amount: {
-        type: double,
+        type: Number,
         required: true
     }
 });

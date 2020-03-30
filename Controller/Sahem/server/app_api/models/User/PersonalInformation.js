@@ -2,8 +2,9 @@ import mongoose, { Schema } from 'mongoose';
 import timestamps from 'mongoose-timestamp';
 
 export const PersonalInformationSchema = new Schema({
-    user_tag: {
-        type: String
+    creator_id: {
+        type:Schema.Types.ObjectId,
+        ref:'Creator'
     },
     first_name: {
         type: String
@@ -11,10 +12,7 @@ export const PersonalInformationSchema = new Schema({
     last_name: {
         type: String
     },
-    bio: {
-        type: String
-    },
-    birth_date: {
+    birthday: {
         type: Date
     },
     address: {

@@ -3,10 +3,13 @@ import timestamps from 'mongoose-timestamp';
 import { User } from './User';
 import { PersonalInformationSchema } from "./PersonalInformation";
 
-export const CreatorSchema = new Schema({
+const CreatorSchema = new Schema({
     user_id: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    creator_tag: {
+        type: String
     },
     personal_information: {
         type: Schema.Types.ObjectId,
@@ -16,7 +19,7 @@ export const CreatorSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'PaymentInformation'
     },
-    address: {
+    bio: {
         type: String,
     },
     projects: {
@@ -25,10 +28,38 @@ export const CreatorSchema = new Schema({
     }
 });
 
-CreatorSchema.methods.getCreatorByUserId = function (id, callback) {
-    Creator.find({user_id: id}, callback);
+CreatorSchema.statics.addProject = function (creator_id, project_id) {
+    Creator.findOne({ _id: creator_id }).exec((err, creator) => {
+        if (err || !creator) {
+            return;
+        }
+
+        creator.projects.push(project_id);
+        creator.save();
+    });
 };
 
-FundraiserSchema.plugin(timestamps);
-FundraiserSchema.index({ createdAt: 1, updatedAt: 1 });
-export const Fundraiser = mongoose.model('Fundraiser', fundRaiserSchema);
+
+
+CreatorSchema.statics.getCreatorById = function (id) {
+    Creator.findById(id, (err, creator) => {
+        if (err) return err;
+        return creator;
+    });
+}
+CreatorSchema.statics.getCreatorByUserId = function (id, callback) {
+    const query = Creator.where({ user_id: id });
+
+    query.find({ 'user_id': id }, 'id', callback);
+};
+
+
+
+
+CreatorSchema.plugin(timestamps);
+CreatorSchema.index({ createdAt: 1, updatedAt: 1 });
+const Creator = mongoose.model('Creator', CreatorSchema);
+module.exports = {
+    CreatorSchema,
+    Creator
+};

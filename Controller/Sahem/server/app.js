@@ -1,6 +1,7 @@
 
 
 import express from 'express';
+import helmet from 'helmet';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
@@ -25,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(passport.initialize());
-
+app.use(helmet());
 //define routes
 app.use('/', indexRouter);
 app.use('/auth', authRouter);

@@ -3,6 +3,8 @@ import express from 'express';
 import passport from 'passport';
 const router = express.Router();
 import ctrlProjects from '../controllers/projects';
+import ctrlCreators from '../controllers/Creators';
+import { getCreator } from '../../middleware/creatorGetter';
 // const ctrlReviews = require('../controllers/reviews');
 // projects
 require('../../middleware/passport')(passport);
@@ -19,8 +21,8 @@ router
     .get((req, res) => {
         ctrlProjects.projectsList(req, res);
     })
-    .post(passport.authenticate('jwt', { session: false }), (req, res) => {
-        console.log(req.user);
+    .post(passport.authenticate('jwt', { session: false }), getCreator, (req, res) => {
+        // getCreator(req, res);
         ctrlProjects.projectsCreate(req, res);
     });
 router
@@ -34,6 +36,17 @@ router
     .delete(passport.authenticate('jwt', { session: false }), (req, res) => {
         ctrlProjects.projectsDeleteOne(req, res);
     });
+router
+    .route('/creators')
+    .post(passport.authenticate('jwt', { session: false }), (req, res) => {
+        // getCreator(req, res);
+        ctrlCreators.creatorsCreate(req, res);
+    })
+    .put(passport.authenticate('jwt', { session: false }), (req, res) => {
+        getCreator(req, res);
+        ctrlCreators.creatorsUpdateOne(req, res);
+    });
+
 
 // reviews
 // router
