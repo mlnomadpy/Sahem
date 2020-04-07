@@ -36,14 +36,49 @@ router
     .delete(passport.authenticate('jwt', { session: false }), (req, res) => {
         ctrlProjects.projectsDeleteOne(req, res);
     });
+
+// TODO Add comments
+// router
+//     .route('/projects/:projectid/comments')
+//     .get((req, res) => {
+
+//     })
+
 router
     .route('/creators')
+    .get((req, res) => {
+
+        ctrlCreators.creatorsList(req, res);
+
+    })
     .post(passport.authenticate('jwt', { session: false }), (req, res) => {
         // getCreator(req, res);
         ctrlCreators.creatorsCreate(req, res);
+    });
+// .put(passport.authenticate('jwt', { session: false }), (req, res) => {
+//     getCreator(req, res);
+//     ctrlCreators.creatorsUpdateOne(req, res);
+// });
+router
+    .route('/creators/:creatorid')
+    .get((req, res) => {
+        ctrlCreators.creatorsReadOne(req, res);
     })
     .put(passport.authenticate('jwt', { session: false }), (req, res) => {
+        const { creatorid } = req.params;
+
         getCreator(req, res);
+        // check if the creators requesting to update is the real owner of 
+        // the creator who is trying to change
+        if (req.creator._id != creatorid) {
+            res
+                .status(403)
+                .json(
+                    {
+                        "message": "Not you"
+                    }
+                );
+        }
         ctrlCreators.creatorsUpdateOne(req, res);
     });
 

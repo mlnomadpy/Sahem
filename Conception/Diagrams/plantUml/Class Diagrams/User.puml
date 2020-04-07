@@ -14,9 +14,8 @@ package Content{
         description: String
         category: String
         fundGoal : Double
-        raisedFunding : Double
+        raisedFunds : Double
         endDate : Date
-        createdDate : Date
         funders : Creator[]
     }
 
@@ -31,6 +30,8 @@ package Content{
         votes : Vote[]
         comments : Comment[]
         media : Media[]
+        createdAt : Date
+
     }
     class Media{
         _id : String
@@ -92,19 +93,15 @@ package User{
         username: String
         password: String
         email: String
-        isAuthentified: boolean
+        isVerified: boolean
     }
 
-    class Session{
-        ' _id: String
-        ' address_ip: String
-        ' visiting_time: Date
-        ' leaving_time: Date
-    }
+    
 
-    class Creator extends User{
+    class Creator{
         _id : String
         user_id: String
+        creator_tag: String
         personalInformation: PersonalInformation;
         paymentInformation: PaymentInformation
         projects : Project[]
@@ -114,11 +111,12 @@ package User{
         posts : Post[]
         messageBox : MessageBox
         fundedProjects : Project[]
-
     }
+
     class Visitor extends User{
 
     }
+
     class Location{
         country : Country
         state : State
@@ -129,10 +127,12 @@ package User{
         longitude : Double
         latitude : Double
     }
+
     class SocialMedia{
         type: String
         tag: String
     }
+
     class PersonalInformation{
         userTag: String
         first_name: String
@@ -151,8 +151,9 @@ MessageBox  *--*  Creator
 Article  *--*  Creator
 
 Creator *--* Location
+Creator *-- PersonalInformation
 Vote  *---*  Creator
-
+Creator o-- User
 MessageBox  *-down-  Conversation
 Message  *-up-*  Conversation
 

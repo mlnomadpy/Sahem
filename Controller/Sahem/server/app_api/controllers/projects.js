@@ -122,7 +122,7 @@ const projectsDeleteOne = (req, res) => {
     //TODO delete project id from the creator's projects
     if (projectid) {
         Project
-            .findByIdAndRemove(project)
+            .findByIdAndRemove({ _id: projectid })
             .exec((err, project) => {
                 if (err) {
                     return res
@@ -137,6 +137,9 @@ const projectsDeleteOne = (req, res) => {
                             'message': 'you are not the owner of this project'
                         });
                 }
+                // deleting project from creator projects
+                Creator.deleteProject(project.owner, project._id);
+
                 return res
                     .status(204)
                     .json(null);

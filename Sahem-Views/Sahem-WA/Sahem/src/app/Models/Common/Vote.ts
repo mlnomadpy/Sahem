@@ -1,10 +1,10 @@
-import { RegisteredUser } from '../User/RegisteredUser';
+import { Creator } from '../User/Creator';
 import { Article } from '../Content/Article';
 
 export class Vote{
     _id: String;
     upVote: boolean;
     timeOfVote: Date;
-    owner: RegisteredUser;
+    owner: Creator;
     originArticle: Article;
 }

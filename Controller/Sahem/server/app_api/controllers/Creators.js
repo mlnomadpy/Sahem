@@ -147,10 +147,19 @@ const creatorsDeleteOne = (req, res) => {
 
 };
 
+const creatorsReadOne = (req, res) => {
+    const { creatorid } = req.params;
+
+    const creator = Creator.getCreatorById(creatorid);
+    res.json({
+        creator
+    });
+};
+
 module.exports = {
     creatorsList,
     creatorsCreate,
-    // creatorsReadOne,
+    creatorsReadOne,
     creatorsUpdateOne,
     creatorsDeleteOne
 };

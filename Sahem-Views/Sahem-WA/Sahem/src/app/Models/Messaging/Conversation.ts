@@ -1,8 +1,8 @@
-import { RegisteredUser } from '../User/RegisteredUser';
+import { Creator } from '../User/Creator';
 import { Message } from './Message';
 
 export class Conversation{
     _id: String;
     messages: Message[];
-    participants: RegisteredUser[];
+    participants: Creator[];
 }

@@ -1,5 +1,5 @@
 import { Article } from './Article';
-import { RegisteredUser } from '../User/RegisteredUser';
+import { Creator } from '../User/Creator';
 
 export class Project extends Article{
     description: String;
@@ -7,5 +7,5 @@ export class Project extends Article{
     raisedFunding: Number;
     createdDate: Date;
     endDate: Date;
-    fundRaisers: RegisteredUser[];
+    fundRaisers: Creator[];
 }

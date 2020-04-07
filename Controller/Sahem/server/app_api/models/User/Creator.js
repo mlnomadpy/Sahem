@@ -6,10 +6,13 @@ import { PersonalInformationSchema } from "./PersonalInformation";
 const CreatorSchema = new Schema({
     user_id: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        unique: true
     },
     creator_tag: {
-        type: String
+        type: String,
+        unique: true
+
     },
     personal_information: {
         type: Schema.Types.ObjectId,
@@ -31,13 +34,22 @@ const CreatorSchema = new Schema({
 CreatorSchema.statics.addProject = function (creator_id, project_id) {
     Creator.findOne({ _id: creator_id }).exec((err, creator) => {
         if (err || !creator) {
-            return;
+            return err;
         }
-
         creator.projects.push(project_id);
         creator.save();
     });
 };
+
+CreatorSchema.statics.deleteProject = function (creator_id, project_id) {
+    Creator.findOne({ _id: creator_id }).exec((err, creator) => {
+        if (err || !creator) {
+            return;
+        }
+        creator.projects.filter(project => project != project_id);
+        creator.save();
+    })
+}
 
 
 

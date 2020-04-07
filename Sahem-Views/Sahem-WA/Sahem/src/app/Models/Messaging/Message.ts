@@ -1,8 +1,8 @@
-import { RegisteredUser } from '../User/RegisteredUser';
+import { Creator } from '../User/Creator';
 
 export class Message{
     _id: String;
     sentTime: Date;
     receivedTime: Date;
-    owner: RegisteredUser;
+    owner: Creator;
 }
