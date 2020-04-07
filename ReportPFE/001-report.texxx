@@ -1,0 +1,127 @@
+% @Author: Taha Bouhsine
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is the main file
+% You can add/remove chapters/pdf files here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, oneside, a4paper]{fsa-pfe-report}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define code variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{images/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Include required packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{showframe}
+
+\usepackage[skins]{tcolorbox}
+\usepackage[francais,english]{babel}
+\usepackage[english]{varioref}
+\usepackage[export]{adjustbox}
+\usepackage{acro}
+\usepackage{setspace}
+\usepackage{minted}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{ctable}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{seqsplit}
+\usepackage{fontenc}
+%\usepackage{lipsum}
+%\usepackage{todonotes}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage[all]{nowidow}
+
+\usepackage[sorting=none, backend=bibtex]{biblatex}
+\addbibresource{001-report}
+
+%% TODO: Remove this function when done %%
+\newcommand\todoin[2][]{\todo[inline, caption={2do}, #1]{
+\begin{minipage}{\textwidth-4pt}#2\end{minipage}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include useful commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{000-commands}
+
+\hypersetup{
+  pdftitle={\reportTitle~-~\reportSubject},%
+  pdfauthor={\reportAuthor},%
+  pdfsubject={\reportSubject},%
+  pdfkeywords={report} {internship} {pfe} {fsa} {crowdfunding} {sahem} {uiz}
+}
+
+\begin{document}
+  \begin{pfe-fsa}
+    \pagenumbering{roman}% i ii iii iv ...
+
+    % \listoftodos{}
+
+    % Front matter
+    \include{002-top_matter}
+    \cleardoublepage%
+
+    \include{003-thanks}
+    \cleardoublepage%
+
+    \tableofcontents
+    \addcontentsline{toc}{chapter}{\contentsname}
+    \cleardoublepage%
+
+    \listoffigures
+    \addcontentsline{toc}{chapter}{\listfigurename}
+    \cleardoublepage%
+
+    % \listoftables
+    % \addcontentsline{toc}{chapter}{\listtablename}
+    % \cleardoublepage
+
+    %\printglossary[type=\acronymtype, title=Abbreviations]
+    \printacronyms[header=chapter*, name=Acronyms]
+    \addcontentsline{toc}{chapter}{Acronyms}
+    \cleardoublepage%
+
+    \sloppy
+
+    \pagenumbering{arabic}% 1 2 3 4 5
+    \doublespacing{}% Double spacing between lines
+
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+    % Main matter
+    \include{004-chapter0-introduction}
+    \cleardoublepage%
+
+    \include{004-chapter1}
+    \cleardoublepage%
+
+    % \include{004-chapter2}
+    % \cleardoublepage%
+
+    % \include{004-chapter3}
+    % \cleardoublepage%
+
+    % Back matter
+    \include{005-conclusion}
+    \cleardoublepage%
+
+    \include{006-appendix}
+    \cleardoublepage%
+
+    \include{007-references}
+    \cleardoublepage%
+
+    % \includepdf[pages={-}]{008-abstract.pdf}
+    %\include{008-abstract}
+    \cleardoublepage%
+
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+
+  \end{pfe-fsa}
+\end{document}
