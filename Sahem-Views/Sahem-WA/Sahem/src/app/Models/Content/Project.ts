@@ -1,11 +1,15 @@
 import { Article } from './Article';
 import { Creator } from '../User/Creator';
+import { Rewards } from './Rewards';
 
-export class Project extends Article{
+export class Project extends Article {
+    
     description: String;
+    category: String;
     fundGoal: Number;
-    raisedFunding: Number;
-    createdDate: Date;
+    raisedFunds: Number;
     endDate: Date;
-    fundRaisers: Creator[];
+    funders: Creator[];
+    rewards: Rewards[];
+
 }

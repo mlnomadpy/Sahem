@@ -3,12 +3,22 @@ import { Project } from '../Content/Project';
 import { Post } from '../Content/Post';
 import { MessageBox } from '../Messaging/MessageBox';
 import { SocialMedia } from './SocialMedia';
+import { Image } from '../Common/Image';
+import { PersonalInformation } from './PersonalInformation';
 
-export class Creator extends User {
+export class Creator {
     _id: String;
+    profile_picture: Image;
     user_id: String;
     creator_tag: String;
-    personal_information: PersonalInformation;
     bio: String;
     projects: Project[];
+    personalInformation: PersonalInformation;
+    // paymentInformation: PaymentInformation;
+    // following: Creator[];
+    // followers: Creator[];
+    // socialMedia: ContactMe[];
+    // posts: Post[];
+    // messageBox: MessageBox;
+    // fundedProjects: Project[];
 }

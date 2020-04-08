@@ -17,6 +17,7 @@ package Content{
         raisedFunds : Double
         endDate : Date
         funders : Creator[]
+        rewards: Rewards[]
     }
 
     class Comment extends Article{
@@ -55,6 +56,12 @@ package Content{
         url: String
         title : String
         platform : String
+    }
+    class Reward {
+        image: Image
+        type: String
+        name: String
+        threshold: Double
     }
     Article o-* Vote
     Article *-right-* Comment
@@ -100,6 +107,7 @@ package User{
 
     class Creator{
         _id : String
+        profile_picture: Image
         user_id: String
         creator_tag: String
         personalInformation: PersonalInformation;
