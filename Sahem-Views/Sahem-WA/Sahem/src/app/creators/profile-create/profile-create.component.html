@@ -1,0 +1,76 @@
+
+  <mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Choose your creator tag</ng-template>
+        <mat-form-field>
+          <mat-label>@Tag</mat-label>
+          <input matInput placeholder="Creator tag" formControlName="tagCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your information</ng-template>
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstNameCtrl" placeholder="Ex. Taha"
+                 required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastNameCtrl" placeholder="Ex. Bouhsine"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup">
+
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Fill out additional information</ng-template>
+        <mat-form-field>
+          <mat-label>Profile Picture</mat-label>
+          <input matInput formControlName="profilePictureCtrl" placeholder="Ex. Taha"
+                 required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Bio</mat-label>
+          <input matInput formControlName="bioCtrl" placeholder="Ex. Live Slow, Die Whenever"
+                 required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="addressCtrl" placeholder="Ex. N11 B2 LA "
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="submit()">Submit</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>

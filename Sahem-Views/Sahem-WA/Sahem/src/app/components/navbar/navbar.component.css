@@ -1,0 +1,18 @@
+.navbar {
+    width: 100%;
+    min-width: 500px;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+}
+
+.left-menu {
+    width: 200px;
+    height: 200px;
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+    background: black;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

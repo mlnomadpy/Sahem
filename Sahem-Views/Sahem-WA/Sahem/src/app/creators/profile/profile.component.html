@@ -1,0 +1,93 @@
+<mat-grid-list [cols]="breakpoint" [rowHeight]="breakpoint2" (window:resize)="onResize($event)" class="profile">
+    <mat-grid-tile class="profile-info">
+        <mat-card class="card">
+            <mat-card-header>
+                <!-- <div mat-card-avatar class="avatar-image"></div> -->
+                <mat-card-title>Taha Bouhsine</mat-card-title>
+                <mat-card-subtitle>@Skywolf</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image class="avatar" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    Bio:
+                </p>
+                <p>
+                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>Follow</button>
+                <button mat-button>Message</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-tab-group mat-align-tabs="center" class="profile-details">
+            <mat-tab label="Profile">
+                <!-- TODO Fund Raised -->
+                <!-- TODO Fund given -->
+                <!-- TODO Badges -->
+                
+                <mat-list>
+                    <mat-list-item>
+                        Fund Raised:
+                    </mat-list-item>
+                    <mat-list-item>
+                        50,000 DH
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        Fund given:
+                    </mat-list-item>
+                    <mat-list-item>
+                        1,000 DH
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Badges:</mat-list-item>
+                    <mat-list-item>Giver</mat-list-item>
+                    <mat-list-item>Big Heart</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Follower</mat-list-item>
+                    <mat-list-item>150</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Following</mat-list-item>
+                    <mat-list-item>66</mat-list-item><mat-list-item>
+                        Fund Raised:
+                    </mat-list-item>
+                    <mat-list-item>
+                        50,000 DH
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        Fund given:
+                    </mat-list-item>
+                    <mat-list-item>
+                        1,000 DH
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Badges:</mat-list-item>
+                    <mat-list-item>Giver</mat-list-item>
+                    <mat-list-item>Big Heart</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Follower</mat-list-item>
+                    <mat-list-item>150</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Following</mat-list-item>
+                    <mat-list-item>66</mat-list-item>
+                    
+                </mat-list>
+
+            </mat-tab>
+            <mat-tab label="Projects">
+                <!-- TODO ngfor project-modal -->
+            </mat-tab>
+            <mat-tab label="Posts">
+                <!-- TODO ngfor post-modal -->
+
+            </mat-tab>
+        </mat-tab-group>
+    </mat-grid-tile>
+</mat-grid-list>
