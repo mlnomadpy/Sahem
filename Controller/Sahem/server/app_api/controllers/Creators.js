@@ -117,7 +117,7 @@ const creatorsDeleteOne = (req, res) => {
     const { creatorid } = req.params;
     if (creatorid) {
         Creator
-            .findByIdAndRemove(creator)
+            .findByIdAndRemove(creatorid)
             .exec((err, creator) => {
                 if (err) {
                     return res
