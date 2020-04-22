@@ -54,7 +54,8 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "stripe": "^8.45.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

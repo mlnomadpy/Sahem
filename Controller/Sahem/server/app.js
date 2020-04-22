@@ -12,9 +12,11 @@ import passport from 'passport';
 import apiRouter from './app_api/routes/index';
 import indexRouter from './app_server/routes/index';
 import authRouter from './app_server/routes/auth';
+import stripe from 'stripe';
 
 dotenv.config();
 //connect to db
+stripe(process.env.STRIPE_SECRET_KEY);
 require('./app_api/models/db');
 require('./app_api/config/passport');
 //init app

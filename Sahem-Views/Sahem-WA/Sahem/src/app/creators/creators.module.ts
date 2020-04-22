@@ -8,7 +8,6 @@ import { ProfileCreateComponent } from './profile-create/profile-create.componen
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from "../material.module";
-import { NavbarComponent } from '../components/navbar/navbar.component';
 
 
 @NgModule({
@@ -17,7 +16,6 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
     ProfileComponent,
     ProfileCreateComponent,
     ProfileEditComponent,
-    NavbarComponent
   ],
   imports: [
     CommonModule,

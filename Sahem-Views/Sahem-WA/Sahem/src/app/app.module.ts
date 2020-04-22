@@ -8,11 +8,14 @@ import { MaterialModule } from "./material.module";
 
 import { PipesModule } from './pipes/pipes.module';
 
-import { HttpClientModule } from '@angular/common/http' ;
+import { HttpClientModule } from '@angular/common/http';
+import { FundModule } from './fund/fund.module' ;
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent
   ],
   imports: [
     HttpClientModule,
@@ -20,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http' ;
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FundModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,3 +16,17 @@
     top: 0;
     left: 0;
 }
+.github-corner {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #265397;
+    transition: all 0.15s ease;
+}
