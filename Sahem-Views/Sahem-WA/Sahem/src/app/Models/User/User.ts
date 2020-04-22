@@ -2,7 +2,10 @@
 export class User{
     _id: String;
     username: String;
-    password: String;
     email: String;
-    isVerified: Boolean;
+    password: String;
+    confirmPassword: String;
+    exp: Number;
+    iat: Number;
+    // isVerified: Boolean;
 }

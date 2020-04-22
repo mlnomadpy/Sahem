@@ -9,7 +9,7 @@ import { HttpErrorHandler, HandleError } from '../services/http-error-handler.se
 
 import { environment } from 'src/environments/environment';
 
-import { Project } from '../Models/Content/Project';
+import { Creator } from '../Models/User/Creator';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,10 +19,11 @@ const httpOptions = {
 };
 
 @Injectable({ providedIn: 'root' })
-export class ProjectsService {
-  api: String = environment.api;
+export class CreatorsService {
+  api: string = environment.api;
   url: string;
   private handleError: HandleError;
+  creatorUrl: string = '/api/Creators';
 
   /**
    * Constructor
@@ -30,44 +31,44 @@ export class ProjectsService {
    * 
    */
   constructor(private httpClient: HttpClient, httpErrorHandler: HttpErrorHandler) {
-    this.handleError = httpErrorHandler.createHandleError('HeroesService');
+    this.handleError = httpErrorHandler.createHandleError('CreatorsService');
   }
 
   /**
-   * a function to get the Projects from the api
-   * @returns Projects[]
+   * a function to get the Creators from the api
+   * @returns Creators[]
    */
-  getProjects(): Observable<Project[]> {
-    this.url = this.api + '\api\Projects';
+  getCreators(): Observable<Creator[]> {
+    this.url = this.api + this.creatorUrl;
 
 
-    return this.httpClient.get<Project[]>(this.url);
+    return this.httpClient.get<Creator[]>(this.url);
   }
 
   /**
-   * Get request the Project by id from the api
+   * Get request the Creator by id from the api
    * @param id 
    */
-  getProject(id: string): Observable<Project> {
-    return this.httpClient.get<Project>(this.url + id);
+  getCreator(id: string): Observable<Creator> {
+    return this.httpClient.get<Creator>(this.url + id);
   }
   /**
-   * send a post request to the api with the object Project
+   * send a post request to the api with the object Creator
    * in order to create the object
-   * @param Project 
+   * @param Creator 
    * 
    */
-  createProject(project: Project): Observable<Project> {
-    return this.httpClient.post<Project>(this.url, project, httpOptions)
+  createCreator(creator: Creator): Observable<Creator> {
+    return this.httpClient.post<Creator>(this.url, creator, httpOptions)
       .pipe(
-        catchError(this.handleError('createProject', project))
+        catchError(this.handleError('createCreator', creator))
       );
   }
-  updateProject(project: Project): Observable<Project> {
-    return this.httpClient.put<Project>(this.url + project._id, project, httpOptions);
+  updateCreator(creator: Creator): Observable<Creator> {
+    return this.httpClient.put<Creator>(this.url + creator._id, creator, httpOptions);
   }
-  deleteProject(projectid): Observable<Project> {
-    return this.httpClient.delete<Project>(this.url + projectid, httpOptions);
+  deleteCreator(creatorid): Observable<Creator> {
+    return this.httpClient.delete<Creator>(this.url + creatorid, httpOptions);
   }
 
 }
