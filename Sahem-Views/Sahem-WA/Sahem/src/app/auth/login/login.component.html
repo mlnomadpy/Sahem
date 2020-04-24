@@ -1,21 +1,20 @@
-<div class="login-form-flex">
-    <mat-card>
-      <mat-card-title>
-        Login
-      </mat-card-title>
-      <mat-card-content>
-        <mat-form-field>
-          <input matInput placeholder="User Name">
-        </mat-form-field>
-        <br/>
-        <mat-form-field>
-          <input type="password" matInput placeholder="Password"/>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions>
-        <div class="button-flex-container">
-          <button mat-raised-button color="primary">Login</button>
-        </div>
-      </mat-card-actions>
-    </mat-card>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="login-form">
+  <h1>Login</h1>
+
+  <div class="txtb" id="email">
+    <input type="text">
+    <span data-placeholder="Email"></span>
   </div>
+
+  <div class="txtb" id="password">
+    <input type="password">
+    <span data-placeholder="Password"></span>
+  </div>
+
+  <input type="submit" class="logbtn" value="Login">
+
+  <div class="bottom-text">
+    Don't have account? <a href="#">Sign up</a>
+  </div>
+
+</form>

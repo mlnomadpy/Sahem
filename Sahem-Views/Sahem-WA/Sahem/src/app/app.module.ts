@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FundModule } from './fund/fund.module' ;
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FundModule
+    FundModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+header {
+    padding: 1em;
+    clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
+    background: var(--bg-nav);
+    margin-bottom: 1em;
+    padding-bottom: 3.5em;
+    text-align: center;
+}
+
+.logo {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}

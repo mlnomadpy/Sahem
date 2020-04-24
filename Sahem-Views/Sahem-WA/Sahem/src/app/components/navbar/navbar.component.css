@@ -1,53 +1,4 @@
-.navbarOld {
-    width: 100%;
-    min-width: 500px;
-    height: 100px;
-    position: absolute;
-    top: 0;
-}
 
-.left-corner {
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    box-sizing: border-box;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    /* vertical-align: baseline; */
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    color: #265397;
-    transition: all 0.15s ease;
-    clip-path: polygon(0 0, 0% 100%, 100% 0);
-    background-color: rgb(46, 29, 8);
-    width: 100px;
-    position: sticky;
-    display: block;
-    float: left;
-}
-
-.right-corner {
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    box-sizing: border-box;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    /* vertical-align: baseline; */
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    color: #265397;
-    transition: all 0.15s ease;
-    clip-path: polygon(0 0, 100% 100%, 100% 0);
-    background-color: rgb(46, 29, 8);
-    width: 100px;
-    height: 100px;
-    position: sticky;
-    display: block;
-    float: right;
-}
 
 .logo2 {
     width: 50%;
@@ -65,10 +16,13 @@ nav bar
 */
 
 .navbar {
+    width: fit-content;
     position: fixed;
+    display: block;
     background-color: var(--bg-primary);
     transition: width 600ms ease;
     overflow: scroll;
+    z-index: 1000;
 }
 
 .navbar-nav {
@@ -128,7 +82,7 @@ nav bar
     transition: var(--transition-speed);
 }
 
-.logo {
+.nav-logo {
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 1rem;
@@ -140,7 +94,7 @@ nav bar
     width: 100%;
 }
 
-.logo svg {
+.nav-logo svg {
     transform: rotate(0deg);
     transition: var(--transition-speed);
 }
@@ -152,7 +106,7 @@ nav bar
     transition: var(--transition-speed);
 }
 
-.navbar:hover .logo svg {
+.navbar:hover .nav-logo svg {
     transform: rotate(-180deg);
 }
 
@@ -164,7 +118,7 @@ nav bar
         width: 100vw;
         height: 5rem;
     }
-    .logo {
+    .nav-logo {
         display: none;
     }
     .navbar-nav {
@@ -192,7 +146,7 @@ nav bar
     .navbar:hover .link-text {
         display: inline;
     }
-    .navbar:hover .logo svg {
+    .navbar:hover .nav-logo svg {
         margin-left: 11rem;
     }
     .navbar:hover .logo-text {

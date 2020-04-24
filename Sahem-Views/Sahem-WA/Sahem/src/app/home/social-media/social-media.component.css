@@ -1,0 +1,66 @@
+
+  div.browser {
+    letter-spacing: -0.05em;
+    display: block;
+    position: relative;
+  }
+
+  footer div.social-media-links {
+    background: #323b40;
+    overflow: hidden;
+    padding-bottom: 4px;
+    text-align: center;
+  }
+  footer div.social-media-links ul {
+    margin: 0;
+    padding: 0;
+  }
+  footer div.social-media-links li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  footer div.social-media-links a {
+    border-bottom: 0px solid rgba(0, 0, 0, 0.95);
+    border-radius: 4px;
+    box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0), 0 6px 8px rgba(0, 0, 0, 0), 0 24px 24px rgba(0, 0, 0, 0), 0 36px 36px rgba(0, 0, 0, 0), 0 64px 64px rgba(0, 0, 0, 0), 0 64px 128px rgba(0, 0, 0, 0), 0 120px 0 rgba(0, 0, 0, 0), 0 86px 8px 6px rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 30px;
+    padding: 20px;
+    position: relative;
+    transition: 0.2s ease-in;
+    width: 30px;
+  }
+  footer div.social-media-links a svg {
+    left: 20px;
+    position: absolute;
+    top: 20px;
+    height: 30px;
+    width: 30px;
+  }
+  footer div.social-media-links a svg.glow path,
+  footer div.social-media-links a svg.glow circle {
+    fill: rgba(0, 0, 0, 0);
+  }
+  footer div.social-media-links a svg path,
+  footer div.social-media-links a svg circle {
+    fill: #0096a1;
+    transition: 0.2s ease-in;
+  }
+  footer div.social-media-links a:hover {
+    transform: translateY(-4px);
+    box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.05), 0 24px 24px rgba(0, 0, 0, 0.05), 0 36px 36px rgba(0, 0, 0, 0.05), 0 64px 64px rgba(0, 0, 0, 0.15), 0 64px 128px rgba(0, 0, 0, 0.15), 0 86px 8px 6px rgba(14, 186, 199, 0.25), 0 83px 4px 0px rgba(14, 186, 199, 0.95);
+  }
+  footer div.social-media-links a:hover svg.glow {
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><f…ter id="filter"><feGaussianBlur stdDeviation="10" /></filter></svg>#filter');
+    filter: blur(2px);
+  }
+  footer div.social-media-links a:hover svg.glow path,
+  footer div.social-media-links a:hover svg.glow circle {
+    fill: rgba(14, 186, 199, 0.6);
+  }
+  footer div.social-media-links a:hover svg path,
+  footer div.social-media-links a:hover svg circle {
+    fill: #0ebac7;
+  }
+  

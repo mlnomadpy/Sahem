@@ -4,13 +4,20 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { LandingComponent } from './landing/landing.component';
-
+import { QuotesComponent } from './quotes/quotes.component';
+import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { SocialMediaComponent } from './social-media/social-media.component';
+import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './contact/contact.component';
+import { MaterialModule } from '../material.module';
+import { CountingUpComponent } from './counting-up/counting-up.component';
 
 @NgModule({
-  declarations: [HomeComponent, LandingComponent],
+  declarations: [HomeComponent, LandingComponent, QuotesComponent, TestimonialsComponent, SocialMediaComponent, FooterComponent, ContactComponent, CountingUpComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MaterialModule
   ]
 })
 export class HomeModule { }
