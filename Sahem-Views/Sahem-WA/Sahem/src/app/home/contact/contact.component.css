@@ -21,7 +21,8 @@
     flex: 1;
     max-width: 300px;
     height: 140px;
-    background: rgba(0, 0, 0, 0.329);
+    /* background: #00000054; */
+    background: var(--bg-secondary);
     margin: 20px;
     cursor: pointer;
     display: flex;

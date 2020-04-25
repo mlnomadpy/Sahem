@@ -30,7 +30,7 @@
     padding: 15px;
   }
   .testimonial{
-    background: rgba(0, 0, 0, 0.329);
+    background: var(--bg-secondary);
     padding: 30px;
   }
   .testimonial img{

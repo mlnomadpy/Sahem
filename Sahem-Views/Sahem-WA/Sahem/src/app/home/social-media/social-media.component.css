@@ -6,7 +6,7 @@
   }
 
   footer div.social-media-links {
-    background: #323b40;
+    background: var(--bg-primary);
     overflow: hidden;
     padding-bottom: 4px;
     text-align: center;
