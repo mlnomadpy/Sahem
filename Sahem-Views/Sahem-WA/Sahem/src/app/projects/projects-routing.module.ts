@@ -9,7 +9,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
 
 const routes: Routes = [
   {
-    path: 'projects',
+    path: '',
     component: ProjectsViewComponent
   },
   {
