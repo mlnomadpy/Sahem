@@ -11,6 +11,8 @@ export class ProjectComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const c = document.getElementsByClassName("layout").length;
+    console.log(c);
   }
 
 }

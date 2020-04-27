@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./fund/fund.module').then(m => m.FundModule)
   },
   {
-    path: 'projects',
+    path: 'fundraisers',
     loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule)
   },
   {

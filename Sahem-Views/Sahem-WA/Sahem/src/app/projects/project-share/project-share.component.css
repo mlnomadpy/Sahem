@@ -1,10 +1,9 @@
 
 
 .share-button{
-    width: 280px;
-    height: 80px;
+    width: 100%;
+    height: 50px;
     background: #dfe6e9;
-    border-radius: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,16 +18,14 @@
   }
   
   .share-button span{
-    position: absolute;
     width: 100%;
     height: 100%;
-    background: #2d3436;
+    background: var(--bg-primary);
     color: #f1f1f1;
     text-align: center;
-    line-height: 80px;
+    line-height: 60px;
     z-index: 999;
     transition: .6s linear;
-    border-radius: 40px;
   }
   
   .share-button:hover span{

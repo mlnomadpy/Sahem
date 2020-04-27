@@ -13,15 +13,15 @@ const routes: Routes = [
     component: ProjectsViewComponent
   },
   {
-    path: 'projects/create',
+    path: 'create',
     component: AddProjectComponent
   },
   {
-    path: 'projects/category',
+    path: 'category',
     component: ProjectsCategoryComponent
   },
   {
-    path: 'projects/:projectid',
+    path: ':projectid',
     component: ProjectComponent
   },
   {
