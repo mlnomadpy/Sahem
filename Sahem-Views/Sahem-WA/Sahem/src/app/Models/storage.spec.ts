@@ -1,6 +1,6 @@
-import { Storage } from './storage';
+import { BROWSER_STORAGE } from './storage';
 
-describe('Storage', () => {
+describe('BROWSER_STORAGE', () => {
   it('should create an instance', () => {
     expect(new Storage()).toBeTruthy();
   });
