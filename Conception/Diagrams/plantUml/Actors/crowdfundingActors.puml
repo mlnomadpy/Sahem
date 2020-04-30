@@ -1,0 +1,7 @@
+@startuml Actors
+actor Creator as A1
+actor Administrator as A2
+A1 <|-down- A2
+
+
+@enduml

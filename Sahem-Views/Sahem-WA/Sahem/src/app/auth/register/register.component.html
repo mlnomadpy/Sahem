@@ -1,24 +1,53 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="login-form">
   <h1>Register</h1>
 
-  <div class="txtb" id="email">
-    <input type="text">
-    <span data-placeholder="Email"></span>
+  <div role="alert" *ngIf="formError">
+    {{ formError }}
+  </div>
+  <div class="txtb">
+    <label for="Username">Username</label>
+
+    <input type="text" id="username" name="username" formControlName="username" required>
+    <!-- <span data-placeholder="Username"></span> -->
+    <!-- <div *ngIf="username.invalid" class="alert alert-danger">
+
+      <div *ngIf="username.errors.required">
+        Username is required.
+      </div>
+      <div *ngIf="username.errors.minlength">
+        Username must be at least 4 characters long.
+      </div>
+      <div *ngIf="username.errors.forbiddenName">
+        Username cannot be Bob.
+      </div>
+    </div> -->
   </div>
 
-  <div class="txtb" id="password">
-    <input type="password">
-    <span data-placeholder="Password"></span>
-  </div>
-  <div class="txtb" id="confirm_password">
-    <input type="password">
-    <span data-placeholder="Confirm Password"></span>
+  <div class="txtb">
+    <label for="Username">Email</label>
+
+    <input type="email" id="email" name="email" formControlName="email" required>
+    <!-- <span data-placeholder="Email"></span> -->
   </div>
 
-  <input type="submit" class="logbtn" value="Login">
+  <div class="txtb">
+    <label for="Password">Password</label>
+
+    <input type="password" id="password" name="password" formControlName="password" required>
+    <!-- <span data-placeholder="Password"></span> -->
+  </div>
+
+  <div class="txtb">
+    <label for="Password">Confirm Password</label>
+
+    <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" required>
+    <!-- <span data-placeholder="Confirm Password"></span> -->
+  </div>
+
+  <input type="submit" class="logbtn" value="Register" [disabled]="!loginForm.valid">
 
   <div class="bottom-text">
-    Already have an account? <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active" >Login</a>
+    Already have an account? <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active">Login</a>
   </div>
 
 </form>

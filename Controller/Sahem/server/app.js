@@ -33,8 +33,8 @@ app.use(helmet());
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/api', apiRouter);
-app.get('/app', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 //TODO route to get, create and edit creators info
 // app.use('/creators', creatorsRouter);

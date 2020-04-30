@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class Loc8rDataService {
 
   constructor(private http: HttpClient) { }
-  private apiBaseUrl = environment.api + '/api';
+  private apiBaseUrl = environment.api + '/auth';
   public login(user: User): Promise<AuthResponse> {
     return this.makeAuthApiCall('login', user);
   }

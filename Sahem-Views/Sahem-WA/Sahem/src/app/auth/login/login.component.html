@@ -1,20 +1,22 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="login-form">
+<form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="login-form">
   <h1>Login</h1>
-
-  <div class="txtb" id="email">
-    <input type="text">
+  <div role="alert" *ngIf="formError">
+    {{ formError }}
+  </div>
+  <div class="txtb">
+    <input type="email" id="email" [(ngModel)]="credentials.email" name="email" formControlName="email" required>
     <span data-placeholder="Email"></span>
   </div>
 
-  <div class="txtb" id="password">
-    <input type="password">
+  <div class="txtb">
+    <input type="password" id="password" name="password" formControlName="password" [(ngModel)]="credentials.password" required>
     <span data-placeholder="Password"></span>
   </div>
 
-  <input type="submit" class="logbtn" value="Login">
+  <input type="submit" class="logbtn" value="Login" [disabled]="!loginForm.valid">
 
   <div class="bottom-text">
-    Don't have account? <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active" >Register</a>
+    Don't have account? <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active">Register</a>
   </div>
 
 </form>
