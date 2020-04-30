@@ -28,7 +28,10 @@
 \usepackage{chngcntr}
 \usepackage{enumitem}
 \usepackage[bottom]{footmisc}
-
+\usepackage{array,multirow}
+\usepackage{longtable}
+\usepackage{float} 
+\usepackage{tabularx}
 \def\defaultFont{ptm}
 \renewcommand*{\familydefault}{\defaultFont}
 \renewcommand\UrlFont{\ignore{Actually do nothing!}}

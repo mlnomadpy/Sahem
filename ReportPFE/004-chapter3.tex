@@ -8,8 +8,1755 @@
 \label{chap:chapter_tree}
 
 \section{Capture des besoins techniques}
-\subsection{Google Cloud Platform}
-\subsection{MongoDB Atlas}
+The capture of technical needs identifies all the constraints and the choices dimensioning the design of the system.
+
+The tools and materials selected as well as the management of integration constraints generally conditioning the prerequisites of general architecture.
+
+The capture of technical needs is as follows:
+\begin{itemize}\addtolength{\itemsep}{-0.35\baselineskip}
+      \item
+            Capturing software specifications.
+
+      \item
+            Capturing specifications related to hardware configuration.
+
+\end{itemize}
+
+\subsection{Capturing software specifications}
+Once the hardware specifications have been determined, we move on to the non-functional specifications, in other words technical or software specifications.
+
+These are technical features that the system will provide to the user regardless of the business or functional term.
+
+We will therefore list a list of technical functionalities that our system will be able to provide and offer to users, which is why we have introduced the concepts of operator and technical use cases:
+
+\paragraph{Technical actors}
+Also called "technical actors" of the system, these are the actors who benefit from the technical functionalities of the system:
+\begin{itemize}\addtolength{\itemsep}{-0.35\baselineskip}
+      \item
+            User: These are the people who use the system functionality in one way or another.
+      \item
+            Administrator: this is the person responsible for managing all the management of the platform as well as that of the users.
+\end{itemize}
+
+\paragraph{Identification of technical use cases}
+
+\begin{longtable}{|m{10em}|m{10em}|m{10em}|}\hline
+      \multirow{4}{*}{Gestion de la sécurité} & \multirow{5}{*}{Authentication}          & UC1-Register                                                    \\\cline{3-3}
+                                              &                                          & UC2-Login                                                       \\\cline{3-3}
+                                              &                                          & UC3-Reset Password                                              \\\cline{3-3}
+                                              &                                          & UC4-Change password                                             \\\cline{3-3}
+                                              &                                          & UC5-Logout                                                      \\\cline{2-3}
+                                              & \multirow{1}{*}{Confidentiality}         & UC6-Role management                                             \\\cline{2-3}
+                                              & \multirow{2}{*}{Secure payment}          & UC7-Send Payment                                                \\\cline{3-3}
+                                              &                                          & UC8-Receive Payment                                             \\\cline{2-3}
+                                              & \multirow{2}{*}{Backup and restore}      & UC9-Save the database                                           \\\cline{3-3}
+                                              &                                          & UC10-Restore the database                                       \\\hline
+      \multirow{7}{*}{Gestion des données}    & \multirow{1}{*}{Dynamic data}            & UC11-Dynamic data dispaly                                       \\\cline{2-3}
+                                              & \multirow{1}{*}{Integrity}               & UC12-Simultaneous updates                                       \\\cline{2-3}
+                                              & \multirow{1}{*}{Interoperability}        & UC13-Network deployment                                         \\\cline{2-3}
+                                              & \multirow{1}{*}{Compatibility}           & UC14-Run on different browsers and platforms                    \\\cline{2-3}
+                                              & \multirow{2}{*}{History}                 & UC15-Get all the user created projects fundraised               \\\cline{3-3}
+                                              &                                          & UC16-Get all the user created projects fundraised               \\\cline{2-3}
+                                              & \multirow{1}{*}{Statistics}              & UC17-Display platform statistics                                \\\cline{2-3}
+                                              & \multirow{1}{*}{Fund}                    & UC18-Fund migration from anonymous user                         \\\hline
+      \multirow{4}{*}{Gestion d’aide}         & \multirow{2}{*}{Gestion des erreurs}     & UC19-Logging Viewing types of errors                            \\\cline{3-3}
+                                              &                                          & UC20-Send the error by email to the administrator               \\\cline{2-3}
+                                              & \multirow{1}{*}{Aide en ligne}           & UC21-Consult the user help Guide                                \\\cline{2-3}
+                                              & \multirow{1}{*}{Notifications}           & UC22-Confirmation or error message                              \\\cline{2-3}
+                                              & \multirow{1}{*}{Mails}                   & UC23-Sending emails                                             \\\hline
+      \multirow{2}{*}{Gestion du paiement}    & \multirow{1}{*}{Multi-currency platform} & UC24-Choose a currency for purchase and payment                 \\\cline{2-3}
+                                              & \multirow{1}{*}{Payment method}          & UC25-Possibility to choose a payment method                     \\\hline
+      \multirow{3}{*}{Optimisation}           & \multirow{1}{*}{Navigation}              & UC26-Nested operations                                          \\\cline{2-3}
+                                              & \multirow{1}{*}{Sharing}                 & UC27-Possibility to share your donation                         \\\cline{2-3}
+                                              & \multirow{1}{*}{Theming}                 & UC28-Possibility to switch themes between dark and light themes \\\hline
+
+      \caption{Identification of technical objectives and use cases}
+      \label{tab:id_tech_objec_uc}
+\end{longtable}
+
+\paragraph{ Technical description use cases }
+\subparagraph{UC1 - Register}
+\begin{table}[H]
+      \centering
+      \def\arraystretch{1.5}
+
+
+      \begin{tabularx}{\linewidth}{|l|X|X|X|}
+
+            \hline Use Case \#N                  & \multicolumn{3} {l|}{Name}                                                                            \\ \hline Goal in
+            Description                          & \multicolumn{3}{>{\hsize=\dimexpr 3\hsize+4\tabcolsep+2\arrayrulewidth\relax}X|}{                     %
+                  This is a very long line. Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua.  }                                                                                                                \\
+            \hline Stereotype and Package        &
+            \multicolumn{3}{l|}{}                                                                                                                        \\
+            \hline Preconditions                 &
+            \multicolumn{3}{l|}{}                                                                                                                        \\
+            \hline Postconditions                &
+            \multicolumn{3}{l|}{}                                                                                                                        \\
+            \hline Primary Actors                &
+            \multicolumn{3}{l|}{}                                                                                                                        \\
+            \hline Use Case Relationships:       &
+            \multicolumn{3}{l|}{}                                                                                                                        \\
+            \hline Basic Flow                    &
+            \multicolumn{3}{l|}{}                                                                                                                        \\
+            \hline Alternative Flow              & \multicolumn{3}{l|}{}                                                                                 \\
+
+
+            \hline Exceptions                    & \multicolumn{3}{l|}{}                                                                                 \\
+
+            \hline Constraints                   & \multicolumn{3}{l|}{}                                                                                 \\
+
+            \hline User Interface Specifications & \multicolumn{3}{l|}{}                                                                                 \\
+
+            \hline \multirow{2}{*}{}             & Metrics                                                                           & Priority & Status \\
+            \cline{2-4}                          &                                                                                   &          &        \\
+            \hline Notes                         & \multicolumn{3}{l|}{}                                                                                 \\
+            \hline
+      \end{tabularx}
+
+\end{table}
+\begin{itemize}
+      \item[] Use Case Thumbnail:
+      \item[] Use Case Description:
+      \item[] Use Case Stereotype and Package:
+      \item[] Preconditions:
+      \item[] Postcondition
+      \item[] Actors:
+      \item[] Use Case Relationships:
+      \item[] Basic Flow:
+      \item[] Alternative Flow:
+      \item[] Exceptions:
+      \item[] Constraints:
+      \item[] User Interface Specifcation:
+      \item[] Author:
+      \item[] Reference Material:
+\end{itemize}
+\subparagraph{UC2 - Login}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC3 - Reset Password}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC4 - Change password}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC5 - Logout}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC6 - Role management}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC7 - Send Payment}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC8 - Receive Payment}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC9 - Save the database}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC10 - Restore the database}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC11 - Dynamic data dispaly}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC12 - Simultaneous updates}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC13 - Network deployment}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC14 - Run on different browsers and platforms}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC15 - Get all the user created projects fundraised}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC16 - Get all the user created projects fundraised}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC17 - Display platform statistics}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC18 - Fund migration from anonymous user}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC19 - Logging Viewing types of errors}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC20 - Send the error by email to the administrator}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC21 - Consult the user help Guide}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC22 - Confirmation or error message}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC23 - Sending emails}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC24 - Choose a currency for purchase and payment}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC25 - Possibility to choose a payment method}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC26 - Nested operations}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC27 - Possibility to share your donation}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+\subparagraph{UC28 - Possibility to switch themes between dark and light themes}
+\begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
+      \item[~\bfseries Use Case Thumbnail:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Description:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Stereotype and Package:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Preconditions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Postcondition:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Actors:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Use Case Relationships:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Basic Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Alternative Flow:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Exceptions:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Constraints:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries User Interface Specifcation:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+      \item[~\bfseries Author:] \hfill \\%
+            \reportAuthor{}.~\\%
+            %
+      \item[~\bfseries Reference Material:] \hfill \\%
+            Menu Description.~\\%
+            {\textbf{Focus topics:~}\emph{Topic one, topic two, topic three, ...}}%
+            %
+
+\end{description}
+
+
+
+\subsection{Capturing hardware specifications}
+
+
 \section{Adopted Architecture}
 
 \subsection{Model View Controller Design Pattern}
@@ -80,7 +1827,7 @@ Advantages of monolithic applications:
 
 %%%
 
-\section{Choix des langages}
+\section{Choice of languages}
 
 \subsection{Conception}
 \paragraph{Unified Modeling Language}
@@ -90,6 +1837,8 @@ PlantUML is an open-source tool allowing users to create UML diagrams from a pla
 \subsection{General}
 \paragraph{JSON}
 \paragraph{HTTP}
+\paragraph{JWT}
+
 \subsection{Front-End}
 \paragraph{Typescript}
 TypeScript is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for development of large applications and transcompiles to JavaScript.[5] As TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs.
@@ -116,9 +1865,13 @@ CSS is designed to enable the separation of presentation and content, including 
 \subsection{Back-End}
 \paragraph{Javascript}
 JavaScript often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.[7] JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
+\paragraph{ES6}
+Script. The developers use ECMAScript mostly for client-side scripting of World Wide Web (WWW).
 
-\section{Framework utilisé}
-\paragraph{Mean}
+The sixth edition of ECMAScript standard is ECMAScript6 or ES6 and later renamed as ECMAScript 2015. It is a major enhancement to the JavaScript language, which allows us to write programs for complex applications. It adds many features intended to make large-scale software development easier. The most common ES6 web-browsers are Chrome and Firefox. A transpiler converts the ES6 based code into ES5 which is supported many browsers. TypeScript is a transpiler. Grunt, Gulp, and Babel are some other transpilers to compile the modules. Therefore, TypeScript supports ES6.
+
+\section{Framework used}
+\subsection*{MEAN stack}
 
 \begin{figure}[!ht]
       \center
@@ -134,7 +1887,7 @@ While the name sounds like “mean”, it actually stands for the software piece
       \label{fig:mean}
 \end{figure}
 \subsection{Front-End}
-\paragraph{}{Angular 9}
+\paragraph{Angular 9}
 Angular is an app-design framework and development platform for creating efficient and sophisticated single-page apps in html, css, and Typescript which is a superset of JavaScript. Angular provides built-in features for animation, http service, and materials which in turn have features such as auto-complete, navigation, toolbar, menus, etc. The code is written in Typescript, which compiles to JavaScript and displays the same in the browser.
 
 \subsection{Back-End}
@@ -187,7 +1940,6 @@ MongoDB is a cross-platform, document oriented database that provides, high perf
 
 \paragraph{Mongoose}
 Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB.
-
 
 
 
