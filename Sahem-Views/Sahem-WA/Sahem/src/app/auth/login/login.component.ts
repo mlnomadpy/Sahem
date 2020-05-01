@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 @Component({
@@ -9,8 +9,19 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    'username': new FormControl('',
+      [
+        Validators.required,
+        Validators.minLength(10)
+      ]
+    ),
+    'password': new FormControl('',
+      [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+      ]
+    )
 
   });
   formError: string = '';
@@ -35,10 +46,13 @@ export class LoginComponent implements OnInit {
 
   public onLoginSubmit(): void {
     this.formError = '';
-    if (!this.credentials.email || !this.credentials.password) {
+    if (!this.loginForm.get('username').value || !this.loginForm.get('password').value) {
       this.formError = 'All fields are required, please try again';
     } else {
       console.log(this.credentials);
+      this.formError = 'All good';
+      this.credentials.username = this.loginForm.get('username').value;
+      this.credentials.password = this.loginForm.get('password').value;
       this.doLogin();
     }
   }

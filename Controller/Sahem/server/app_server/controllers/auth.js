@@ -2,7 +2,6 @@ import passport from 'passport';
 import mongoose from 'mongoose';
 import { User } from './../../app_api/models/User/User';
 const register = (req, res) => {
-
     if (!req.body.username || !req.body.email || !req.body.password) {
         return res
             .status(400)
@@ -45,12 +44,15 @@ const register = (req, res) => {
 };
 
 const login = (req, res) => {
-    if (!req.body.email || !req.body.password) {
+    console.log(req.body);
+
+    if (!req.body.username || !req.body.password) {
         return res
             .status(400)
             .json({ "message": "All fields required" });
     }
     passport.authenticate('local', (err, user, info) => {
+
         if (err || !user) {
             return res.status(400).json({
                 message: info ? info.message : 'Login failed',
@@ -58,6 +60,7 @@ const login = (req, res) => {
             });
         }
         req.login(user, { session: false }, (err) => {
+            console.log(err);
             if (err) {
                 res.send(err);
             }

@@ -1,0 +1,133 @@
+*, :before, :after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    --i: var(--wide, 1);
+    --j: calc(1 - var(--i));
+    --k: calc(1 - var(--narr, 0));
+    display: grid;
+    place-content: center;
+    grid-gap: calc(var(--i)*2.25em + var(--j)*0.75em);
+    /* background: linear-gradient(to right bottom, var(--bg), var(--bg)) fixed; */
+    font: 1em/ 1.25 open sans, sans-serif;
+    transition: background 500ms ease-in-out, color 1000ms ease-in-out;
+}
+
+@media (max-width: 64em) {
+    body {
+        --wide: 0;
+    }
+}
+
+@media (max-width: 33.5em) {
+    body {
+        --narr: 1;
+    }
+}
+
+@media (max-width: 200px) {
+    body {
+        font-size: 0.75em;
+    }
+}
+
+article {
+    --p: var(--parity, 0);
+    --q: calc(1 - var(--p));
+    --s: calc(2*var(--p) - 1);
+    --art-w: calc(var(--k)*32em + var(--narr, 0)*100%);
+    display: grid;
+    grid-template: 1fr 2fr/calc(var(--k)*9em + var(--narr, 0)*3em) 1fr calc(var(--k)*3.25em);
+    place-self: center;
+    position: relative;
+    padding: .125em;
+    width: var(--art-w);
+    min-height: 9em;
+    border-radius: calc(var(--k)*9em);
+    box-shadow: 1em 1em 1.5em rgba(0, 0, 0, 0.15);
+    /* background: linear-gradient(90deg, var(--bg-secondary), var(--bg-primary)) content-box, linear-gradient(90deg, var(--purple), #d2d2d2); */
+    counter-increment: idx;
+    transition: inherit;
+}
+
+article:before {
+    grid-row: 1/calc(2 + var(--k));
+    font-size: calc(var(--k)*6.75em + var(--narr, 0)*1.5em);
+    place-self: center;
+    color: var(--c);
+    text-shadow: 1px 1px 1px #000;
+    transition: inherit;
+    content: counter(idx, decimal-leading-zero);
+}
+
+article:after {
+    display: flex;
+    place-self: center;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1/ span 2;
+    position: var(--wide, absolute);
+    top: calc(50% - 1em);
+    left: calc(var(--q)*(100% - 2em) - var(--s)*2.5em);
+    padding: .25rem;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    font-size: calc(var(--i)*5.625em + var(--j)*1em);
+    box-shadow: var(--wide, inherit);
+    background: var(--wide, linear-gradient(#ccc, #fff) content-box, linear-gradient(#fff, #d1d1d1));
+    transition: inherit;
+    content: var(--narr, attr(data-icon));
+}
+
+article:nth-child(2n) {
+    --parity: 1;
+}
+
+article+article {
+    --fader: linear-gradient(90deg, red, transparent) 0 0/ calc(32em - var(--j)*9em) 0.75em no-repeat, ;
+}
+
+article:first-of-type, article:last-of-type {
+    --rounder: radial-gradient(at 100% 50%, transparent 70%, red 71%) 0 var(--gy, 0)/ 0.375em 0.75em no-repeat, ;
+}
+
+article:last-of-type {
+    --gy: 100%;
+}
+
+span {
+    position: absolute;
+    z-index: -1;
+    top: calc(var(--i)*-1.5em - var(--j)*0.75em);
+    left: calc(var(--j)*4.5em);
+    border: solid 0.75em transparent;
+    border-left: none;
+    width: calc(32em - var(--j)*9em + calc(4.5em + (1 + var(--i))*0.75em));
+    height: calc(2*calc(4.5em + (1 + var(--i))*0.75em));
+    border-radius: 0 calc(4.5em + (1 + var(--i))*0.75em) calc(4.5em + (1 + var(--i))*0.75em) 0;
+    transform-origin: calc(16em - var(--j)*4.5em) 50%;
+    transform: scalex(calc(var(--k)*var(--s)));
+    background: conic-gradient(from -90deg, var(--slist)) border-box;
+    --m: var(--rounder, ) var(--fader, ) linear-gradient(red, red) padding-box, linear-gradient(red, red) border-box;
+    -webkit-mask: var(--m);
+    -webkit-mask-composite: xor;
+    mask: var(--m);
+    mask-composite: exclusion;
+    transition: inherit;
+}
+
+h3 {
+    align-self: center;
+    text-transform: uppercase;
+}
+
+p {
+    grid-row: 2/ 3;
+    grid-column: calc(1 + var(--k))/calc(2 + 2*var(--narr, 0));
+}

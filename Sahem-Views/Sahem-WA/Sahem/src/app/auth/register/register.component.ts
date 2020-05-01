@@ -9,7 +9,7 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  loginForm: FormGroup;
+  registerForm: FormGroup;
   formError: string = '';
   credentials = {
     _id: '',
@@ -23,27 +23,27 @@ export class RegisterComponent implements OnInit {
   constructor(private router: Router, private formBuilder: FormBuilder, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      'username': new FormControl(this.credentials.username,
+    this.registerForm = new FormGroup({
+      'username': new FormControl('',
         [
           Validators.required,
           Validators.minLength(10)
         ]
       ),
-      'email': new FormControl(this.credentials.email,
+      'email': new FormControl('',
         [
           Validators.required,
           Validators.email
         ]
       ),
-      'password': new FormControl(this.credentials.password,
+      'password': new FormControl('',
         [
           Validators.required,
           Validators.minLength(10),
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
         ]
       ),
-      'confirmPassword': new FormControl(this.credentials.confirmPassword,
+      'confirmPassword': new FormControl('',
         [
           Validators.required,
           Validators.minLength(10)
@@ -57,17 +57,32 @@ export class RegisterComponent implements OnInit {
     console.log(value);
   }
   public onRegisterSubmit(): void {
+
     this.formError = '';
     if (
-      !this.credentials.username ||
-      !this.credentials.email ||
-      !this.credentials.password || this.credentials.password !== this.credentials.confirmPassword 
+      !this.registerForm.get('username').value ||
+      !this.registerForm.get('email').value  ||
+      !this.registerForm.get('password').value  || !this.registerForm.get('confirmPassword').value 
     ) {
       this.formError = 'All fields are required, please try again';
     } else {
-      this.doRegister();
+      if (this.registerForm.get('password').value  !== this.registerForm.get('confirmPassword').value ) {
+        this.formError = 'Password doesn\'t match';
+
+      }
+      else {
+        this.formError = 'All good';
+        this.credentials.username = this.registerForm.get('username').value;
+        this.credentials.email = this.registerForm.get('email').value;
+        this.credentials.password = this.registerForm.get('password').value;
+        this.credentials.confirmPassword = this.registerForm.get('confirmPassword').value;
+        this.doRegister();
+      }
+
+
     }
   }
+
   private doRegister(): void {
     this.auth.register(this.credentials)
       .then(() => this.router.navigateByUrl('/'))

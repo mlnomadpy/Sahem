@@ -5,7 +5,7 @@
 .border {
     width: 160px;
     height: 5px;
-    background: #4cb0a8;
+    background: var(--border-color);
     margin: 26px auto;
 }
 

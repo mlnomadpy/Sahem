@@ -4,17 +4,19 @@
     {{ formError }}
   </div>
   <div class="txtb">
-    <input type="email" id="email" [(ngModel)]="credentials.email" name="email" formControlName="email" required>
-    <span data-placeholder="Email"></span>
+    <label for="username">Username</label>
+
+    <input type="username" id="username" formControlName="username" required>
   </div>
 
   <div class="txtb">
-    <input type="password" id="password" name="password" formControlName="password" [(ngModel)]="credentials.password" required>
-    <span data-placeholder="Password"></span>
+    <label for="Password">Password</label>
+
+    <input type="password" id="password" formControlName="password" required>
   </div>
 
-  <input type="submit" class="logbtn" value="Login" [disabled]="!loginForm.valid">
-
+  <input type="submit" class="logbtn" value="Login" >
+  <!-- [disabled]="!loginForm.valid" -->
   <div class="bottom-text">
     Don't have account? <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active">Register</a>
   </div>

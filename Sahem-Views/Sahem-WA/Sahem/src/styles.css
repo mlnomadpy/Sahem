@@ -71,6 +71,8 @@ body {
   --text: var(--gray6);
   --border-color: var(--blue);
   --bg-solar: var(--yellow);
+  --bg-primary: var(--gray1);
+  --bg-secondary: var(--gray3);
 }
 
 .dark {
@@ -80,6 +82,8 @@ body {
   --text: var(--gray0);
   --border-color: var(--purple);
   --bg-solar: var(--blue);
+  --bg-primary: var(--gray5);
+  --bg-secondary: var(--gray6);
 }
 
 .solar {
@@ -90,6 +94,14 @@ body {
   --gray4: #3ea565;
   --gray5: #005368;
   --gray6: #003d4c;
+  --bg: var(--gray0);
+  --bg-nav: linear-gradient(to right, var(--gray1), var(--gray3));
+  --bg-dropdown: var(--gray0);
+  --text: var(--gray6);
+  --border-color: var(--blue);
+  --bg-solar: var(--yellow);
+  --bg-primary: var(--gray1);
+  --bg-secondary: var(--gray3);
 }
 
 #dark::before {
@@ -101,7 +113,7 @@ body {
 }
 
 #solar::before {
-  background: var(--bg-solar);
+  background: #b6f880;
 }
 
 /* Logo Animation */

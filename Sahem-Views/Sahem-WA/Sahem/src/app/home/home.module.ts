@@ -11,9 +11,10 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { MaterialModule } from '../material.module';
 import { CountingUpComponent } from './counting-up/counting-up.component';
+import { PresentationComponent } from './presentation/presentation.component';
 
 @NgModule({
-  declarations: [HomeComponent, LandingComponent, QuotesComponent, TestimonialsComponent, SocialMediaComponent, FooterComponent, ContactComponent, CountingUpComponent],
+  declarations: [HomeComponent, LandingComponent, QuotesComponent, TestimonialsComponent, SocialMediaComponent, FooterComponent, ContactComponent, CountingUpComponent, PresentationComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

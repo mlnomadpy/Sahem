@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../../../Sahem-Views/Sahem-WA/Sahem/dist/Sahem')));
 app.use(passport.initialize());
 app.use(helmet());
 //define routes
@@ -34,7 +34,7 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/api', apiRouter);
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    res.sendFile(path.join(__dirname, '../../../Sahem-Views/Sahem-WA/Sahem/dist/Sahem/index.html'));
 });
 //TODO route to get, create and edit creators info
 // app.use('/creators', creatorsRouter);

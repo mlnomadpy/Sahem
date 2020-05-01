@@ -1,1 +1,123 @@
-<p>add-project works!</p>
+<form action="api/projects/create" method="post" id="usrform">
+    <div class="container">
+        <div class="layout">
+
+            <div class="content">
+                <!-- fundraiser header image upload -->
+                <div class="cardContent">
+                    <div class="header">
+                        <input type="file" name="header" id="headerImage">
+                        <!-- <app-image-upload></app-image-upload> -->
+                    </div>
+                </div>
+                <!-- Fundraiser description -->
+                <div class="cardContent">
+                    <div class="card-text">
+                        <h1>
+                            Description
+                        </h1>
+                        <p>
+                            <textarea name="description" id="descriptionInput"
+                                form="usrform">Enter text here...</textarea>
+
+                        </p>
+
+                    </div>
+                </div>
+                <div class="cardContent">
+                    <div class="card-text">
+                        <h1>
+                            Content
+                        </h1>
+                        <p>
+
+                            <input type="text" name="content" id="content">
+
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="right">
+                <h1>
+                    Thumbnail:
+                </h1>
+                <div class="card">
+                    <input type="file" name="thumbnail" id="thumbnail">
+                </div>
+                <h1>
+                    Time:
+                </h1>
+                <div class="card">
+                    <div class="box">
+
+                        <input type="date" name="endDate" id="">
+                    </div>
+                </div>
+                <h1>Goal:</h1>
+                <div class="card">
+                    <div class="box">
+
+                        <input type="number" name="goal" id="">
+
+                    </div>
+                </div>
+
+                <!-- <h1>Creator:</h1>
+                <div class="card">
+                    <div class="box">
+                        <img src="assets/taha.png" alt="" class="box-img">
+                        <h1>
+                            <div>
+                                @skywolfmo
+                            </div>
+                            <div>
+                                Taha Bouhsine
+                            </div>
+                        </h1>
+
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fad"
+                                        data-icon="alien-monster" role="img" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 620 512" class="svg-inline--fa fa-alien-monster fa-w-18 fa-9x">
+                                        <g class="fa-group">
+                                            <path fill="currentColor" class="fa-secondary"
+                                                d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
+                                        </g>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <h1>Fundraiser:</h1>
+                <div class="card">
+                    <div>
+                        <h4>
+                            Categroy:
+                        </h4>
+                        <p>
+                            <input type="text" name="category" id="">
+                        </p>
+                    </div>
+                    <!-- <div>
+                        <h4>
+                            Reward List:
+                        </h4>
+                        <p>
+                            tech, software, service.
+                        </p>
+                    </div> -->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</form>

@@ -13,6 +13,7 @@ import { ProjectShareComponent } from './project-share/project-share.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { MaterialModule } from '../material.module';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MaterialModule } from '../material.module';
     ProjectsCategoryComponent,
     ProjectShareComponent,
     ProjectCardComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ImageUploadComponent
   ],
   imports: [
     CommonModule,
