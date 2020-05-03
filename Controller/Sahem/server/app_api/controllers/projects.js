@@ -23,6 +23,14 @@ const projectsList = (req, res) => {
 
 };
 const projectsCreate = (req, res) => {
+    const header_image = '';
+    if (req.files['header_image'][0]) {
+        header_image = req.files['header_image'][0];
+    }
+    const thumbnail = '';
+    if (req.files['thumbnail'][0]) {
+        thumbnail = req.files['thumbnail'][0];
+    }
     Project
         .create({
             owner: req.creator._id,
@@ -30,7 +38,9 @@ const projectsCreate = (req, res) => {
             content: req.body.content,
             description: req.body.description,
             fundGoal: req.body.fundGoal,
-            endDate: req.body.endDate
+            endDate: req.body.endDate,
+            header_image: header_image,
+            thumbnail: thumbnail
         }, (err, project) => {
             if (err) {
                 return res
@@ -69,14 +79,17 @@ const projectsReadOne = (req, res) => {
 
 };
 const projectsUpdateOne = (req, res) => {
+
     Project
         .findById(req.body.projectid)
         .exec((err, project) => {
+
             if (err) {
                 return res
                     .status(404)
                     .json(err);
             }
+
             if (project.owner != req.creator._id) {
                 return res
                     .status(401)
@@ -84,23 +97,39 @@ const projectsUpdateOne = (req, res) => {
                         'message': 'you are not the owner'
                     });
             }
+
             if (req.body.description) {
                 project.description = req.body.description;
             }
+
             if (req.body.category) {
                 project.category = req.body.category;
             }
+
             if (req.body.content) {
                 project.content = req.body.content;
             }
+
             if (req.body.category) {
                 project.description = req.body.category;
             }
+
             if (req.body.fundGoal) {
                 project.fundGoal = req.body.fundGoal;
             }
+
             if (req.body.category) {
                 project.description = req.body.category;
+            }
+
+            const header_image = '';
+            if (req.files['header_image'][0]) {
+                project.header_image = req.files['header_image'][0];
+            }
+
+            const thumbnail = '';
+            if (req.files['thumbnail'][0]) {
+                project.thumbnail = req.files['thumbnail'][0];
             }
 
             project.save((err, proj) => {

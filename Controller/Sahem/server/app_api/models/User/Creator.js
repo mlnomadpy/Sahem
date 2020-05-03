@@ -28,7 +28,26 @@ const CreatorSchema = new Schema({
     projects: {
         type: [Schema.Types.ObjectId],
         ref: 'Project'
-    }
+    },
+    avatar:
+        [
+            {
+                fieldname: { type: String },
+                originalname: { type: String },
+                name: { type: String },
+                data: { type: Buffer },
+                md5: { type: String },
+                encoding: { type: String },
+                mimetype: { type: String },
+                destination: { type: String },
+                filename: { type: String },
+                path: { type: String },
+                size: { type: Number },
+
+                created_at: { type: Date, default: Date.now }
+            }
+        ]
+
 });
 
 CreatorSchema.statics.addProject = function (creator_id, project_id) {

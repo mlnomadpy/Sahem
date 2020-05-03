@@ -14,6 +14,7 @@ export class Creator {
     bio: String;
     projects: Project[];
     personalInformation: PersonalInformation;
+    avatar: Image;
     // paymentInformation: PaymentInformation;
     // following: Creator[];
     // followers: Creator[];

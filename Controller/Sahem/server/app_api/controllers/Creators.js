@@ -25,13 +25,16 @@ const creatorsList = (req, res) => {
 
 };
 const creatorsCreate = (req, res) => {
-
+    //avatar
+    const avatar = '';
+    if (req.file) avatar = req.file;
 
     Creator
         .create({
             user_id: req.user._id,
             creator_tag: req.body.creator_tag,
             bio: req.body.bio,
+            avatar: avatar
         }, (err, creator) => {
             if (err) {
                 res
@@ -69,6 +72,7 @@ const creatorsCreate = (req, res) => {
         });
 };
 const creatorsUpdateOne = (req, res) => {
+ 
     Creator
         .findById(req.creator._id)
         .execc((err, creator) => {
@@ -97,6 +101,10 @@ const creatorsUpdateOne = (req, res) => {
 
             if (req.body.bio) {
                 creator.bio = req.body.bio;
+            }
+
+            if (req.files) {
+                creator.avatar = req.file;
             }
 
             creator.save((err, creator) => {
@@ -155,11 +163,20 @@ const creatorsReadOne = (req, res) => {
         creator
     });
 };
+const creatorsProfileRead = (req, res) => {
+    const { userid } = req.user._id;
+
+    const creator = Creator.getCreatorByUserId(userid);
+    res.json({
+        creator
+    });
+};
 
 module.exports = {
     creatorsList,
     creatorsCreate,
     creatorsReadOne,
     creatorsUpdateOne,
-    creatorsDeleteOne
+    creatorsDeleteOne,
+    creatorsProfileRead
 };

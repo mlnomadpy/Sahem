@@ -8,6 +8,7 @@ import { getCreator } from '../../middleware/creatorGetter';
 // const ctrlReviews = require('../controllers/reviews');
 // projects
 require('../../middleware/passport')(passport);
+import { upload } from '../../middleware/upload';
 
 
 router
@@ -21,18 +22,20 @@ router
     .get((req, res) => {
         ctrlProjects.projectsList(req, res);
     })
-    .post(passport.authenticate('jwt', { session: false }), getCreator, (req, res) => {
-        // getCreator(req, res);
-        ctrlProjects.projectsCreate(req, res);
-    });
+    .post(passport.authenticate('jwt', { session: false }), getCreator, upload.fields([{ name: 'header_image', maxCount: 1 }, { name: 'thumbnail', maxCount: 1 }])
+        , (req, res) => {
+            // getCreator(req, res);
+            ctrlProjects.projectsCreate(req, res);
+        });
 router
     .route('/projects/:projectid')
     .get((req, res) => {
         ctrlProjects.projectsReadOne(req, res);
     })
-    .put(passport.authenticate('jwt', { session: false }), (req, res) => {
-        ctrlProjects.projectsUpdateOne(req, res);
-    })
+    .put(passport.authenticate('jwt', { session: false }), upload.fields([{ name: 'header_image', maxCount: 1 }, { name: 'thumbnail', maxCount: 1 }])
+        , (req, res) => {
+            ctrlProjects.projectsUpdateOne(req, res);
+        })
     .delete(passport.authenticate('jwt', { session: false }), (req, res) => {
         ctrlProjects.projectsDeleteOne(req, res);
     });
@@ -51,7 +54,7 @@ router
         ctrlCreators.creatorsList(req, res);
 
     })
-    .post(passport.authenticate('jwt', { session: false }), (req, res) => {
+    .post(passport.authenticate('jwt', { session: false }), upload.single('avatar'), (req, res) => {
         // getCreator(req, res);
         ctrlCreators.creatorsCreate(req, res);
     });
@@ -63,35 +66,54 @@ router
     .route('/creators/:creatorid')
     .get((req, res) => {
         ctrlCreators.creatorsReadOne(req, res);
+    });
+// .put(passport.authenticate('jwt', { session: false }), (req, res) => {
+//     const { creatorid } = req.params;
+
+//     getCreator(req, res);
+//     // check if the creators requesting to update is the real owner of 
+//     // the creator who is trying to change
+//     if (req.creator._id != creatorid) {
+//         res
+//             .status(403)
+//             .json(
+//                 {
+//                     "message": "Not you"
+//                 }
+//             );
+//     }
+//     ctrlCreators.creatorsUpdateOne(req, res);
+// });
+
+router
+    .route('/creators/profile')
+    .get(passport.authenticate('jwt', { session: false }), (req, res) => {
+        getCreator(req, res);
+        const creator = req.creator;
+        res.json({
+            creator
+        });
+        //todo check the creator is created else return null nad redirect to creator profile create
     })
-    .put(passport.authenticate('jwt', { session: false }), (req, res) => {
-        const { creatorid } = req.params;
+    .put(passport.authenticate('jwt', { session: false }), upload.single('avatar'), (req, res) => {
+        // const { creatorid } = req.params;
 
         getCreator(req, res);
+
         // check if the creators requesting to update is the real owner of 
         // the creator who is trying to change
-        if (req.creator._id != creatorid) {
-            res
-                .status(403)
-                .json(
-                    {
-                        "message": "Not you"
-                    }
-                );
-        }
+        // if (req.creator._id != creatorid) {
+        //     res
+        //         .status(403)
+        //         .json(
+        //             {
+        //                 "message": "Not you"
+        //             }
+        //         );
+        // }
         ctrlCreators.creatorsUpdateOne(req, res);
     });
 
-
-// reviews
-// router
-//     .route('/locations/:fundraiserid/fundraiser')
-//     .post(ctrlReviews.fundraiserCreate);
-// router
-//     .route('/locations/:fundraiserid/fundraiser/:fundraiserid')
-//     .get(ctrlReviews.fundraiserReadOne)
-//     .put(ctrlReviews.fundraiserUpdateOne)
-//     .delete(ctrlReviews.fundraiserDeleteOne);
 
 export default router;
 // module.exports = router;
