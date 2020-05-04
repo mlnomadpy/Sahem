@@ -58,81 +58,82 @@
 }
 
 \begin{document}
-  \begin{pfe-fsa}
-    \pagenumbering{roman}% i ii iii iv ...
+\dominitoc
+\begin{pfe-fsa}
+\pagenumbering{roman}% i ii iii iv ...
 
-    % \listoftodos{}
+% \listoftodos{}
 
-    % Front matter
-    \include{002-top_matter}
-    \cleardoublepage%
+% Front matter
+\include{002-top_matter}
+\cleardoublepage%
 
-    \include{003-thanks}
-    \cleardoublepage%
+\include{003-thanks}
+\cleardoublepage%
 
-    \tableofcontents
-    \addcontentsline{toc}{chapter}{\contentsname}
-    \cleardoublepage%
+\tableofcontents
+\addcontentsline{toc}{chapter}{\contentsname}
+\cleardoublepage%
 
-    \listoffigures
-    \addcontentsline{toc}{chapter}{\listfigurename}
-    \cleardoublepage%
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+\cleardoublepage%
 
-    \listoftables
-    \addcontentsline{toc}{chapter}{\listtablename}
-    \cleardoublepage
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
+\cleardoublepage
 
-    %\printglossary[type=\acronymtype, title=Abbreviations]
-    \printacronyms[heading=chapter*, name=Acronyms]
-    \addcontentsline{toc}{chapter}{Acronyms}
-    \cleardoublepage%
+%\printglossary[type=\acronymtype, title=Abbreviations]
+\printacronyms[heading=chapter*, name=Acronyms]
+\addcontentsline{toc}{chapter}{Acronyms}
+\cleardoublepage%
 
-    \sloppy
+\sloppy
 
-    \pagenumbering{arabic}% 1 2 3 4 5
-    \doublespacing{}% Double spacing between lisnes
+\pagenumbering{arabic}% 1 2 3 4 5
+\doublespacing{}% Double spacing between lisnes
 
-    \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 
-    % Main matter
-    \include{004-chapter0-introduction}
-    \cleardoublepage%
+% Main matter
+\include{004-chapter0-introduction}
+\cleardoublepage%
 
-    \include{004-chapter1}
-    \cleardoublepage%
+\include{004-chapter1}
+\cleardoublepage%
 
-    \include{004-chapter2}
-    \cleardoublepage%
+\include{004-chapter2}
+\cleardoublepage%
 
-    \include{004-chapter3}
-    \cleardoublepage%
-    
-    \include{004-chapter4}
-    \cleardoublepage%
+\include{004-chapter3}
+\cleardoublepage%
 
-    
+\include{004-chapter4}
+\cleardoublepage%
 
-    % \include{004-chapter2}
-    % \cleardoublepage%
 
-    % \include{004-chapter3}
-    % \cleardoublepage%
 
-    % Back matter
-    \include{005-conclusion}
-    \cleardoublepage%
+% \include{004-chapter2}
+% \cleardoublepage%
 
-    \include{006-appendix}
-    \cleardoublepage%
+% \include{004-chapter3}
+% \cleardoublepage%
 
-    \include{007-references}
-    \cleardoublepage%
+% Back matter
+\include{005-conclusion}
+\cleardoublepage%
 
-    % \includepdf[pages={-}]{008-abstract.pdf}
-    %\include{008-abstract}
-    \cleardoublepage%
+\include{006-appendix}
+\cleardoublepage%
 
-    \addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+\include{007-references}
+\cleardoublepage%
 
-  \end{pfe-fsa}
+% \includepdf[pages={-}]{008-abstract.pdf}
+%\include{008-abstract}
+\cleardoublepage%
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+
+\end{pfe-fsa}
 \end{document}

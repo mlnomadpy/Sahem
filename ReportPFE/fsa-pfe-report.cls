@@ -32,6 +32,7 @@
 \usepackage{longtable}
 \usepackage{float} 
 \usepackage{tabularx}
+\usepackage{minitoc}
 \def\defaultFont{ptm}
 \renewcommand*{\familydefault}{\defaultFont}
 \renewcommand\UrlFont{\ignore{Actually do nothing!}}
@@ -64,8 +65,6 @@
 % Violet - #800080 - Etude et assistance technique (optimisation de procédés, développement d'applications...)
 % Green  - #008000 - Innovation et développement durable (environnement, énergie...)
 % Blue   - #0000FF - Recherche technologique (appliquée ou fondamentale)
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define styles
