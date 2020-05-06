@@ -5,11 +5,12 @@ import { Media } from '../Common/Media';
 export class Article {
     _id: String;
     owner: Creator;
-    type: String;
+    type: string;
+    title: string;
     votes: Vote[];
     comments: Comment[];
     media: Media[];
-    content: String;
+    content: string;
     createdAt: Date;
 
 }

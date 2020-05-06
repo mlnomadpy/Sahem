@@ -21,11 +21,11 @@ const routes: Routes = [
     component: ProjectsCategoryComponent
   },
   {
-    path: ':projectid',
+    path: ':id',
     component: ProjectComponent
   },
   {
-    path: 'projects/:projectid/edit',
+    path: ':id/edit',
     component: EditProjectComponent
   }
 

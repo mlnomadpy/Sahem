@@ -2,10 +2,8 @@
     <div class="search-box">
         <input type="text" placeholder=" " /><span></span>
     </div>
-        
-    <div class="grid-items">
-        <app-project-card></app-project-card>
-        <app-project-card></app-project-card>
-        <app-project-card></app-project-card>
+
+    <div class="grid-items" *ngIf="projects">
+        <app-project-card *ngFor="let project of projects.projects" [project]="project"></app-project-card>
     </div>
 </div>

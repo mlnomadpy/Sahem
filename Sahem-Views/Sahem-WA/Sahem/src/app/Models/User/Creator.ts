@@ -8,7 +8,6 @@ import { PersonalInformation } from './PersonalInformation';
 
 export class Creator {
     _id: String;
-    profile_picture: Image;
     user_id: String;
     creator_tag: String;
     bio: String;

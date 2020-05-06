@@ -1,16 +1,18 @@
-<mat-grid-list [cols]="breakpoint" [rowHeight]="breakpoint2" (window:resize)="onResize($event)" class="profile">
+<mat-grid-list [cols]="breakpoint" [rowHeight]="breakpoint2" (window:resize)="onResize($event)" class="profile"
+    *ngIf="creator">
     <!-- creator info -->
-    <mat-grid-tile class="profile-info">
+    <mat-grid-tile class="profile-info" *ngIf="creator.personalInformation">
         <div class="box">
-            <img src="assets/taha.png" alt="" class="box-img">
+            <img [src]="creator.avatar.path" alt="" class="box-img">
             <h1>
-                Taha Bouhsine</h1>
-            <h5>
-                Web Devloper - Web Designer</h5>
-            <p>
-                A web developer is a programmer who specializes in, or is specifically engaged in, the development
-                of World Wide Web applications, or applications that are run over HTTP from a web server to a web
-                browser.</p>
+                {{creator.personalInformation.first_name}} {{creator.personalInformation.last_name}}
+            </h1>
+            <!-- <h5 *ngIf="creator.creator_tag">
+                Web Devloper - Web Designer
+            </h5> -->
+            <p *ngIf="creator.bio">
+                {{creator.bio}}
+            </p>
             <ul>
                 <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
@@ -59,27 +61,9 @@
                                 <p>15</p>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="container">
-                                <h4><b>Fund Raised</b></h4>
-                                <p>15,562 DH</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="container">
-                                <h4><b>Funded:</b></h4>
-                                <p>15,562 DH</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="container">
-                                <h4><b>Fund Raised</b></h4>
-                                <p>15,562 DH</p>
-                            </div>
-                        </div>
 
                     </div>
-                    <h1>Badges:</h1>
+                    <!-- <h1>Badges:</h1>
                     <div class="grid-items">
                         <div class="card">
                             <div class="container">
@@ -100,7 +84,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
                     <p><label for="about">Learn more</label></p>
                 </div>
             </div>
@@ -120,36 +104,12 @@
                 <div class="page-contents">
                     <h1>Fundraisers</h1>
                     <div class="grid-items">
-                        <div class="card">
+                        <div class="card" *ngFor="let project of creator.projects">
                             <img src="assets/taha.png" alt="Avatar" style="width:100%">
                             <progress max="100" value="25"></progress>
                             <div class="container">
-                                <h4><b>15,000$</b></h4>
-                                <p>A platform that can make you ...</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="assets/taha.png" alt="Avatar" style="width:100%">
-                            <progress max="100" value="25"></progress>
-                            <div class="container">
-                                <h4><b>15,000$</b></h4>
-                                <p>A platform that can make you ...</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="assets/taha.png" alt="Avatar" style="width:100%">
-                            <progress max="100" value="25"></progress>
-                            <div class="container">
-                                <h4><b>15,000$</b></h4>
-                                <p>A platform that can make you ...</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="assets/taha.png" alt="Avatar" style="width:100%">
-                            <progress max="100" value="25"></progress>
-                            <div class="container">
-                                <h4><b>15,000$</b></h4>
-                                <p>A platform that can make you ...</p>
+                                <h4><b>{{ project.fundGoal }}$</b></h4>
+                                <p> {{ project.title }}...</p>
                             </div>
                         </div>
                     </div>
@@ -171,8 +131,10 @@
             <div class="page contact-page">
                 <div class="page-contents">
                     <h1>Posts</h1>
-                    <p>Eaque accusamus magnam error unde nam, atque provident omnis fugiat quam necessitatibus vel
-                        nulla sed quibusdam fuga veritatis assumenda alias quidem asperiores?</p>
+                    <p>
+                        Eaque accusamus magnam error unde nam, atque provident omnis fugiat quam necessitatibus vel
+                        nulla sed quibusdam fuga veritatis assumenda alias quidem asperiores?
+                    </p>
                     <p><a href="#">Get in touch</a></p>
                 </div>
             </div>

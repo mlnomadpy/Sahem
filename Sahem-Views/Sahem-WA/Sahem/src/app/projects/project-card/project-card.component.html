@@ -1,9 +1,9 @@
-<div class="card" [routerLink]="['/fundraisers/wewq']" routerLinkActive="router-link-active" >
-    <img src="assets/storage/fd1.jpg" alt="Avatar" style="width:100%">
-    <progress max="100" value="25"></progress>
+<div class="card" [routerLink]="['/fundraisers/'+ project._id]" routerLinkActive="router-link-active" *ngIf="project">
+    <img [src]="[project.thumbnail.path]" alt="Avatar" style="width:100%">
+    <progress [value]="[progress]"></progress>
 
     <div class="container">
-        <h4><b>/15,000 <mat-icon> money</mat-icon></b></h4>
-        <p>A platform that can make you ...</p>
+        <h4><b>{{ reached }}DH/{{ project.fundGoal }}DH</b></h4>
+        <p>{{ project.title }}...</p>
     </div>
 </div>

@@ -35,7 +35,6 @@ const CreatorSchema = new Schema({
                 fieldname: { type: String },
                 originalname: { type: String },
                 name: { type: String },
-                data: { type: Buffer },
                 md5: { type: String },
                 encoding: { type: String },
                 mimetype: { type: String },

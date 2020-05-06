@@ -11,35 +11,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SECTION                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Description générale de la plateforme}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SUBSECTION               %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Sub section One}
-
-% And your chapter one goes here\cite{web001}\@. ~\\
-% Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-% tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-% quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-% consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-% cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-% proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % SUBSECTION               %
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Sub section Two}
-
-% This is a second subsection\cite{bazerman1988shaping}. ~\\
-% Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-% tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-% quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-% consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-% cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-% proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\section{General description of the platform}
 
 % \begin{description}\addtolength{\itemsep}{-0.35\baselineskip}%
 %   \item[\textbullet~\bfseries Menu Item] \hfill \\%
@@ -65,13 +37,76 @@
 % \end{itemize}%
 % %
 
-% And for more chaptes, just copy the file ``004-chapter1.tex'' and edit the content, and then you'll have to add it to ``001-report.tex''.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Specification of requirements}
+We will proceed according to the UML method which consists of identifying and modeling the various business processes in order to easily migrate to an object architecture from a static and dynamic point of view. This analysis presents a total abstraction being independent of any technology or implementation.
 
-\section{Spécification des besoins }
+The specification of the needs will allow us to have a better approach of the users, the functionalities and the relationship between the two. It will be in the form of a use case. For this we will proceed as follows:
 
-\section{Analyse fonctionnelle }
+Identification of the actors of the new system.
+Identification of use cases.
+Description of use cases.
+Grouping of use cases into packages.
 
-\section{Analyse dynamique  }
+\subsection{Identification of actors}
+In UML we don't use the term users but actors. A player in a system is an entity external to this system that interacts (data entry, reception of information, etc.) with it. The actors make it possible to define the interface that the system will offer to its environment.And also the actor groups together several users who have the same role. And to find actors it will be necessary to identify the different roles that will have to play its users.
+In order to facilitate identification, we can imagine this: everything that is outside and interacts with the system is an actor, everything that is inside is a functionality to be realized.
+The different actors of the studied system are:
 
-\section{Analyse structurelle   }
+\begin{enumerate}
+    \item  Creator.
+    \item  Funder.
+    \item  Administrator.
+
+\end{enumerate}
+
+\subsection{Identification of objectives and use cases}
+A use case described in the form of actions and reactions, the behavior of a system from a user point of view. It must add value to the actor concerned. Each use case contains a list of functionalities which will be detailed in the following section.
+
+We will first determine the objectives that will allow us to deduce the use cases and all this:
+\begin{longtable}{|m{10em}|m{10em}|m{10em}|}\hline
+    \multirow{4}{*}{Administration management} & \multirow{2}{*}{Authentication}       & Authentication                          \\\cline{3-3}
+                                               &                                       & Registration                            \\\cline{2-3}
+                                               & \multirow{5}{*}{User Maintainance}    & Add User                                \\\cline{3-3}
+                                               &                                       & Modify User                             \\\cline{3-3}
+                                               &                                       & Delete User                             \\\cline{3-3}
+                                               &                                       & Consult the information of a user       \\\cline{3-3}
+                                               &                                       & Show the list of users                  \\\cline{2-3}
+                                               & \multirow{2}{*}{Roles}                & Show users by roles                     \\\cline{3-3}
+                                               &                                       & Modify a user's role                    \\\cline{2-3}
+                                               & \multirow{1}{*}{Statistics}           & Access the statistics of the plateforme \\\hline
+    \multirow{4}{*}{Fundraiser's managment}    & \multirow{3}{*}{Creator's Monitoring} & Personal information modification       \\\cline{3-3}
+                                               &                                       & Access a creator profile                \\\cline{3-3}
+                                               &                                       & Desactivate an Account                  \\\cline{2-3}
+                                               & \multirow{2}{*}{Funds Monitoring}     & Fund a project                          \\\cline{3-3}
+                                               &                                       & Confirm funding a project               \\\cline{3-3}
+                                               &                                       & List of previous funds                  \\\cline{2-3}
+                                               & \multirow{6}{*}{Projects Monitoring}  & Create a project                        \\\cline{3-3}
+                                               &                                       & Edit a project                          \\\cline{3-3}
+                                               &                                       & Delete a project                        \\\cline{3-3}
+                                               &                                       & Like a project                          \\\cline{3-3}
+                                               &                                       & Share a project                         \\\cline{3-3}
+                                               &                                       & Comment on a project                    \\\cline{2-3}
+                                               & \multirow{2}{*}{Search}               & Search a project by name                \\\cline{3-3}
+                                               &                                       & Show Fundraisers by category            \\\hline
+    \multirow{2}{*}{Payment management}        & \multirow{1}{*}{Billing}              & Show the bill                           \\\cline{2-3}
+                                               & \multirow{1}{*}{Online Payment}       & Choose payment method                   \\\hline
+
+    \caption{Identification of objectives and use cases}
+    \label{tab:id_objec_uc}
+\end{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analyse fonctionnelle}
+usecase
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analyse dynamique}
+activity  squence
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analyse structurelle}
+class

@@ -15,6 +15,10 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { MaterialModule } from '../material.module';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ProjectsService } from './projects.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +37,13 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
   imports: [
     CommonModule,
     ProjectsRoutingModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    ProjectsService
+  ],
 })
 export class ProjectsModule { }

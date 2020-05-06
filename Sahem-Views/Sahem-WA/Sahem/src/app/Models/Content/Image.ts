@@ -1,15 +1,17 @@
 export class Image {
-    fieldname: String;
-    originalname: String;
-    name: String;
+    fieldname: string;
+    originalname: string;
+    name: string;
     data: Buffer;
-    md5: String;
-    encoding: String;
-    String;
-    destination: String;
-    filename: String;
-    path: String;
-    size: Number;
+    md5: string;
+    encoding: string;
+    mimetype: string;
+    destination: string;
+    filename: string;
+    path: string;
+    size: number;
     created_at: Date;
+
+   
 }
 

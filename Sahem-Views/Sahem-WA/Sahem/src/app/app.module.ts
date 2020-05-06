@@ -9,8 +9,10 @@ import { MaterialModule } from "./material.module";
 import { PipesModule } from './pipes/pipes.module';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FundModule } from './fund/fund.module' ;
+import { FundModule } from './fund/fund.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProjectsService } from './projects/projects.service';
+import { CreatorsService } from './creators/creators.service';
 
 
 
@@ -20,15 +22,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NavbarComponent,
   ],
   imports: [
-    HttpClientModule,
     PipesModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     FundModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

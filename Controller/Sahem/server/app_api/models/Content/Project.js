@@ -8,8 +8,12 @@ import { Fund } from '../fund/fund';
 import { Creator } from '../User/Creator';
 //Project schema
 export const ProjectSchema = new Schema({
+    title: {
+        type: String,
+        // required: true
+    },
     category: {
-        type: [String],
+        type: String,
         // required: true
     },
     owner: {
@@ -19,15 +23,12 @@ export const ProjectSchema = new Schema({
     },
     content: {
         type: String,
-        required: true
     },
     description: {
         type: String,
-        required: true
     },
     fundGoal: {
         type: Number,
-        required: true
     },
     raisedFunds: {
         type: Number,
@@ -39,7 +40,6 @@ export const ProjectSchema = new Schema({
     // },
     endDate: {
         type: Date,
-        required: true
     },
     funders: {
         type: [Schema.Types.ObjectId],
@@ -56,7 +56,6 @@ export const ProjectSchema = new Schema({
         {
             fieldname: { type: String },
             name: { type: String },
-            data: { type: Buffer },
             md5: { type: String },
             originalname: { type: String },
             encoding: { type: String },
@@ -73,7 +72,6 @@ export const ProjectSchema = new Schema({
         {
             fieldname: { type: String },
             name: { type: String },
-            data: { type: Buffer },
             md5: { type: String },
             originalname: { type: String },
             encoding: { type: String },
@@ -126,12 +124,22 @@ ProjectSchema.methods.addFunder = function (fundId) {
         });
     });
 };
+
 ProjectSchema.method.getFunders = function () {
-    Fund.find({}, (err, funders) => {
+    Fund.find({ '_id': { "$in": this.funders } }, (err, funders) => {
         if (err) {
             return err;
         }
         return funders;
+    });
+}
+
+ProjectSchema.method.getProjectsByCategory = function (category) {
+    Project.find({ 'category': category }, (err, projects) => {
+        if (err) {
+            return err;
+        }
+        return projects;
     });
 }
 

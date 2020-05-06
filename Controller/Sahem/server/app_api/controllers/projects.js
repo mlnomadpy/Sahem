@@ -10,7 +10,7 @@ const projectsList = (req, res) => {
                 return res
                     .status(200)
                     .send({
-                        projects: projects
+                        projects
                     });
             }
             else {
@@ -22,25 +22,28 @@ const projectsList = (req, res) => {
 
 
 };
+
 const projectsCreate = (req, res) => {
-    const header_image = '';
-    if (req.files['header_image'][0]) {
-        header_image = req.files['header_image'][0];
-    }
-    const thumbnail = '';
-    if (req.files['thumbnail'][0]) {
-        thumbnail = req.files['thumbnail'][0];
-    }
+    // const header_image = '';
+    // if (req.files['header_image'][0]) {
+    //     header_image = req.files['header_image'][0];
+    // }
+    // const thumbnail = '';
+    // if (req.files['thumbnail'][0]) {
+    //     thumbnail = req.files['thumbnail'][0];
+    // }
+    console.log(req.files);
     Project
         .create({
             owner: req.creator._id,
+            title: req.body.tilte,
             category: req.body.category,
             content: req.body.content,
             description: req.body.description,
             fundGoal: req.body.fundGoal,
             endDate: req.body.endDate,
-            header_image: header_image,
-            thumbnail: thumbnail
+            header_image: req.file,
+            // thumbnail: req.files['thumbnail'][0]
         }, (err, project) => {
             if (err) {
                 return res

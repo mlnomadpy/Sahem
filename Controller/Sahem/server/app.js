@@ -13,7 +13,7 @@ import apiRouter from './app_api/routes/index';
 import indexRouter from './app_server/routes/index';
 import authRouter from './app_server/routes/auth';
 import stripe from 'stripe';
-
+import cors from 'cors';
 dotenv.config();
 //connect to db
 stripe(process.env.STRIPE_SECRET_KEY);
@@ -22,13 +22,14 @@ require('./app_api/config/passport');
 //init app
 const app = express();
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../../Sahem-Views/Sahem-WA/Sahem/dist/Sahem')));
 app.use(passport.initialize());
 app.use(helmet());
+app.use(cors());
 //define routes
 app.use('/', indexRouter);
 app.use('/auth', authRouter);

@@ -1,15 +1,16 @@
-import { Media } from './Media';
+export class Image {
+    fieldname: string;
+    originalname: string;
+    name: string;
+    md5: string;
+    encoding: string;
+    mimetype: string;
+    destination: string;
+    filename: string;
+    path: string;
+    size: number;
+    created_at: Date;
 
-export class Image extends Media{
-
-    hash: String;
-    sha256: String;
-    ext: String;
-    mime: String;
-    size: number=0;
-    url: String;
-    provider: String;
-    provider_metadata: {};
-    related: String;
-
+    
 }
+

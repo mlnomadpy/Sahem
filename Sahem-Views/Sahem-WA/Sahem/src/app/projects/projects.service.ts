@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, Inject } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 import { HttpHeaders } from '@angular/common/http';
 import { HttpErrorHandler, HandleError } from '../services/http-error-handler.service';
@@ -10,6 +10,8 @@ import { HttpErrorHandler, HandleError } from '../services/http-error-handler.se
 import { environment } from 'src/environments/environment';
 
 import { Project } from '../Models/Content/Project';
+import { Loc8rDataService } from '../loc8r-data.service';
+import { BROWSER_STORAGE } from '../Models/storage';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,12 +20,14 @@ const httpOptions = {
   })
 };
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class ProjectsService {
   api: string = environment.api;
   url: string;
   config: any;
-  private handleError: HandleError;
+  // private handleError: HandleError;
   projectUrl: string = '/api/Projects';
 
   /**
@@ -31,8 +35,16 @@ export class ProjectsService {
    * @param httpClient 
    * 
    */
-  constructor(private httpClient: HttpClient, httpErrorHandler: HttpErrorHandler) {
-    this.handleError = httpErrorHandler.createHandleError('HeroesService');
+
+  constructor(@Inject(BROWSER_STORAGE) private storage: Storage, private httpClient: HttpClient) {
+    // this.handleError = httpErrorHandler.createHandleError('ProjectsService');
+    this.setHeaderAuthToken();
+  }
+
+  public setHeaderAuthToken() {
+    const token = this.storage.getItem('loc8r-token');
+    if (token)
+      httpOptions.headers.append('Authorization', 'bearer ' + token);
   }
 
   /**
@@ -51,7 +63,9 @@ export class ProjectsService {
    * @param id 
    */
   getProject(id: string): Observable<Project> {
-    return this.httpClient.get<Project>(this.url + id);
+    this.url = this.api + this.projectUrl;
+
+    return this.httpClient.get<Project>(this.url + '/' + id);
   }
   /**
    * send a post request to the api with the object Project
@@ -60,24 +74,52 @@ export class ProjectsService {
    * 
    */
   createProject(project: Project): Observable<Project> {
+    this.url = this.api + this.projectUrl;
+
     return this.httpClient.post<Project>(this.url, project, httpOptions)
       .pipe(
-        catchError(this.handleError('createProject', project))
+        catchError(this.error)
       );
   }
+
+  createProjectForm(formData: FormData): Observable<Project> {
+    this.url = this.api + this.projectUrl;
+
+    return this.httpClient.post<any>(this.url, formData, httpOptions)
+      .pipe(
+        catchError(this.error)
+      );
+  }
+
   updateProject(project: Project): Observable<Project> {
-    return this.httpClient.put<Project>(this.url + project._id, project, httpOptions);
+    this.url = this.api + this.projectUrl;
+
+    return this.httpClient.put<Project>(this.url + '/' + project._id, project, httpOptions);
   }
   deleteProject(projectid): Observable<Project> {
-    return this.httpClient.delete<Project>(this.url + projectid, httpOptions);
+    this.url = this.api + this.projectUrl;
+
+    return this.httpClient.delete<Project>(this.url + '/' + projectid, httpOptions);
   }
 
 
   getCreatorByCategory(category: string) {
     //TODO add a route that get the Project by category
-    this.url = this.api + '/api/Project/' + category;
+    this.url = this.api + this.projectUrl;
 
 
-    return this.httpClient.get<Project[]>(this.url);
+    return this.httpClient.get<Project[]>(this.url + '/category/' + category);
+  }
+
+
+  error(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
   }
 }
