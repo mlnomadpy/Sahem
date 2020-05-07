@@ -4,7 +4,10 @@
         <div class="content">
             <!-- fundraiser header -->
             <div class="cardContent">
-                <div class="header">
+                <div class="header" *ngIf="project.title">
+                    {{project.title}}
+                </div>
+                <div class="header" *ngIf="project.header_image">
                     <img [src]="project.header_image[0].path" alt="" class="header-img">
                 </div>
             </div>
@@ -40,55 +43,29 @@
             <h1>
                 Time:
             </h1>
-            <div class="card" *ngIf="this.project.endDate">
+            <div class="card" *ngIf="project.endDate">
                 <div class="box">
 
-                    <h1>
-                        {{}}
+                    <h1 *ngIf="date">
+                        {{date.days}} Days, {{date.hours}} Houres, {{date.minutes}} Minutes
                     </h1>
+
                 </div>
             </div>
             <h1>Progress:</h1>
             <div class="card">
                 <div class="box">
 
-                    <h1>1,500DH/10,000DH</h1>
-                    <app-progress-bar></app-progress-bar>
+                    <h1>
+                        {{project.raisedFunds | currency:'MAD' }}/{{project.fundGoal  | currency:'MAD'}}
+                    </h1>
+                    <app-progress-bar [progress]="progress"></app-progress-bar>
 
                 </div>
             </div>
 
             <h1>Creator:</h1>
-            <div class="card">
-                <div class="box">
-                    <img src="assets/taha.png" alt="" class="box-img">
-                    <h1>
-                        <div>
-                            @skywolfmo
-                        </div>
-                        <div>
-                            Taha Bouhsine
-                        </div>
-                    </h1>
-
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="alien-monster"
-                                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 512"
-                                    class="svg-inline--fa fa-alien-monster fa-w-18 fa-9x">
-                                    <g class="fa-group">
-                                        <path fill="currentColor" class="fa-secondary"
-                                            d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
-                                    </g>
-                                </svg>
-                            </a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+            <app-creator-card [id]="project.owner"></app-creator-card>
 
             <h1>Fundraiser:</h1>
             <div class="card">

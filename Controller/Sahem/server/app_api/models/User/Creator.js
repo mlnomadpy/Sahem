@@ -14,10 +14,27 @@ const CreatorSchema = new Schema({
         unique: true
 
     },
-    personal_information: {
-        type: Schema.Types.ObjectId,
-        ref: 'PersonalInformation'
-    },
+    personal_information: 
+    [
+        {
+            first_name: {
+                type: String
+            },
+            last_name: {
+                type: String
+            },
+            birthday: {
+                type: Date
+            },
+            address: {
+                type: String
+            }
+        }
+    ],
+    // personal_information: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'PersonalInformation'
+    // },
     payment_information: {
         type: Schema.Types.ObjectId,
         ref: 'PaymentInformation'

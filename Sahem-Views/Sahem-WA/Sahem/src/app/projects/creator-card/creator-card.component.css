@@ -1,0 +1,182 @@
+.container {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+    padding-bottom: 0% !important;
+    font-family: 'Century Gothic', sans-serif;
+
+}
+
+.layout {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.content {
+    width: 78%;
+    display: block;
+    clear: left;
+    float: left;
+}
+
+.right {
+    width: 18%;
+    display: block;
+    clear: right;
+    float: right;
+    margin-right: 1%;
+}
+
+.right h4 {
+    margin-top: 3%;
+}
+
+/* card */
+
+.card:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    transform: translateY(-3px) scale(1.1);
+}
+
+.card h4 {
+    text-align: center;
+}
+
+.card {
+    display: block;
+    background: var(--bg-secondary);
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    color: var(--text);
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    transition: all 500ms;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 1%;
+}
+
+.card p {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.cardContent {
+    background: var(--bg-secondary);
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    color: var(--text);
+    width: 100%;
+    border-radius: 4px;
+    transition: all 500ms;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 1%;
+    color: var(--text);
+    font-family: 'Century Gothic', sans-serif;
+
+}
+.card-text{
+    padding: 3%;
+}
+/* box profile */
+
+.box {
+    padding: 1%;
+    width: 100%;
+    background: var(--bg-secondary);
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    /* margin-top: 5vh; */
+    color: var(--text);
+    font-family: 'Century Gothic', sans-serif;
+}
+
+.box-img {
+    border-radius: 50%;
+    width: 25%;
+}
+
+.box h1 {
+    display: block;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    font-weight: 100;
+}
+
+.box h5 {
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: 100;
+}
+
+.box p {
+    text-align: justify;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.box li {
+    display: inline-block;
+    margin: 6px;
+    list-style: none;
+}
+
+.box li a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 60px;
+    transition: all ease-in-out 250ms;
+}
+
+.box li a:hover {
+    color: #b9b9b9;
+}
+
+/* media */
+
+@media screen and (max-width: 600px) {
+    .layout {
+        width: 100%;
+    }
+    .card {
+        margin: 0;
+        margin-top: 1%;
+        width: 100%;
+    }
+    .cardContent {
+        margin: 0;
+        margin-top: 1%;
+
+        width: 100%;
+    }
+    .content {
+        width: 100%;
+    }
+    .right {
+        width: 100%;
+        margin-right: 0%;
+    }
+    .card:hover {
+        box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+        transform: translateY(-3px) scale(1);
+    }
+}
+
+.header-img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+}

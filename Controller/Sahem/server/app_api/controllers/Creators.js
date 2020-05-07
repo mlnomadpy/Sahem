@@ -27,14 +27,14 @@ const creatorsList = (req, res) => {
 const creatorsCreate = (req, res) => {
     //avatar
     const avatar = '';
-    if (req.file) avatar = req.file;
-
+    // if (req.file) avatar = req.file;
+    console.log(req.file);
     Creator
         .create({
             user_id: req.user._id,
             creator_tag: req.body.creator_tag,
             bio: req.body.bio,
-            avatar: avatar
+            avatar: req.file
         }, (err, creator) => {
             if (err) {
                 res
@@ -155,14 +155,40 @@ const creatorsDeleteOne = (req, res) => {
 
 };
 
-const creatorsReadOne = (req, res) => {
-    const { creatorid } = req.params;
+// const creatorsReadOne = (req, res) => {
+//     const { creatorid } = req.params;
 
-    const creator = Creator.getCreatorById(creatorid);
-    res.json({
-        creator
-    });
+//     const creator = Creator.getCreatorById(creatorid);
+//     console.log(creator);
+//     res.json({
+//         creator
+//     });
+// };
+
+const creatorsReadOne = (req, res) => {
+    Creator
+        .findById(req.params.creatorid)
+        .exec((err, creator) => {
+            if (!creator) {
+                return res
+                    .status(404)
+                    .json({
+                        "message": "creator not found"
+                    });
+            } else if (err) {
+                return res
+                    .status(404)
+                    .json(err);
+            }
+            return res
+                .status(200)
+                .json(creator);
+        });
+
+
 };
+
+
 const creatorsProfileRead = (req, res) => {
     const { userid } = req.user._id;
 

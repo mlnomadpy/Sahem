@@ -1,9 +1,11 @@
 <div class="card" [routerLink]="['/fundraisers/'+ project._id]" routerLinkActive="router-link-active" *ngIf="project">
     <img [src]="[project.thumbnail.path]" alt="Avatar" style="width:100%">
-    <progress [value]="[progress]"></progress>
+    <progress [value]="project.progress"></progress>
 
     <div class="container">
-        <h4><b>{{ reached }}DH/{{ project.fundGoal }}DH</b></h4>
+        <h4><b>
+                {{project.raisedFunds | currency:'MAD' }}/{{project.fundGoal | currency:'MAD'}}
+            </b></h4>
         <p>{{ project.title }}...</p>
     </div>
 </div>

@@ -11,7 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 export class ProjectComponent implements OnInit {
   project: Project;
   projectId: string;
-  date: number;
+  date: any;
+  progress: any;
+  reached: any;
   constructor(private projectsService: ProjectsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,23 +25,55 @@ export class ProjectComponent implements OnInit {
      * get project 
      */
     this.getProject();
-    this.date = this.project.endDate.getDate() - Date.now();
-    
+    // this.date = this.project.endDate.getDate() - Date.now();
+
   }
 
   async getProject() {
     const result = await this.getProjectById(this.projectId);
   }
-
+  
   getProjectById(id) {
     const p = new Promise((res, rej) => {
       this.projectsService.getProject(id).subscribe(project => {
         this.project = project;
+        this.date = this.getTimeRemaining(this.project.endDate);
+        this.progress = this.calculateProjectProgress(this.project);
         console.log(this.project);
       });
       res('resolved');
     });
     return p;
   }
+
+  public calculateProjectProgress(project) {
+    return this.calculateFunds(project)  / project.fundGoal;
+  }
+  public calculateFunds(project) {
+    var reached = Math.random() * 10000;
+    // project.funds.forEach(fund => {
+    //   reached += fund.amount;
+    // });
+    // this.project.raisedFunds = Number(reached.toFixed(2));
+    this.project.raisedFunds = reached;
+    console.log(this.date);
+    return reached;
+  }
+
+  public getTimeRemaining(date) {
+    var t = Date.parse(date) - Date.now();
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return {
+      'total': t,
+      'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
+
 
 }

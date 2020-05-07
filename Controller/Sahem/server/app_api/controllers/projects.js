@@ -36,14 +36,15 @@ const projectsCreate = (req, res) => {
     Project
         .create({
             owner: req.creator._id,
-            title: req.body.tilte,
+            title: req.body.title,
             category: req.body.category,
             content: req.body.content,
             description: req.body.description,
             fundGoal: req.body.fundGoal,
             endDate: req.body.endDate,
-            header_image: req.file,
-            // thumbnail: req.files['thumbnail'][0]
+            // header_image: req.file,
+            header_image: req.files['header_image'][0],
+            thumbnail: req.files['thumbnail'][0]
         }, (err, project) => {
             if (err) {
                 return res

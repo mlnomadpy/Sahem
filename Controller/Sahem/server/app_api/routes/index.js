@@ -23,9 +23,9 @@ router
     .get((req, res) => {
         ctrlProjects.projectsList(req, res);
     })
-    .post(passport.authenticate('jwt', { session: false }), getCreator, upload.single('header_image'), (req, res) => {
+    .post(passport.authenticate('jwt', { session: false }), getCreator, upload.fields([{ name: 'header_image', maxCount: 1 }, { name: 'thumbnail', maxCount: 1 }]), (req, res) => {
         // getCreator(req, res);
-        // upload.any();
+        // upload.any(); upload.single('header_image'),
         // upload.fields([{ name: 'header_image', maxCount: 1 }, { name: 'thumbnail', maxCount: 1 }]);
         // upload.single('header_image');
         console.log(req.file);
@@ -36,8 +36,8 @@ router
     .get((req, res) => {
         ctrlProjects.projectsReadOne(req, res);
     })
-    .put(passport.authenticate('jwt', { session: false }), (req, res) => {
-        upload.fields([{ name: 'header_image', maxCount: 1 }, { name: 'thumbnail', maxCount: 1 }]);
+    .put(passport.authenticate('jwt', { session: false }), upload.fields([{ name: 'header_image', maxCount: 1 }, { name: 'thumbnail', maxCount: 1 }]), (req, res) => {
+        // upload.fields([{ name: 'header_image', maxCount: 1 }, { name: 'thumbnail', maxCount: 1 }]);
         ctrlProjects.projectsUpdateOne(req, res);
     })
     .delete(passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -60,6 +60,8 @@ router
     })
     .post(passport.authenticate('jwt', { session: false }), upload.single('avatar'), (req, res) => {
         // getCreator(req, res);
+        console.log(req.file);
+
         ctrlCreators.creatorsCreate(req, res);
     });
 // .put(passport.authenticate('jwt', { session: false }), (req, res) => {
