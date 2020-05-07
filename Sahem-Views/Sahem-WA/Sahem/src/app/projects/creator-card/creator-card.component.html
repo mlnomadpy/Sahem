@@ -1,6 +1,6 @@
 <div class="card" *ngIf="creator">
     <div class="box">
-        <img [src]="'http://localhost:3000/' + creator.avatar[0].path + '.' + avatarExt" alt="" class="box-img">
+        <img [src]="'http://localhost:3000/' + creator.avatar[0].path" alt="" class="box-img" >
         <h1>
             <div>
                 @{{creator.creator_tag}}

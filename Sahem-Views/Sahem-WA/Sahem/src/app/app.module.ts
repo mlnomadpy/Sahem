@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProjectsService } from './projects/projects.service';
 import { CreatorsService } from './creators/creators.service';
 
+import { NgxStripeModule } from 'ngx-stripe';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { CreatorsService } from './creators/creators.service';
     MaterialModule,
     FundModule,
     HttpClientModule,
+    NgxStripeModule.forRoot('pk_test_ablkVle1fAdxzWB0qRShQkZa00DpDTMg0L'),
   ],
   providers: [
     

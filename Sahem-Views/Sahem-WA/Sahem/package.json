@@ -24,6 +24,7 @@
     "marked": "^1.0.0",
     "mime-types": "^2.1.27",
     "ngx-countup": "^7.3.0",
+    "ngx-stripe": "^9.0.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

@@ -4,11 +4,14 @@
         <div class="content">
             <!-- fundraiser header -->
             <div class="cardContent">
-                <div class="header" *ngIf="project.title">
+                <h1 style="text-align: center; padding-top: 2%;">
                     {{project.title}}
-                </div>
+                </h1>
+            </div>
+            <div class="cardContent">
+
                 <div class="header" *ngIf="project.header_image">
-                    <img [src]="project.header_image[0].path" alt="" class="header-img">
+                    <img [src]="'http://localhost:3000/' + project.header_image[0].path" alt="" class="header-img">
                 </div>
             </div>
             <!-- Fundraiser description -->
@@ -37,6 +40,14 @@
         </div>
 
         <div class="right">
+            <div class="card card-fund" [routerLink]="['/fundraisers/' + project._id + '/fund']"
+                routerLinkActive="router-link-active">
+                <h1 style="text-align: center; padding-top: 2%;">
+                    Fund
+                </h1>
+            </div>
+            <h1>Share:</h1>
+
             <div class="card">
                 <app-project-share></app-project-share>
             </div>
@@ -56,9 +67,11 @@
             <div class="card">
                 <div class="box">
 
-                    <h1>
-                        {{project.raisedFunds | currency:'MAD' }}/{{project.fundGoal  | currency:'MAD'}}
-                    </h1>
+                    <h3>
+                        <div>{{project.raisedFunds | currency:'MAD' }}</div>
+                        <div class="border"></div>
+                        <div>{{project.fundGoal  | currency:'MAD'}}</div>
+                    </h3>
                     <app-progress-bar [progress]="progress"></app-progress-bar>
 
                 </div>
@@ -67,14 +80,12 @@
             <h1>Creator:</h1>
             <app-creator-card [id]="project.owner"></app-creator-card>
 
-            <h1>Fundraiser:</h1>
+            <h1>Categroy:</h1>
             <div class="card">
                 <div>
-                    <h4>
-                        Categroy:
-                    </h4>
+
                     <p>
-                        {{project.category}}.
+                        {{project.category}}
                     </p>
                 </div>
                 <!-- <div>

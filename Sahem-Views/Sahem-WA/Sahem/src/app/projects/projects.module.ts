@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProjectsService } from './projects.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreatorCardComponent } from './creator-card/creator-card.component';
+import { FundComponent } from './fund/fund.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CreatorCardComponent } from './creator-card/creator-card.component';
     ProjectCardComponent,
     ProgressBarComponent,
     ImageUploadComponent,
-    CreatorCardComponent
+    CreatorCardComponent,
+    FundComponent
   ],
   imports: [
     CommonModule,
