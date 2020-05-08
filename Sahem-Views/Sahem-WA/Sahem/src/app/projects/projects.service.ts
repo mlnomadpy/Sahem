@@ -15,7 +15,7 @@ import { BROWSER_STORAGE } from '../Models/storage';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
+    'Content-Type': 'multipart/form-data',
     'Authorization': 'null'
   })
 };
@@ -38,7 +38,6 @@ export class ProjectsService {
 
   constructor(@Inject(BROWSER_STORAGE) private storage: Storage, private httpClient: HttpClient) {
     // this.handleError = httpErrorHandler.createHandleError('ProjectsService');
-    this.setHeaderAuthToken();
   }
 
   public setHeaderAuthToken() {
@@ -74,6 +73,8 @@ export class ProjectsService {
    * 
    */
   createProject(project: Project): Observable<Project> {
+    this.setHeaderAuthToken();
+
     this.url = this.api + this.projectUrl;
 
     return this.httpClient.post<Project>(this.url, project, httpOptions)
@@ -83,6 +84,8 @@ export class ProjectsService {
   }
 
   createProjectForm(formData: FormData): Observable<Project> {
+    this.setHeaderAuthToken();
+
     this.url = this.api + this.projectUrl;
 
     return this.httpClient.post<any>(this.url, formData, httpOptions)
@@ -92,6 +95,8 @@ export class ProjectsService {
   }
 
   updateProject(project: Project): Observable<Project> {
+    this.setHeaderAuthToken();
+
     this.url = this.api + this.projectUrl;
 
     return this.httpClient.put<Project>(this.url + '/' + project._id, project, httpOptions);

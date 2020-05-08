@@ -10,6 +10,7 @@ export class AuthenticationService {
   constructor(@Inject(BROWSER_STORAGE) private storage: Storage, private loc8rDataService: Loc8rDataService) { }
 
   public getToken(): string {
+    console.log(this.storage.getItem('loc8r-token'));
     return this.storage.getItem('loc8r-token');
   }
 

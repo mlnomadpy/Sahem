@@ -1,21 +1,177 @@
-form.checkout {
+.fundForm {
+    background-color: #9169d8;
+}
+
+.fundForm * {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.fundForm form {}
+
+#example5-paymentRequest {
     max-width: 500px;
-    margin: 2rem auto;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.fundForm fieldset {
+    border: 1px solid #b5a4ed;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.fundForm fieldset legend {
+    margin: 0 auto;
+    padding: 0 10px;
     text-align: center;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    background: white;
-  
-    font-family: monospace;
-    color: #525252;
-    font-size: 1.1rem;
-  }
-  form.checkout button {
-    padding: 0.5rem 1rem;
-    color: white;
-    background: coral;
-    border: none;
-    border-radius: 4px;
-    margin-top: 1rem;
-  }
+    font-size: 14px;
+    font-weight: 500;
+    color: #cdd0f8;
+    background-color: #9169d8;
+}
+
+.fundForm fieldset legend+* {
+    clear: both;
+}
+
+.fundForm .card-only {
+    display: block;
+}
+
+.fundForm .payment-request-available {
+    display: none;
+}
+
+.fundForm .row {
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 0 10px;
+}
+
+.fundForm .field {
+    position: relative;
+    width: 100%;
+}
+
+.fundForm .field+.field {
+    margin-left: 10px;
+}
+
+.fundForm label {
+    width: 100%;
+    color: #cdd0f8;
+    font-size: 13px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fundForm .input {
+    width: 100%;
+    color: #fff;
+    background: transparent;
+    padding: 5px 0 6px 0;
+    border-bottom: 1px solid #a988ec;
+    transition: border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fundForm .input::-webkit-input-placeholder {
+    color: #bfaef6;
+}
+
+.fundForm .input::-moz-placeholder {
+    color: #bfaef6;
+}
+
+.fundForm .input:-ms-input-placeholder {
+    color: #bfaef6;
+}
+
+.fundForm .input.StripeElement--focus, .fundForm .input:focus {
+    border-color: #fff;
+}
+
+.fundForm .input.StripeElement--invalid {
+    border-color: #ffc7ee;
+}
+
+.fundForm input:-webkit-autofill, .fundForm select:-webkit-autofill {
+    -webkit-text-fill-color: #fce883;
+    transition: background-color 100000000s;
+    -webkit-animation: 1ms void-animation-out;
+}
+
+.fundForm .StripeElement--webkit-autofill {
+    background: transparent !important;
+}
+
+.fundForm input, .fundForm button, .fundForm select {
+    -webkit-animation: 1ms void-animation-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border-style: none;
+    border-radius: 0;
+}
+
+.fundForm select.input, .fundForm select:-webkit-autofill {
+    background-image: url('data:image/svg+xml;utf8,<svg width="10px" height="5px" viewBox="0 0 10 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#fff" d="M5.35355339,4.64644661 L9.14644661,0.853553391 L9.14644661,0.853553391 C9.34170876,0.658291245 9.34170876,0.341708755 9.14644661,0.146446609 C9.05267842,0.0526784202 8.92550146,-2.43597394e-17 8.79289322,0 L1.20710678,0 L1.20710678,0 C0.930964406,5.07265313e-17 0.707106781,0.223857625 0.707106781,0.5 C0.707106781,0.632608245 0.759785201,0.759785201 0.853553391,0.853553391 L4.64644661,4.64644661 L4.64644661,4.64644661 C4.84170876,4.84170876 5.15829124,4.84170876 5.35355339,4.64644661 Z" id="shape"></path></svg>');
+    background-position: 100%;
+    background-size: 10px 5px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+
+.fundForm button {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin: 20px 0 0;
+    background-color: #fff;
+    border-radius: 6px;
+    color: #9169d8;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.fundForm button:active {
+    background-color: #cdd0f8;
+}
+
+.fundForm .error svg .base {
+    fill: #fff;
+}
+
+.fundForm .error svg .glyph {
+    fill: #9169d8;
+}
+
+.fundForm .error .message {
+    color: #fff;
+}
+
+.fundForm .success .icon .border {
+    stroke: #bfaef6;
+}
+
+.fundForm .success .icon .checkmark {
+    stroke: #fff;
+}
+
+.fundForm .success .title {
+    color: #fff;
+}
+
+.fundForm .success .message {
+    color: #cdd0f8;
+}
+
+.fundForm .success .reset path {
+    fill: #fff;
+}

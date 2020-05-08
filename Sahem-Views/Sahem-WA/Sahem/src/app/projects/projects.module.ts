@@ -20,6 +20,7 @@ import { ProjectsService } from './projects.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreatorCardComponent } from './creator-card/creator-card.component';
 import { FundComponent } from './fund/fund.component';
+import { NgxStripeModule } from 'ngx-stripe';
 
 
 @NgModule({
@@ -44,6 +45,8 @@ import { FundComponent } from './fund/fund.component';
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    NgxStripeModule.forRoot('pk_test_ablkVle1fAdxzWB0qRShQkZa00DpDTMg0L'),
+
     ReactiveFormsModule
   ],
   providers: [

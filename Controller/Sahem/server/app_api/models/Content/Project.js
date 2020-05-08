@@ -4,7 +4,7 @@ import timestamps from 'mongoose-timestamp';
 // const Fundraiser = require('../User/fundraiser').fundRaiserSchema;
 import { VoteSchema, Vote } from './Vote';
 import { Comment } from './Comment';
-import { Fund } from '../fund/fund';
+// import { Fund } from '../fund/fund';
 import { Creator } from '../User/Creator';
 //Project schema
 export const ProjectSchema = new Schema({
@@ -41,10 +41,22 @@ export const ProjectSchema = new Schema({
     endDate: {
         type: Date,
     },
-    funders: {
-        type: [Schema.Types.ObjectId],
-        ref: 'Fund'
-    },
+    funders: [
+        {
+            _id: {
+                type: Schema.Types.ObjectId
+            },
+            funder: {
+                type: Schema.Types.ObjectId,
+            },
+            project: {
+                type: Schema.Types.ObjectId,
+            },
+            amount: {
+                type: Number,
+            }
+        }
+    ],
     votes: {
         type: [VoteSchema]
     },
@@ -114,25 +126,26 @@ ProjectSchema.methods.deleteComment = function (_id) {
 };
 
 //fund methods
-ProjectSchema.methods.addFunder = function (fundId) {
-    this.funders.push(fundId);
+ProjectSchema.methods.addFunder = function (fund) {
 
-    Fund.find({ 'project': this._id }, (err, funds) => {
-        if (err) return;
-        funds.forEach(fund => {
-            this.raisedFunds += fund.amount;
-        });
-    });
+    this.funders.push(fund);
+    this.raisedFunds += fund.amount;
+    // Fund.find({ 'project': this._id }, (err, funds) => {
+    //     if (err) return;
+    //     funds.forEach(fund => {
+    //         this.raisedFunds += fund.amount;
+    //     });
+    // });
 };
 
-ProjectSchema.method.getFunders = function () {
-    Fund.find({ '_id': { "$in": this.funders } }, (err, funders) => {
-        if (err) {
-            return err;
-        }
-        return funders;
-    });
-}
+// ProjectSchema.method.getFunders = function () {
+//     Fund.find({ '_id': { "$in": this.funders } }, (err, funders) => {
+//         if (err) {
+//             return err;
+//         }
+//         return funders;
+//     });
+// }
 
 ProjectSchema.method.getProjectsByCategory = function (category) {
     Project.find({ 'category': category }, (err, projects) => {

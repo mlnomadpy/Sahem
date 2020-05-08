@@ -3,6 +3,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { StripeService, Elements, Element as StripeElement, ElementsOptions } from "ngx-stripe";
+import { HttpClient } from '@angular/common/http';
+import { FundService } from '../fund.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-fund',
@@ -21,12 +24,17 @@ export class FundComponent implements OnInit {
   stripeTest: FormGroup;
 
   constructor(
+    private route: ActivatedRoute,
+    private fundService: FundService,
+    private http: HttpClient,
     private fb: FormBuilder,
-    private stripeService: StripeService) { }
+    private stripeService: StripeService
+  ) { }
 
   ngOnInit() {
     this.stripeTest = this.fb.group({
-      name: ['', [Validators.required]]
+      amount: ['', [Validators.required]],
+      name: ['', [Validators.required]],
     });
     this.stripeService.elements(this.elementsOptions)
       .subscribe(elements => {
@@ -55,17 +63,51 @@ export class FundComponent implements OnInit {
 
   buy() {
     const name = this.stripeTest.get('name').value;
+    const amount = this.stripeTest.get('amount').value;
     this.stripeService
       .createToken(this.card, { name })
       .subscribe(result => {
         if (result.token) {
           // Use the token to create a charge or a customer
           // https://stripe.com/docs/charges
-          console.log(result.token);
+          this.charge(result.token);
+          const fund = {
+            token: result.token,
+            amount: amount
+          };
+          console.log(fund);
+          this.charge(fund);
         } else if (result.error) {
           // Error creating the token
           console.log(result.error.message);
         }
       });
   }
+  charge(fund) {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.fundService.fundCharge(fund, id)
+      .subscribe(fund => {
+        console.log(fund);
+      });
+    // console.log(req);
+    // return this.http.post<any>(this.url, formData, httpOptions)
+    //   .pipe(
+    //     catchError(this.error)
+    //   );
+  }
+  stripeTokenHandler(token) {
+    // Insert the token ID into the form so it gets submitted to the server
+    var form = document.getElementById('payment-form');
+    var hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'stripeToken');
+    hiddenInput.setAttribute('value', token.id);
+    form.appendChild(hiddenInput);
+
+    // Submit the form
+    // form.submit();
+  }
+
+
+
 }

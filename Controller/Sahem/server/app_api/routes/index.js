@@ -4,6 +4,7 @@ import passport from 'passport';
 const router = express.Router();
 import ctrlProjects from '../controllers/projects';
 import ctrlCreators from '../controllers/Creators';
+import ctrlFunds from '../controllers/Fund';
 import { getCreator } from '../../middleware/creatorGetter';
 import bodyParser from 'body-parser';
 
@@ -11,7 +12,7 @@ import bodyParser from 'body-parser';
 // projects
 require('../../middleware/passport')(passport);
 import { upload } from '../../middleware/upload';
-
+var jsonParser = bodyParser.json();
 
 router
     .route('/')
@@ -43,6 +44,39 @@ router
     .delete(passport.authenticate('jwt', { session: false }), (req, res) => {
         ctrlProjects.projectsDeleteOne(req, res);
     });
+
+router
+    .route('/projects/:projectid/fund')
+    .post(jsonParser, passport.authenticate('jwt', { session: false }), getCreator, (req, res) => {
+        console.log(req.body);
+        try {
+            // TODO get the creators profile
+            // note nevermind already done that in getCreator middleware
+            stripe.customers
+                .create({
+                    name: req.creator.personal_information.first_name + ' ' + req.creator.personal_information.last_name,
+                    email: req.creator.creator_tag,
+                    source: req.body.token
+                })
+                .then(customer => {
+                    stripe.charges.create({
+                        amount: req.body.amount * 100,
+                        currency: "mad",
+                        customer: customer.id
+                    });
+                    req.customer = customer;
+                }
+                )
+                .then(() => {
+                    ctrlFunds.fundsCreate(req, res);
+                })
+                .catch(err => console.log(err));
+        } catch (err) {
+            res.send(err);
+        }
+    });
+
+
 
 // TODO Add comments
 // router
