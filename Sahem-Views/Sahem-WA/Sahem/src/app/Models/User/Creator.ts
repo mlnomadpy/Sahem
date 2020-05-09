@@ -12,7 +12,7 @@ export class Creator {
     creator_tag: String;
     bio: String;
     projects: Project[];
-    personalInformation: PersonalInformation;
+    personal_information: PersonalInformation;
     avatar: Image;
     // paymentInformation: PaymentInformation;
     // following: Creator[];

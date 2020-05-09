@@ -86,8 +86,8 @@ export class FundComponent implements OnInit {
   charge(fund) {
     const id = this.route.snapshot.paramMap.get('id');
     this.fundService.fundCharge(fund, id)
-      .subscribe(fund => {
-        console.log(fund);
+      .subscribe(() => {
+        console.log('you here');
       });
     // console.log(req);
     // return this.http.post<any>(this.url, formData, httpOptions)

@@ -1,18 +1,20 @@
+<app-profile-create *ngIf="!creator"></app-profile-create>
+
 <mat-grid-list [cols]="breakpoint" [rowHeight]="breakpoint2" (window:resize)="onResize($event)" class="profile"
     *ngIf="creator">
     <!-- creator info -->
-    <mat-grid-tile class="profile-info" *ngIf="creator.personalInformation">
+    <mat-grid-tile class="profile-info" *ngIf="creator.personal_information">
         <div class="box">
-            <img [src]="creator.avatar.path" alt="" class="box-img">
-            <h1>
-                {{creator.personalInformation.first_name}} {{creator.personalInformation.last_name}}
+            <img [src]="'http://localhost:3000/' + creator.avatar[0].path" alt="" class="box-img" *ngIf="creator.avatar[0]">
+            <h1 *ngIf="creator.personal_information">
+                {{creator.personal_information.first_name}} {{creator.personal_information.last_name}}
             </h1>
-            <!-- <h5 *ngIf="creator.creator_tag">
-                Web Devloper - Web Designer
-            </h5> -->
-            <p *ngIf="creator.bio">
+            <h5 *ngIf="creator.creator_tag">
+                @{{creator.creator_tag}}
+            </h5>
+            <h5 *ngIf="creator.bio">
                 {{creator.bio}}
-            </p>
+            </h5>
             <ul>
                 <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
@@ -104,14 +106,15 @@
                 <div class="page-contents">
                     <h1>Fundraisers</h1>
                     <div class="grid-items">
-                        <div class="card" *ngFor="let project of creator.projects">
+                        <!-- <div class="card" *ngFor="let project of creator.projects">
                             <img src="assets/taha.png" alt="Avatar" style="width:100%">
                             <progress max="100" value="25"></progress>
                             <div class="container">
                                 <h4><b>{{ project.fundGoal }}$</b></h4>
                                 <p> {{ project.title }}...</p>
                             </div>
-                        </div>
+                        </div> -->
+                        <app-project-card *ngFor="let project of creator.projects"></app-project-card>
                     </div>
                 </div>
             </div>

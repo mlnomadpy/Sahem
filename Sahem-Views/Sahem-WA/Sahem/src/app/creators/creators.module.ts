@@ -8,6 +8,7 @@ import { ProfileCreateComponent } from './profile-create/profile-create.componen
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from "../material.module";
+import { ProjectCardComponent } from './project-card/project-card.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MaterialModule } from "../material.module";
     ProfileComponent,
     ProfileCreateComponent,
     ProfileEditComponent,
+    ProjectCardComponent
   ],
   imports: [
     CommonModule,

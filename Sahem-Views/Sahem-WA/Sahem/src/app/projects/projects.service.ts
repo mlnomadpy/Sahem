@@ -13,10 +13,10 @@ import { Project } from '../Models/Content/Project';
 import { Loc8rDataService } from '../loc8r-data.service';
 import { BROWSER_STORAGE } from '../Models/storage';
 
-const httpOptions = {
+var httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'multipart/form-data',
-    'Authorization': 'null'
+    // 'content-type': 'multipart/form-data',
+    'Authorization': 'bearer ' + localStorage.getItem('loc8r-token')
   })
 };
 
@@ -73,8 +73,10 @@ export class ProjectsService {
    * 
    */
   createProject(project: Project): Observable<Project> {
-    this.setHeaderAuthToken();
-
+    // this.setHeaderAuthToken();
+    const token = this.storage.getItem('loc8r-token');
+    const bearerToken = 'BEARER ' + token;
+    httpOptions.headers.append('Authorization', bearerToken);
     this.url = this.api + this.projectUrl;
 
     return this.httpClient.post<Project>(this.url, project, httpOptions)
@@ -83,9 +85,11 @@ export class ProjectsService {
       );
   }
 
-  createProjectForm(formData: FormData): Observable<Project> {
-    this.setHeaderAuthToken();
-
+  createProjectForm(formData: FormData): Observable<any> {
+    // this.setHeaderAuthToken();
+    const token = this.storage.getItem('loc8r-token');
+    const bearerToken = 'BEARER ' + token;
+    httpOptions.headers.append('authorization', bearerToken);
     this.url = this.api + this.projectUrl;
 
     return this.httpClient.post<any>(this.url, formData, httpOptions)
@@ -95,13 +99,18 @@ export class ProjectsService {
   }
 
   updateProject(project: Project): Observable<Project> {
-    this.setHeaderAuthToken();
-
+    // this.setHeaderAuthToken();
+    const token = this.storage.getItem('loc8r-token');
+    const bearerToken = 'BEARER ' + token;
+    httpOptions.headers.append('authorization', bearerToken);
     this.url = this.api + this.projectUrl;
 
     return this.httpClient.put<Project>(this.url + '/' + project._id, project, httpOptions);
   }
   deleteProject(projectid): Observable<Project> {
+    const token = this.storage.getItem('loc8r-token');
+    const bearerToken = 'BEARER ' + token;
+    httpOptions.headers.append('authorization', bearerToken);
     this.url = this.api + this.projectUrl;
 
     return this.httpClient.delete<Project>(this.url + '/' + projectid, httpOptions);

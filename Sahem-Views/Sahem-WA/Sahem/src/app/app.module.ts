@@ -22,7 +22,6 @@ import { CreatorsService } from './creators/creators.service';
     NavbarComponent,
   ],
   imports: [
-    PipesModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

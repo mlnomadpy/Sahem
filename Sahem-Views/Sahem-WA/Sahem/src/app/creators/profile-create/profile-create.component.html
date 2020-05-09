@@ -1,11 +1,12 @@
 <div>
   <form [formGroup]="profile" (ngSubmit)="submit()">
-    <input type="file" formControlName="avatar" id="">
-    <input type="text" formControlName="first_name" id="">
-    <input type="text" formControlName="last_name" id="">
-    <input type="text" formControlName="address" id="">
-    <input type="date" formControlName="birthday" id="">
-    <input type="text" formControlName="creator_tag" id="">
-    <input type="text" formControlName="bio" id="">
+    <input type="file" formControlName="avatar" id="avatar" (change)="onHeaderImageChange($event)">
+    <input type="text" formControlName="first_name" id="first_name">
+    <input type="text" formControlName="last_name" id="last_name">
+    <input type="text" formControlName="address" id="address">
+    <input type="date" formControlName="birthday" id="birthday">
+    <input type="text" formControlName="creator_tag" id="creator_tag">
+    <input type="text" formControlName="bio" id="bio">
+    <input type="submit" value="Create">
   </form>
 </div>

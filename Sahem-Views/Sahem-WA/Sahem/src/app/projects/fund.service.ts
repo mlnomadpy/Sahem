@@ -17,7 +17,7 @@ import { BROWSER_STORAGE } from '../Models/storage';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'Authorization': 'null'
+    'authorization': 'null'
   })
 };
 
@@ -43,16 +43,22 @@ export class FundService {
 
   public setHeaderAuthToken() {
     const token = this.storage.getItem('loc8r-token');
-    if (token)
-      httpOptions.headers.append('Authorization', 'bearer ' + token);
-    console.log(token);
+    const bearerToken = 'BEARER ' + token;
+    // if (token)
+    httpOptions.headers.append('authorization', bearerToken);
+    console.log(bearerToken);
   }
 
 
 
   fundCharge(formData: FormData, id: string): Observable<any> {
-    this.setHeaderAuthToken();
+    // this.setHeaderAuthToken();
+    
+    const token = this.storage.getItem('loc8r-token');
+    const bearerToken = 'BEARER ' + token;
+    httpOptions.headers = httpOptions.headers.set('Authorization', bearerToken);
 
+    console.log(httpOptions.headers);
     this.url = this.api + this.projectUrl + '/' + id + '/fund';
     console.log(this.url);
     return this.httpClient.post<any>(this.url, formData, httpOptions)

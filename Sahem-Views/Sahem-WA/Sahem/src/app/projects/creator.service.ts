@@ -40,7 +40,7 @@ export class CreatorService {
 
   constructor(@Inject(BROWSER_STORAGE) private storage: Storage, private httpClient: HttpClient) {
     // this.handleError = httpErrorHandler.createHandleError('ProjectsService');
-    this.setHeaderAuthToken();
+    // this.setHeaderAuthToken();
   }
 
   public setHeaderAuthToken() {

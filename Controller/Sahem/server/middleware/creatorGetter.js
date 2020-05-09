@@ -7,6 +7,7 @@ import { Creator } from '../app_api/models/User/Creator';
  */
 const getCreator = (req, res, next) => {
     const userId = req.user._id;
+    // console.log("dasdsad");
     const ObjectId = require('mongoose').Types.ObjectId;
     Creator
         .findOne({ user_id: userId })

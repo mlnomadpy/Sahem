@@ -1,4 +1,4 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()" id="usrform" >
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" id="usrform" encType="multipart/form-data">
     <div class="container">
         <div class="layout">
 
@@ -8,9 +8,13 @@
                     <div class="header">
                         <input formControlName="title" type="text" name="title" id="title">
 
+                    </div>
+                </div>
+                <div class="cardContent">
+                    <div class="header">
 
-                        <input formControlName="headerImage" id="headerImage" type="file" class="form-control"
-                            (change)="onFileChange($event)">
+                        <input formControlName="header_image" id="header_image" type="file" class="form-control"
+                            (change)="onHeaderImageChange($event)">
                         <!-- <input type="file" name="header" id="headerImage"> -->
                         <!-- <app-image-upload></app-image-upload> -->
                     </div>
@@ -36,7 +40,9 @@
                         </h1>
                         <p>
 
-                            <input formControlName="content" type="text" name="content" id="content">
+                            <!-- <input formControlName="content" type="text" name="content" id="content"> -->
+                            <textarea formControlName="content" name="content" id="contentInput"
+                                form="usrform">Enter text here...</textarea>
 
                         </p>
                     </div>
@@ -45,17 +51,16 @@
             </div>
 
             <div class="right">
-                <h1>
-                    submit:
-                </h1>
                 <div class="card">
-                    <button type="submit">Upload</button>
+                    <!-- <input type="submit">Create The Project</button> -->
+                    <input type="submit" value="Create">
                 </div>
                 <h1>
                     Thumbnail:
                 </h1>
                 <div class="card">
-                    <input formControlName="thumbnail" type="file" name="thumbnail" id="thumbnail" (change)="onFileChange($event)"> 
+                    <input formControlName="thumbnail" type="file" name="thumbnail" id="thumbnail"
+                        (change)="onThumbnailChange($event)">
                 </div>
                 <h1>
                     Time:
@@ -68,11 +73,11 @@
                 <h1>Goal:</h1>
                 <div class="card">
                     <div class="box">
-                        <input formControlName="goal" type="number" name="goal" id="goal">
+                        <input formControlName="fundGoal" type="number" name="fundGoal" class="goal" id="fundGoal">
                     </div>
                 </div>
 
-          
+
                 <h1>Fundraiser:</h1>
                 <div class="card">
                     <div>
@@ -83,7 +88,7 @@
                             <input formControlName="category" type="text" name="category" id="category">
                         </p>
                     </div>
-                  
+
                 </div>
 
 

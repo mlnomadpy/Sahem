@@ -7,12 +7,14 @@ import ctrlCreators from '../controllers/Creators';
 import ctrlFunds from '../controllers/Fund';
 import { getCreator } from '../../middleware/creatorGetter';
 import bodyParser from 'body-parser';
-
+import stripe from 'stripe';
+stripe(process.env.STRIPE_SECRET_KEY);
 // const ctrlReviews = require('../controllers/reviews');
 // projects
 require('../../middleware/passport')(passport);
 import { upload } from '../../middleware/upload';
-var jsonParser = bodyParser.json();
+var jsonParser = bodyParser.json({ limit: '50mb' });
+var urlParser = bodyParser.urlencoded({ limit: '50mb', extended: true });
 
 router
     .route('/')
@@ -29,7 +31,7 @@ router
         // upload.any(); upload.single('header_image'),
         // upload.fields([{ name: 'header_image', maxCount: 1 }, { name: 'thumbnail', maxCount: 1 }]);
         // upload.single('header_image');
-        console.log(req.file);
+        // console.log(req);
         ctrlProjects.projectsCreate(req, res);
     });
 router
@@ -47,24 +49,26 @@ router
 
 router
     .route('/projects/:projectid/fund')
-    .post(jsonParser, passport.authenticate('jwt', { session: false }), getCreator, (req, res) => {
-        console.log(req.body);
+    .post(jsonParser, urlParser, passport.authenticate('jwt', { session: false }), getCreator, (req, res) => {
         try {
+            console.log(req.body);
             // TODO get the creators profile
             // note nevermind already done that in getCreator middleware
             stripe.customers
                 .create({
-                    name: req.creator.personal_information.first_name + ' ' + req.creator.personal_information.last_name,
+                    name: req.body.card.name,
                     email: req.creator.creator_tag,
-                    source: req.body.token
+                    source: req.body.id
                 })
                 .then(customer => {
+                    console.log('asds');
                     stripe.charges.create({
                         amount: req.body.amount * 100,
                         currency: "mad",
                         customer: customer.id
                     });
                     req.customer = customer;
+                    // console.log(customer);
                 }
                 )
                 .then(() => {
@@ -92,7 +96,7 @@ router
         ctrlCreators.creatorsList(req, res);
 
     })
-    .post(passport.authenticate('jwt', { session: false }), upload.single('avatar'), (req, res) => {
+    .post(jsonParser, urlParser, passport.authenticate('jwt', { session: false }), upload.single('avatar'), (req, res) => {
         // getCreator(req, res);
         console.log(req.file);
 
@@ -126,10 +130,11 @@ router
 // });
 
 router
-    .route('/creators/profile')
-    .get(passport.authenticate('jwt', { session: false }), (req, res) => {
-        getCreator(req, res);
+    .route('/profile')
+    .post(jsonParser, urlParser, passport.authenticate('jwt', { session: false }), getCreator, (req, res) => {
+        // getCreator(req, res);
         const creator = req.creator;
+        // console.log(req.creator);
         res.json({
             creator
         });

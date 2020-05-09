@@ -27,7 +27,7 @@
     "start": "npm run prod",
     "build": "npm-run-all clean transpile",
     "server": "node ./dist-server/bin/www",
-    "dev": "npm-run-all build server",
+    "dev": "npm-run-all build server ",
     "prod": "SET NODE_ENV=production npm-run-all build server",
     "transpile": "babel ./server --out-dir dist-server",
     "clean": "rimraf dist-server",

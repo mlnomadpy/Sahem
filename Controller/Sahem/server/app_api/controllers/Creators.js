@@ -64,7 +64,7 @@ const creatorsCreate = (req, res) => {
                         creator.personal_information = p_i._id;
                         return res
                             .status(201)
-                            .json(creator);
+                            .json("creator created");
                     }
                 });
 

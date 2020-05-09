@@ -18,7 +18,7 @@ const fundsCreate = (req, res) => {
     //                 .json(err);
     //         }
     //     });
-
+    console.log('you are here now');
     // TODO charge if successful create Fund
     Fund
         .create({
@@ -43,7 +43,7 @@ const fundsCreate = (req, res) => {
                                 .status(404)
                                 .json(err);
                         }
-
+                        console.log({ proj });
                         project.funders.push(fund);
 
                         project.save((err, proj) => {
@@ -53,9 +53,10 @@ const fundsCreate = (req, res) => {
                                     .json(err);
                             }
                             else {
+                                // console.log({ fund, proj });
                                 return res
                                     .status(200)
-                                    .json(proj);
+                                    .json({ fund, proj });
                             }
                         })
                     });

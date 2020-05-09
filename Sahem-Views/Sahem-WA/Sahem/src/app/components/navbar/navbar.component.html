@@ -14,6 +14,26 @@
                 </svg>
             </a>
         </li>
+        <li class="nav-item nav-item-create" *ngIf="isLoggedIn">
+            <a [routerLink]="['/fundraisers/create']" routerLinkActive="router-link-active" class="nav-link nav-item-create">
+                <!-- <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="cat" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    class="svg-inline--fa fa-cat fa-w-16 fa-9x">
+                    <path fill="currentColor"
+                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+                        class="fa-secondary"></path>
+                </svg> -->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+                    <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <g>
+                        <path fill="currentColor" class="fa-secondary-item"
+                            d="M860.4,218.4l-74.3-77L914.9,10l74.3,77L860.4,218.4z M399.7,689.8l0.2,0.2l-112.1,38.7l37.4-116.1l0.2,0.2l423.5-432.8l74.3,77L399.7,689.8z M115.1,881.1l766,0V445.6L990,336.7v598.9c0,30.1-25.4,54.4-54.4,54.4l-873,0c-29,0-52.6-24.4-52.6-54.4V64.4C10,34.4,33.5,10,62.6,10l600.8,0L554.4,118.9l-439.3,0V881.1z" />
+                    </g>
+                </svg>
+                <span class="link-text">Create</span>
+            </a>
+        </li>
 
         <li class="nav-item" *ngIf="isLoggedIn">
             <a [routerLink]="['/creators/profile']" routerLinkActive="router-link-active" class="nav-link">
@@ -27,18 +47,7 @@
                 <span class="link-text">Profile</span>
             </a>
         </li>
-        <li class="nav-item" *ngIf="isLoggedIn">
-            <a [routerLink]="['/fundraisers/create']" routerLinkActive="router-link-active" class="nav-link">
-                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="cat" role="img"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                    class="svg-inline--fa fa-cat fa-w-16 fa-9x">
-                    <path fill="currentColor"
-                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
-                        class="fa-secondary"></path>
-                </svg>
-                <span class="link-text">Create</span>
-            </a>
-        </li>
+
 
         <li class="nav-item">
             <a [routerLink]="['/fundraisers']" routerLinkActive="router-link-active" class="nav-link">
@@ -54,8 +63,8 @@
                 <span class="link-text">Fundraisers</span>
             </a>
         </li>
-        
-        <li class="nav-item" id="themeButton" >
+
+        <li class="nav-item" id="themeButton">
             <a (click)="toggleTheme()" class="nav-link">
                 <svg class="theme-icon" id="lightIcon" aria-hidden="true" focusable="false" data-prefix="fad"
                     data-icon="moon-stars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -114,7 +123,7 @@
         <!-- ngif islogged in -->
 
         <li class="nav-item" *ngIf="isLoggedIn">
-            <a (click)="logout" class="nav-link">
+            <a (click)="logout()" class="nav-link">
                 <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="space-shuttle" role="img"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
                     class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x">

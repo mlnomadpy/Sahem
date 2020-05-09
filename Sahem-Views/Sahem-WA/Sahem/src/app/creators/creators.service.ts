@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { HttpHeaders } from '@angular/common/http';
@@ -15,8 +15,8 @@ import { Loc8rDataService } from '../loc8r-data.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'null'
+    // 'Content-Type': 'application/json',
+    'Authorization': 'bearer ' + localStorage.getItem('loc8r-token')
   })
 };
 
@@ -32,10 +32,10 @@ export class CreatorsService {
    * @param httpClient 
    * 
    */
-  constructor(@Inject(BROWSER_STORAGE) private storage: Storage, private loc8rDataService: Loc8rDataService, private httpClient: HttpClient, httpErrorHandler: HttpErrorHandler) {
+  constructor(@Inject(BROWSER_STORAGE) private storage: Storage, private loc8rDataService: Loc8rDataService, private httpClient: HttpClient) {
 
-    this.handleError = httpErrorHandler.createHandleError('CreatorsService');
-    this.setHeaderAuthToken();
+    // this.handleError = httpErrorHandler.createHandleError('CreatorsService');
+    // this.setHeaderAuthToken();
   }
 
   public setHeaderAuthToken() {
@@ -59,14 +59,26 @@ export class CreatorsService {
    * @param id 
    */
   getCreator(id: string): Observable<Creator> {
+    this.url = this.api + this.creatorUrl;
+    // const token = this.storage.getItem('loc8r-token');
+    // const bearerToken = 'BEARER ' + token;
+    // httpOptions.headers.append('Authorization', bearerToken);
+
     return this.httpClient.get<Creator>(this.url + id);
   }
   /**
    * 
    * @param creator 
    */
-  getCreatorProfile(): Observable<Creator> {
-    return this.httpClient.get<Creator>(this.url + '/profile', httpOptions);
+  async getCreatorProfile(): Promise<Observable<any>> {
+    this.url = this.api + this.creatorUrl;
+    const token = await this.storage.getItem('loc8r-token');
+    const bearerToken = 'bearer ' + token;
+
+    console.log(bearerToken);
+    httpOptions.headers.set('authorization', bearerToken);
+    console.log(httpOptions.headers);
+    return this.httpClient.post<any>(this.api + '/api/profile', null, httpOptions);
   }
   /**
    * send a post request to the api with the object Creator
@@ -74,10 +86,12 @@ export class CreatorsService {
    * @param Creator 
    * 
    */
-  createCreator(creator: Creator): Observable<Creator> {
-    return this.httpClient.post<Creator>(this.url, creator, httpOptions)
+  createCreator(formDate): Observable<any> {
+    return this.httpClient.post<any>(this.url, formDate, httpOptions)
       .pipe(
-        catchError(this.handleError('createCreator', creator))
+        // catchError(this.handleError('createCreator', creator))
+        catchError(this.error)
+
       );
   }
   updateCreator(creator: Creator): Observable<Creator> {
@@ -85,6 +99,17 @@ export class CreatorsService {
   }
   deleteCreator(): Observable<Creator> {
     return this.httpClient.delete<Creator>(this.url + '/profile', httpOptions);
+  }
+
+  error(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
   }
 
 }

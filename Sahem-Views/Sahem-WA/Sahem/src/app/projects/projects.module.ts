@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreatorCardComponent } from './creator-card/creator-card.component';
 import { FundComponent } from './fund/fund.component';
 import { NgxStripeModule } from 'ngx-stripe';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
@@ -45,9 +46,9 @@ import { NgxStripeModule } from 'ngx-stripe';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    NgxStripeModule.forRoot('pk_test_ablkVle1fAdxzWB0qRShQkZa00DpDTMg0L'),
-
-    ReactiveFormsModule
+    NgxStripeModule.forRoot('pk_test_tXj8N60xSzLiRJWozIpiQWia00uEqdqOvw'),
+    ReactiveFormsModule,
+    PipesModule
   ],
   providers: [
     ProjectsService

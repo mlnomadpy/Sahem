@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { CreatorsService } from '../creators.service';
 import { Creator } from 'src/app/Models/User/Creator';
 
 @Component({
-  selector: 'profile-create',
+  selector: 'app-profile-create',
   templateUrl: './profile-create.component.html',
   styleUrls: ['./profile-create.component.css']
 })
@@ -15,7 +15,7 @@ export class ProfileCreateComponent implements OnInit {
   breakpoint2 = "2:3";
   creator: Creator;
   imageLink: string;
-  constructor(private creatorService: CreatorsService) { }
+  constructor(private creatorService: CreatorsService, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.breakpoint = (window.innerWidth <= 900) ? 1 : 2;
@@ -33,17 +33,49 @@ export class ProfileCreateComponent implements OnInit {
       creator_tag: new FormControl('', [Validators.required]),
       bio: new FormControl('', [Validators.required]),
       avatar: new FormControl('', [Validators.required]),
+      file: new FormControl('', [Validators.required]),
       first_name: new FormControl('', [Validators.required]),
       last_name: new FormControl('', [Validators.required]),
       address: new FormControl('', [Validators.required]),
-      birthday: new FormControl('', [Validators.required])
+      birthday: new FormControl('', [Validators.required]),
     });
   }
 
   submit() {
+    const formData = new FormData();
+    formData.append('creator_tag', this.profile.get('creator_tag').value);
+    formData.append('bio', this.profile.get('bio').value);
+    formData.append('first_name', this.profile.get('first_name').value);
+    formData.append('last_name', this.profile.get('last_name').value);
+    formData.append('address', this.profile.get('address').value);
+    formData.append('birthday', this.profile.get('birthday').value);
+    formData.append('avatar', this.profile.get('file').value, 'avatar' + this.profile.get('creator_tag').value);
 
+    this.creatorService.createCreator(formData)
+      .subscribe(() => {
+        console.log('you here');
+
+      });
   }
-
+  get f() {
+    return this.profile.controls;
+  }
+  onHeaderImageChange(event) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        console.log(file);
+        this.profile.patchValue({
+          file: file
+        });
+        // console.log(file);
+        this.cd.markForCheck();
+      };
+    }
+  }
 
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 900) ? 1 : 2;

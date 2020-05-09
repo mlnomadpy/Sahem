@@ -25,9 +25,19 @@ app.use(logger('dev'));
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 
+const fs = require('fs');
+
+fs.readdir('upload', (err, files) => {
+    files.forEach(file => {
+        console.log(file);
+    });
+});
+
+
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../../../Sahem-Views/Sahem-WA/Sahem/dist/Sahem')));
-app.use('/upload', express.static(__dirname + 'upload'));
+app.use(express.static(path.join(__dirname, 'public')));
+// TOFO delete ../
+app.use('/upload', express.static(path.join(__dirname, 'upload')));
 app.use(passport.initialize());
 app.use(helmet());
 app.use(cors());

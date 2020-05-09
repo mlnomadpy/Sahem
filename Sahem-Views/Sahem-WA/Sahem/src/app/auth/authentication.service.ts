@@ -20,7 +20,10 @@ export class AuthenticationService {
 
   public login(user: User): Promise<any> {
     return this.loc8rDataService.login(user)
-      .then((authResp: AuthResponse) => this.saveToken(authResp.token));
+      .then((authResp: AuthResponse) => {
+        this.saveToken(authResp.token);
+        window.location.reload;
+      });
   }
 
   public register(user: User): Promise<any> {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ProjectsService } from '../projects.service';
 import { HttpClient } from '@angular/common/http';
@@ -10,8 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddProjectComponent implements OnInit {
   myForm: FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private httpClient: HttpClient, private projectsService: ProjectsService) { }
+  header_image: File;
+  thumbnail: File;
+  constructor(private cd: ChangeDetectorRef, private formBuilder: FormBuilder, private projectsService: ProjectsService) { }
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -19,9 +20,12 @@ export class AddProjectComponent implements OnInit {
       description: new FormControl('', [Validators.required]),
       content: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
-      goal: new FormControl('', [Validators.required]),
-      headerImage: new FormControl('', [Validators.required]),
-      thumbnail: new FormControl('', [Validators.required])
+      fundGoal: new FormControl('', [Validators.required]),
+      file_header_image: new FormControl('', [Validators.required]),
+      header_image: new FormControl(null, [Validators.required]),
+      file_thumbnail: new FormControl('', [Validators.required]),
+      thumbnail: new FormControl(null, [Validators.required]),
+      category: new FormControl('', [Validators.required]),
     });
   }
 
@@ -29,31 +33,57 @@ export class AddProjectComponent implements OnInit {
     return this.myForm.controls;
   }
 
-  onFileChange(event) {
-
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.patchValue({
-        fileSource: file
-      });
+  onHeaderImageChange(event) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.myForm.patchValue({
+          file_header_image: file
+        });
+        // console.log(file);
+        this.cd.markForCheck();
+      };
     }
-
-
-
+  }
+  onThumbnailChange(event) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.myForm.patchValue({
+          file_thumbnail: file
+        });
+        // console.log(file);
+        this.cd.markForCheck();
+      };
+    }
   }
 
   onSubmit() {
+    // var fileInput = fileInput;
     const formData = new FormData();
     formData.append('title', this.myForm.get('title').value);
     formData.append('description', this.myForm.get('description').value);
     formData.append('content', this.myForm.get('content').value);
     formData.append('endDate', this.myForm.get('endDate').value);
-    formData.append('goal', this.myForm.get('goal').value);
-    formData.append('headerImage', this.myForm.get('headerImage').value);
-    formData.append('thumbnail', this.myForm.get('thumbnail').value);
+    formData.append('fundGoal', this.myForm.get('fundGoal').value);
+    // console.log(this.myForm.get('headerImage').value as File);
+    // const header_image =this.myForm.get('header_image').value;
+    // console.log(header_image);
+    formData.append('header_image', this.myForm.get('file_header_image').value, 'header_image' + this.myForm.get('endDate').value);
+    formData.append('thumbnail', this.myForm.get('file_thumbnail').value, 'thumbnail' + this.myForm.get('endDate').value);
+    formData.append('category', this.myForm.get('category').value);
+    // console.log(formData);
 
-    this.projectsService.createProjectForm(formData);
-    
+    this.projectsService.createProjectForm(formData)
+      .subscribe(() => {
+        console.log('you here');
+
+      });
+
   }
 
 }

@@ -12,6 +12,9 @@ export class ProfileComponent implements OnInit {
   breakpoint = 2;
   breakpoint2 = "2:3";
   creator: Creator;
+  creatorObject: {
+    creator: Creator
+  };
   imageLink: string;
   constructor(private creatorService: CreatorsService) { }
 
@@ -25,9 +28,11 @@ export class ProfileComponent implements OnInit {
   getCreator() {
     // this.creatorService.getCreatorProfile()
     //   .subscribe(creator => this.creator = creator);
-    const p = new Promise((res, rej) => {
-      this.creatorService.getCreatorProfile().subscribe(creator => {
-        this.creator = creator;
+    const p = new Promise(async (res, rej) => {
+      (await this.creatorService.getCreatorProfile()).subscribe(creator => {
+        this.creatorObject = creator;
+        this.creator = this.creatorObject.creator;
+        console.log(this.creator);
       });
       res('resolved');
     });
