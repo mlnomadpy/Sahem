@@ -11,7 +11,7 @@
             <div class="cardContent">
 
                 <div class="header" *ngIf="project.header_image">
-                    <img [src]="'http://localhost:3000/' + project.header_image[0].path" alt="" class="header-img">
+                    <img [src]="api + project.header_image[0].path" alt="" class="header-img">
                 </div>
             </div>
             <!-- Fundraiser description -->
@@ -40,10 +40,16 @@
         </div>
 
         <div class="right">
-            <div class="card card-fund" [routerLink]="['/fundraisers/' + project._id + '/fund']"
+            <div *ngIf="isLoggedIn" class="card card-fund" [routerLink]="['/fundraisers/' + project._id + '/fund']"
                 routerLinkActive="router-link-active">
                 <h1 style="text-align: center; padding-top: 2%;">
                     Fund
+                </h1>
+            </div>
+            <div *ngIf="!isLoggedIn" class="card card-fund" [routerLink]="['/auth/login']"
+                routerLinkActive="router-link-active">
+                <h1 style="text-align: center; padding-top: 2%;">
+                    Login
                 </h1>
             </div>
             <h1>Share:</h1>

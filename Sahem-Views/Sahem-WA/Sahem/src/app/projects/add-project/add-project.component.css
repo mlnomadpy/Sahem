@@ -1,4 +1,51 @@
+.btn-submit {
+    background-color: var(--bg-solar);
+    color: var(--text);
+    width: 100%;
+    height: 100%;
+}
 
+textarea {
+    width: calc(100% - 12px);
+    min-height: 400px;
+    padding: 5px;
+}
+
+input, select, textarea {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input {
+    width: calc(100% - 10px);
+    padding: 5px;
+}
+
+input[type="date"] {
+    padding: 4px 5px;
+}
+
+
+
+.item i, input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    font-size: 20px;
+    color: #00b33c;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+    right: 1%;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+input[type=radio]:checked+label:before, label.radio:hover:before {
+    border: 2px solid #006622;
+}
+
+/* ***** */
 
 .container {
     display: block;

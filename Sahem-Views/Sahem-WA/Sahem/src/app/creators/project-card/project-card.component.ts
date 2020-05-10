@@ -18,10 +18,10 @@ export class ProjectCardComponent implements OnInit {
     this.projectService.getProject(this.projectid).subscribe((project) => {
       this.project = project;
       console.log(this.project);
-
+      this.project.progress = this.calculateProjectProgress(this.project);
+      this.progress = Number(this.project.progress.toFixed(0));
     });
-    this.project.progress = this.calculateProjectProgress(this.project);
-    this.progress = Number(this.project.progress.toFixed(0));
+
     console.log(this.progress);
     // this.calculateFunds();
     // this.calculateProjectProgress();

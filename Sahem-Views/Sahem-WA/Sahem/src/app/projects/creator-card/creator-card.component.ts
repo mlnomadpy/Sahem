@@ -12,7 +12,7 @@ export class CreatorCardComponent implements OnInit {
   @Input() id: string;
   creator: Creator;
   avatarExt: any;
-  api: string = environment.api
+  api: string = environment.api;
   constructor(private creatorsService: CreatorService) { }
 
   ngOnInit(): void {
@@ -24,9 +24,9 @@ export class CreatorCardComponent implements OnInit {
         this.creator = creators;
         this.avatarExt = mime.extension(this.creator.avatar[0].mimetype);
         // this.avatarExt = mime.;
-        console.log(this.creator.avatar[0].mimetype);
-
         console.log(this.creator);
+
+        // console.log(this.creator);
       });
       res('resolved');
     });

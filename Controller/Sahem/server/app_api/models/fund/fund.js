@@ -16,7 +16,8 @@ const FundSchema = new Schema({
         type: Number,
         // required: true
     },
-    customer: {}
+    customer: {},
+    charge: {}
 
 });
 

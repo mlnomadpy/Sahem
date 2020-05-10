@@ -1,12 +1,12 @@
 <div class="card" *ngIf="creator">
     <div class="box">
-        <img [src]="api + creator.avatar[0].path" alt="" class="box-img" >
+        <img [src]="api + creator.avatar[0].path" alt="" class="box-img">
         <h1>
             <div>
                 @{{creator.creator_tag}}
             </div>
             <div>
-                Taha Bouhsine
+                {{creator.personal_information.first_name}} {{creator.personal_information.last_name}}
             </div>
         </h1>
 

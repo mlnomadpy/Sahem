@@ -40,12 +40,88 @@
 \section{Specification of requirements}
 We will proceed according to the UML method which consists of identifying and modeling the various business processes in order to easily migrate to an object architecture from a static and dynamic point of view. This analysis presents a total abstraction being independent of any technology or implementation.
 
+
 The specification of the needs will allow us to have a better approach of the users, the functionalities and the relationship between the two. It will be in the form of a use case. For this we will proceed as follows:
 
-Identification of the actors of the new system.
+Identification of requirements.
+Identification of the actors of the system.
 Identification of use cases.
 Description of use cases.
 Grouping of use cases into packages.
+
+
+\subsection{requirements}
+The requirements that the client has put on the end-product were divided into basic functionalities and optional functionalities
+
+The Client’s basic functionalities are:
+\begin{enumerate}
+    \item
+          Account management: create an account, login, profile, settings, personal info,
+          personal dashboard.
+    \item
+          Start a campaign: send in a proposal for a campaign (webform).
+    \item
+          Share function: functionality so that a campaign can be shared within social networks, such as Facebook, Instagram, LinkedIn, Twitter, and potentially Pinterest and Google.
+    \item
+          Contribution invitation: functionality to send out concrete requests to contribute a certain amount
+          within the personal social network.
+    \item
+          Payment function: contributor should be able to pay their ticket through Credit Card.
+    \item
+          Review function: contributors should have the opportunity to give reviews about and react to events
+          that have taken place.
+    \item
+          Countdown timer: a timer that shows how much time a campaign has left until it closes.
+    \item
+          Current overview: each campaign should show for example the amount of tickets sold/amount of investors, the amount of money raised so far and the goal amount to be raised.
+\end{enumerate}
+
+
+The Client’s optional functionalities are:
+
+\begin{enumerate}
+    \item
+          Personalized recommendations (recommender system): the system will advice, suggest or give concrete offers. Logged-in visitors see a personalized recommendation based on social profiles and the
+          platform’s web page content and actions.
+    \item
+          Share option via Whatsapp
+    \item
+          Online helpdesk: chat possibility with a helpdesk worker.
+    \item
+          Communication tools: communication possibilities with other members and/or the organization of an
+          event via chat.
+    \item
+          Connection with social media: e.g. Facebook application for special opportunities and/or campaigns
+          that enabled even more interaction with the target group.
+    \item
+          Social login: login with a social account.
+    \item
+          Wallet: deposit money in your personal wallet, which enables you to make several contributions by
+          paying with the money in your wallet.
+    \item
+          Recruit function: a tool to gather more contributors. A contributor can share a campaign within their
+          own personal social networks.
+    \item
+          Notifications: reminders and/or messages related to upcoming events and updates of events.
+    \item
+          Mobile App: extra functionalities through the use of a camera and GPS on the actual event: e.g. picture/video upload to the website or live visitor numbers.
+
+    \item
+          Agenda/calender: an overview that shows which events will take place on which dates (including events
+          that have already taken place).
+    \item
+          Newsletter: send an overview of the events to members of the platform community or to a certain
+          selection.
+    \item
+          Promotion function: functionality to share and promote events on different levels: community (everyone), events (only participants of a specific event), social media (within social networks).
+    \item
+          Campaign management: management tools for the event organization.
+    \item
+          Reports/statistics: data analyses, tools for advanced analysis of the web page visits.
+\end{enumerate}
+
+
+
 
 \subsection{Identification of actors}
 In UML we don't use the term users but actors. A player in a system is an entity external to this system that interacts (data entry, reception of information, etc.) with it. The actors make it possible to define the interface that the system will offer to its environment.And also the actor groups together several users who have the same role. And to find actors it will be necessary to identify the different roles that will have to play its users.
@@ -56,6 +132,7 @@ The different actors of the studied system are:
     \item  Creator.
     \item  Funder.
     \item  Administrator.
+    \item  Visitor.
 
 \end{enumerate}
 

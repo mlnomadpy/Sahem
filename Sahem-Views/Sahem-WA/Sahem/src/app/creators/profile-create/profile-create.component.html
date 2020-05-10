@@ -1,12 +1,67 @@
-<div>
+<!-- <div>
+    
+  </form>
+</div> -->
+
+<div class="testbox">
   <form [formGroup]="profile" (ngSubmit)="submit()">
-    <input type="file" formControlName="avatar" id="avatar" (change)="onHeaderImageChange($event)">
-    <input type="text" formControlName="first_name" id="first_name">
-    <input type="text" formControlName="last_name" id="last_name">
-    <input type="text" formControlName="address" id="address">
-    <input type="date" formControlName="birthday" id="birthday">
-    <input type="text" formControlName="creator_tag" id="creator_tag">
-    <input type="text" formControlName="bio" id="bio">
-    <input type="submit" value="Create">
+
+    <div class="banner">
+      <h1>Profile Creator</h1>
+    </div>
+
+    <fieldset>
+
+      <legend>Profile Details</legend>
+
+      <div class="columns">
+
+        <div class="item">
+          <label for="checkindate">Avatar <span>*</span></label>
+          <input type="file" formControlName="avatar" id="avatar" (change)="onHeaderImageChange($event)">
+        </div>
+
+        <div class="item">
+          <label for="checkindate">Creator Tag <span>*</span></label>
+          <input type="text" formControlName="creator_tag" id="creator_tag">
+        </div>
+
+        <div class="item">
+          <label for="checkindate">First Name <span>*</span></label>
+          <input type="text" formControlName="first_name" id="first_name">
+        </div>
+
+        <div class="item">
+          <label for="checkindate">Last Name <span>*</span></label>
+          <input type="text" formControlName="last_name" id="last_name">
+        </div>
+
+        <div class="item">
+          <label for="checkindate">Bio <span>*</span></label>
+          <input type="text" formControlName="bio" id="bio">
+        </div>
+
+        <div class="item">
+          <label for="checkindate">Address <span>*</span></label>
+          <input type="text" formControlName="address" id="address">
+        </div>
+
+        <div class="item">
+          <label for="checkindate">Birthday <span>*</span></label>
+          <input type="date" formControlName="birthday" id="birthday">
+        </div>
+
+        
+        <div class="btn-block">
+          <button type="submit">
+            Create
+          </button>
+        </div>
+
+      </div>
+    </fieldset>
+
+
+
   </form>
 </div>

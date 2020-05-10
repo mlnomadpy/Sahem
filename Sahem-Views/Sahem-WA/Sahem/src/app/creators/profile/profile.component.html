@@ -114,7 +114,7 @@
                                 <p> {{ project.title }}...</p>
                             </div>
                         </div> -->
-                        <app-project-card *ngFor="let project of creator.projects"></app-project-card>
+                        <app-project-card *ngFor="let project of creator.projects" [projectid]="project"></app-project-card>
                     </div>
                 </div>
             </div>

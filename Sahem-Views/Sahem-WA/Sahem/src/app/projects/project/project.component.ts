@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Project } from 'src/app/Models/Content/Project';
 import { ProjectsService } from '../projects.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { AuthenticationService } from 'src/app/auth/authentication.service';
 
 @Component({
   selector: 'app-project',
@@ -9,14 +11,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
+  api: string = environment.api;
   project: Project;
   projectId: string;
   date: any;
   progress: any;
   reached: any;
-  constructor(private projectsService: ProjectsService, private route: ActivatedRoute) { }
+  isLoggedIn: boolean;
+  constructor(private projectsService: ProjectsService, private route: ActivatedRoute, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = this.auth.isLoggedIn();
+
     const c = document.getElementsByClassName("layout").length;
     this.projectId = this.route.snapshot.paramMap.get('id');
     console.log(this.projectId);
@@ -32,7 +38,7 @@ export class ProjectComponent implements OnInit {
   async getProject() {
     const result = await this.getProjectById(this.projectId);
   }
-  
+
   getProjectById(id) {
     const p = new Promise((res, rej) => {
       this.projectsService.getProject(id).subscribe(project => {
@@ -47,7 +53,7 @@ export class ProjectComponent implements OnInit {
   }
 
   public calculateProjectProgress(project) {
-    return this.calculateFunds(project)  / project.fundGoal;
+    return this.calculateFunds(project) / project.fundGoal;
   }
   public calculateFunds(project) {
     var reached = Math.random() * 10000;

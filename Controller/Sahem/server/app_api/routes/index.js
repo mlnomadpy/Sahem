@@ -47,13 +47,55 @@ router
         ctrlProjects.projectsDeleteOne(req, res);
     });
 
+
+// async function customerCreator(req, res) {
+//     var customer = await stripe.customers.create(
+//         {
+//             name: req.body.card.name,
+//             email: req.creator.creator_tag,
+//             source: req.body.id
+//         }
+//     );
+//     req.customer = customer;
+//     console.log(customer);
+//     return customer;
+// }
+// async function customerCharge(req, res) {
+//     var charge = await stripe.charges.create({
+//         amount: req.body.amount * 100,
+//         currency: "mad",
+//         customer: req.customer.id
+//     });
+//     req.charge = charge;
+//     return charge;
+// }
 router
     .route('/projects/:projectid/fund')
     .post(jsonParser, urlParser, passport.authenticate('jwt', { session: false }), getCreator, (req, res) => {
         try {
-            console.log(req.body);
+            // console.log(req.body);
             // TODO get the creators profile
             // note nevermind already done that in getCreator middleware
+            // var customer = await stripe.customers.create(
+            //     {
+            //         name: req.body.card.name,
+            //         email: req.creator.creator_tag,
+            //         source: req.body.id
+            //     }
+            // );
+            // var charge = await stripe.charges.create({
+            //     amount: req.body.amount * 100,
+            //     currency: "mad",
+            //     customer: customer.id
+            // });
+
+            // req.customer = customer;
+            // req.charge = charge;
+            // const customer = customerCreator(req, res);
+            // console.log("asasd");
+            // const charge = customerCharge(req, res);
+            // ctrlFunds.fundsCreate(req, res);
+
             stripe.customers
                 .create({
                     name: req.body.card.name,
@@ -61,20 +103,22 @@ router
                     source: req.body.id
                 })
                 .then(customer => {
-                    console.log('asds');
+                    console.log(req.customer);
                     stripe.charges.create({
                         amount: req.body.amount * 100,
                         currency: "mad",
                         customer: customer.id
                     });
                     req.customer = customer;
-                    // console.log(customer);
+                    console.log(customer);
                 }
                 )
                 .then(() => {
                     ctrlFunds.fundsCreate(req, res);
                 })
                 .catch(err => console.log(err));
+            // console.log(customer);
+
         } catch (err) {
             res.send(err);
         }

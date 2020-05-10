@@ -25,7 +25,8 @@ const fundsCreate = (req, res) => {
             funder: req.creator._id,
             project: req.params.projectid,
             amount: req.body.amount,
-            customer: req.customer
+            customer: req.customer,
+            charge: req.charge
         }, (err, fund) => {
             if (err) {
                 res
