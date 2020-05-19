@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CreatorsService } from '../creators.service';
 import { Creator } from 'src/app/Models/User/Creator';
-
+import { environment } from "../../../environments/environment";
 @Component({
   selector: 'profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  api = environment.api;
   showFiller = false;
   breakpoint = 2;
   breakpoint2 = "2:3";

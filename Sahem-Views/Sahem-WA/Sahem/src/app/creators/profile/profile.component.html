@@ -5,7 +5,7 @@
     <!-- creator info -->
     <mat-grid-tile class="profile-info" *ngIf="creator.personal_information">
         <div class="box">
-            <img [src]="'http://localhost:3000/' + creator.avatar[0].path" alt="" class="box-img" *ngIf="creator.avatar[0]">
+            <img [src]="api + creator.avatar[0].path" alt="" class="box-img" *ngIf="creator.avatar[0]">
             <h1 *ngIf="creator.personal_information">
                 {{creator.personal_information.first_name}} {{creator.personal_information.last_name}}
             </h1>
@@ -36,21 +36,21 @@
                         <div class="card">
                             <div class="container">
                                 <h4><b>Fund Raised</b></h4>
-                                <p>15,562 DH</p>
+                                <p>562 DH</p>
                             </div>
                         </div>
                         <div class="card">
                             <div class="container">
                                 <h4><b>Funded:</b></h4>
-                                <p>15,562 DH</p>
+                                <p>152 DH</p>
                             </div>
                         </div>
-                        <div class="card">
+                        <!-- <div class="card">
                             <div class="container">
                                 <h4><b>Fund Raised</b></h4>
                                 <p>15,562 DH</p>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -60,7 +60,7 @@
                         <div class="card">
                             <div class="container">
                                 <h4><b>Fundraisers Count</b></h4>
-                                <p>15</p>
+                                <p>2</p>
                             </div>
                         </div>
 
@@ -135,8 +135,7 @@
                 <div class="page-contents">
                     <h1>Posts</h1>
                     <p>
-                        Eaque accusamus magnam error unde nam, atque provident omnis fugiat quam necessitatibus vel
-                        nulla sed quibusdam fuga veritatis assumenda alias quidem asperiores?
+                        Coming soon
                     </p>
                     <p><a href="#">Get in touch</a></p>
                 </div>

@@ -51,7 +51,7 @@ import { PipesModule } from '../pipes/pipes.module';
     PipesModule
   ],
   providers: [
-    ProjectsService
+    // ProjectsService
   ],
 })
 export class ProjectsModule { }

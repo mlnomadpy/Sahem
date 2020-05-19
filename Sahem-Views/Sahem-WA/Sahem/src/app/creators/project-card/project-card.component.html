@@ -1,5 +1,5 @@
 <div class="card" [routerLink]="['/fundraisers/'+ project._id]" routerLinkActive="router-link-active" *ngIf="project">
-    <img [src]="'http://localhost:3000/' + [project.thumbnail[0].path]" alt="Avatar" style="width:100%">
+    <img [src]="api + [project.thumbnail[0].path]" alt="Avatar" style="width:100%">
     <progress [value]="project.progress"></progress>
 
     <div class="container">

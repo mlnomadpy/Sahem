@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from 'src/app/Models/Content/Project';
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: 'app-project-card',
@@ -8,6 +9,7 @@ import { Project } from 'src/app/Models/Content/Project';
 })
 export class ProjectCardComponent implements OnInit {
   @Input() project: Project;
+  api = environment.api;
   reached: number = 0;
   progress: number = 0;
   constructor() { }
