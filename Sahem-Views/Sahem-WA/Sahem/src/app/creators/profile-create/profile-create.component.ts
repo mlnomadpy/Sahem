@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { CreatorsService } from '../creators.service';
 import { Creator } from 'src/app/Models/User/Creator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-create',
@@ -10,12 +11,14 @@ import { Creator } from 'src/app/Models/User/Creator';
 })
 export class ProfileCreateComponent implements OnInit {
   profile: FormGroup;
+  startDate = new Date(1990, 0, 1);
   showFiller = false;
   breakpoint = 2;
   breakpoint2 = "2:3";
   creator: Creator;
   imageLink: string;
-  constructor(private creatorService: CreatorsService, private cd: ChangeDetectorRef) { }
+  profileError: string;
+  constructor(private creatorService: CreatorsService, private cd: ChangeDetectorRef, private router: Router) { }
 
   ngOnInit(): void {
     this.breakpoint = (window.innerWidth <= 900) ? 1 : 2;
@@ -30,8 +33,12 @@ export class ProfileCreateComponent implements OnInit {
           personal_information.birthday = req.body.birthday;
            */
     this.profile = new FormGroup({
-      creator_tag: new FormControl('', [Validators.required]),
-      bio: new FormControl('', [Validators.required]),
+      creator_tag: new FormControl('', [
+        Validators.required,
+      ]),
+      bio: new FormControl('', [
+        Validators.required
+      ]),
       avatar: new FormControl('', [Validators.required]),
       file: new FormControl('', [Validators.required]),
       first_name: new FormControl('', [Validators.required]),
@@ -42,6 +49,11 @@ export class ProfileCreateComponent implements OnInit {
   }
 
   submit() {
+    if (this.profile.invalid) {
+      console.log("error");
+      this.profileError = 'Form is invalid';
+      return;
+    }
     const formData = new FormData();
     formData.append('creator_tag', this.profile.get('creator_tag').value);
     formData.append('bio', this.profile.get('bio').value);
@@ -54,7 +66,7 @@ export class ProfileCreateComponent implements OnInit {
     this.creatorService.createCreator(formData)
       .subscribe(() => {
         console.log('you here');
-
+        this.router.navigate(['/']);
       });
   }
   get f() {
@@ -64,7 +76,7 @@ export class ProfileCreateComponent implements OnInit {
     const reader = new FileReader();
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
-      
+
       reader.readAsDataURL(file);
       reader.onload = () => {
         console.log(file);

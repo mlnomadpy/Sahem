@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
       'username': new FormControl('',
         [
           Validators.required,
-          Validators.minLength(10)
+          Validators.minLength(5),
         ]
       ),
       'email': new FormControl('',
@@ -40,13 +40,15 @@ export class RegisterComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(10),
-          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+          // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
         ]
       ),
       'confirmPassword': new FormControl('',
         [
           Validators.required,
-          Validators.minLength(10)
+          Validators.minLength(10),
+          // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+
         ]
       ),
 
@@ -61,12 +63,16 @@ export class RegisterComponent implements OnInit {
     this.formError = '';
     if (
       !this.registerForm.get('username').value ||
-      !this.registerForm.get('email').value  ||
-      !this.registerForm.get('password').value  || !this.registerForm.get('confirmPassword').value 
+      !this.registerForm.get('email').value ||
+      !this.registerForm.get('password').value || !this.registerForm.get('confirmPassword').value
     ) {
       this.formError = 'All fields are required, please try again';
-    } else {
-      if (this.registerForm.get('password').value  !== this.registerForm.get('confirmPassword').value ) {
+    }
+    if (this.registerForm.invalid) { 
+      this.formError = 'Form is invalid';
+    }
+    else {
+      if (this.registerForm.get('password').value !== this.registerForm.get('confirmPassword').value) {
         this.formError = 'Password doesn\'t match';
 
       }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,7 @@ export class NavbarComponent implements OnInit {
     solar: "dark"
   };
   tmp: any;
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     const theme = localStorage.getItem('theme') || (this.tmp = Object.keys(this.themeMap)[0], localStorage.setItem('theme', this.tmp), this.tmp);
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     console.log('asd');
     this.auth.logout();
+    this.router.navigate(['/']);
     this.ngOnInit();
   }
 

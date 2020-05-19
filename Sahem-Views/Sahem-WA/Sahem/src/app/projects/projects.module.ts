@@ -16,12 +16,17 @@ import { MaterialModule } from '../material.module';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ProjectsService } from './projects.service';
+// import { ProjectsService } from './projects.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreatorCardComponent } from './creator-card/creator-card.component';
 import { FundComponent } from './fund/fund.component';
 import { NgxStripeModule } from 'ngx-stripe';
 import { PipesModule } from '../pipes/pipes.module';
+// import { ShareButtonModule } from '@ngx-share/button';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareButtonModule } from 'ngx-sharebuttons/button';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+// import { HttpModule } from '@angular/common/http/http';
 
 
 @NgModule({
@@ -48,7 +53,14 @@ import { PipesModule } from '../pipes/pipes.module';
     FormsModule,
     NgxStripeModule.forRoot('pk_test_tXj8N60xSzLiRJWozIpiQWia00uEqdqOvw'),
     ReactiveFormsModule,
-    PipesModule
+    PipesModule,
+    ShareButtonsModule,
+    ShareButtonsModule.withConfig({
+      debug: true
+    }),
+    ShareButtonModule,
+    ShareIconsModule.forRoot(),
+    // ShareButtonModule
   ],
   providers: [
     // ProjectsService

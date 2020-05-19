@@ -8,7 +8,6 @@
                     <h1>Title</h1>
                     <div class="header">
                         <input formControlName="title" type="text" name="title" id="title">
-
                     </div>
                 </div>
                 <div class="cardContent">
@@ -70,7 +69,13 @@
                 </h1>
                 <div class="card">
                     <div class="box">
-                        <input formControlName="endDate" type="date" name="endDate" id="endDate">
+                        <!-- <input formControlName="endDate" type="date" name="endDate" id="endDate"> -->
+                        <mat-form-field>
+                            <mat-label>Choose a date</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="endDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker startView="year"></mat-datepicker>
+                          </mat-form-field>
                     </div>
                 </div>
                 <h1>Goal:</h1>

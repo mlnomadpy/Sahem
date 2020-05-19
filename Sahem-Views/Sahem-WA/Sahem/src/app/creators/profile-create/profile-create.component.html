@@ -7,7 +7,9 @@
   <form [formGroup]="profile" (ngSubmit)="submit()">
 
     <div class="banner">
-      <h1>Profile Creator</h1>
+      <div>
+        <h1>Profile Creator</h1>
+      </div>
     </div>
 
     <fieldset>
@@ -48,14 +50,25 @@
 
         <div class="item">
           <label for="checkindate">Birthday <span>*</span></label>
-          <input type="date" formControlName="birthday" id="birthday">
+          <!-- <input type="date" formControlName="birthday" id="birthday"> -->
+          <div>
+            <mat-form-field>
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="birthday">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+          </div>
         </div>
 
-        
+
         <div class="btn-block">
           <button type="submit">
             Create
           </button>
+          <div>
+            {{profileError}}
+          </div>
         </div>
 
       </div>

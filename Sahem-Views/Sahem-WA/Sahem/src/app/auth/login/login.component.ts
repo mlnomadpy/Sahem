@@ -12,14 +12,14 @@ export class LoginComponent implements OnInit {
     'username': new FormControl('',
       [
         Validators.required,
-        Validators.minLength(10)
+        Validators.minLength(5),
       ]
     ),
     'password': new FormControl('',
       [
         Validators.required,
         Validators.minLength(10),
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+        // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
       ]
     )
 
@@ -48,7 +48,13 @@ export class LoginComponent implements OnInit {
     this.formError = '';
     if (!this.loginForm.get('username').value || !this.loginForm.get('password').value) {
       this.formError = 'All fields are required, please try again';
-    } else {
+    }
+    
+    if (this.loginForm.invalid) {
+      this.formError = 'Form is not valid';
+
+    }
+    else {
       console.log(this.credentials);
       this.formError = 'All good';
       this.credentials.username = this.loginForm.get('username').value;

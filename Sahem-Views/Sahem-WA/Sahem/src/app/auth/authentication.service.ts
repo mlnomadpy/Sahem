@@ -22,7 +22,7 @@ export class AuthenticationService {
     return this.loc8rDataService.login(user)
       .then((authResp: AuthResponse) => {
         this.saveToken(authResp.token);
-        window.location.href = '/';
+        window.location.href = '';
       });
   }
 
@@ -33,7 +33,7 @@ export class AuthenticationService {
 
   public logout(): void {
     this.storage.removeItem('loc8r-token');
-    window.location.reload();
+    // window.location.reload();
     // window.location.href = '/';
 
 

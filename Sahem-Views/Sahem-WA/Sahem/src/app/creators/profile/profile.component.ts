@@ -9,6 +9,7 @@ import { environment } from "../../../environments/environment";
 })
 export class ProfileComponent implements OnInit {
   api = environment.api;
+  loading = true;
   showFiller = false;
   breakpoint = 2;
   breakpoint2 = "2:3";
@@ -23,7 +24,9 @@ export class ProfileComponent implements OnInit {
     this.breakpoint = (window.innerWidth <= 900) ? 1 : 2;
     this.breakpoint2 = (window.innerWidth <= 900) ? "2:3" : "fit";
 
-    this.getCreator();
+    this.getCreator().then(() => {
+        this.loading = false;
+    });
   }
 
   getCreator() {

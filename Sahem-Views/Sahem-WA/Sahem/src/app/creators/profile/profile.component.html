@@ -1,4 +1,6 @@
-<app-profile-create *ngIf="!creator"></app-profile-create>
+<div class="lds-ring" *ngIf="loading"></div>
+
+<app-profile-create *ngIf="!loading && !creator"></app-profile-create>
 
 <mat-grid-list [cols]="breakpoint" [rowHeight]="breakpoint2" (window:resize)="onResize($event)" class="profile"
     *ngIf="creator">
@@ -15,11 +17,11 @@
             <h5 *ngIf="creator.bio">
                 {{creator.bio}}
             </h5>
-            <ul>
+            <!-- <ul>
                 <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
                 <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-            </ul>
+            </ul> -->
         </div>
     </mat-grid-tile>
 
