@@ -56,7 +56,11 @@ export class ProjectComponent implements OnInit {
     return this.calculateFunds(project) / project.fundGoal;
   }
   public calculateFunds(project) {
-    var reached = Math.random() * 10000;
+    var reached = 0;
+    project.funders.forEach(funder => {
+      reached += funder.amount;
+    });
+    // var reached = Math.random() * 10000;
     // project.funds.forEach(fund => {
     //   reached += fund.amount;
     // });

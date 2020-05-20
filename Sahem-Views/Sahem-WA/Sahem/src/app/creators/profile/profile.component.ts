@@ -10,6 +10,7 @@ import { environment } from "../../../environments/environment";
 export class ProfileComponent implements OnInit {
   api = environment.api;
   loading = true;
+  total = 0;
   showFiller = false;
   breakpoint = 2;
   breakpoint2 = "2:3";
@@ -25,7 +26,7 @@ export class ProfileComponent implements OnInit {
     this.breakpoint2 = (window.innerWidth <= 900) ? "2:3" : "fit";
 
     this.getCreator().then(() => {
-        this.loading = false;
+      this.loading = false;
     });
   }
 
@@ -43,6 +44,12 @@ export class ProfileComponent implements OnInit {
     return p;
   }
 
+  calculateFundRaisedTotal(projects: any) {
+    this.total = 0;
+    projects.forEach(project => {
+      this.total += project.raisedFunds;
+    });
+  }
 
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 900) ? 1 : 2;

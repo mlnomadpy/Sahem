@@ -14,8 +14,22 @@
 
     <input type="password" id="password" formControlName="password" required>
   </div>
+  <div *ngIf="submitted && f.password.errors" class="alert alert-danger">
 
-  <input type="submit" class="logbtn" value="Login" >
+    <div *ngIf="f.password.errors.required">
+      Password is required.
+    </div>
+
+    <div *ngIf="f.password.errors.minlength">
+      Password must be at least 10 characters long.
+    </div>
+
+    <div *ngIf="f.password.errors.pattern">
+      Password strenght is low
+    </div>
+
+  </div>
+  <input type="submit" class="logbtn" value="Login" [disabled]="!loginForm.valid" >
   <!-- [disabled]="!loginForm.valid" -->
   <div class="bottom-text">
     Don't have account? <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active">Register</a>

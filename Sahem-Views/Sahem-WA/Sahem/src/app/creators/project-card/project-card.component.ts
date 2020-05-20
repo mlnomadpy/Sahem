@@ -32,11 +32,13 @@ export class ProjectCardComponent implements OnInit {
     this.calculateFunds(project);
     return this.project.raisedFunds / project.fundGoal;
   }
+
   public calculateFunds(project) {
-    var reached = Math.random() * 10000;
-    // project.funds.forEach(fund => {
-    //   reached += fund.amount;
-    // });
+    // var reached = Math.random() * 10000;
+    var reached = 0;
+    project.funders.forEach(funder => {
+      reached += funder.amount;
+    });
     this.project.raisedFunds = Number(reached.toFixed(2));
     console.log(this.project.raisedFunds);
     return reached;

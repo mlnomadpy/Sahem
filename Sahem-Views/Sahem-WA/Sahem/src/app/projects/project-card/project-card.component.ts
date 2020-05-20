@@ -27,7 +27,11 @@ export class ProjectCardComponent implements OnInit {
     return  this.project.raisedFunds / project.fundGoal;
   }
   public calculateFunds(project) {
-    var reached = Math.random() * 10000;
+    // var reached = Math.random() * 10000;
+    var reached = 0;
+    project.funders.forEach(funder => {
+      reached += funder.amount;
+    });
     // project.funds.forEach(fund => {
     //   reached += fund.amount;
     // });

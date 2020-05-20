@@ -38,15 +38,21 @@
                         <div class="card">
                             <div class="container">
                                 <h4><b>Fund Raised</b></h4>
-                                <p>562 DH</p>
+                                <p>{{total}} DH</p>
                             </div>
                         </div>
                         <div class="card">
                             <div class="container">
+                                <h4><b>Fundraisers Count</b></h4>
+                                <p>{{creator.projects.length}}</p>
+                            </div>
+                        </div>
+                        <!-- <div class="card">
+                            <div class="container">
                                 <h4><b>Funded:</b></h4>
                                 <p>152 DH</p>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="card">
                             <div class="container">
                                 <h4><b>Fund Raised</b></h4>
@@ -56,17 +62,17 @@
 
                     </div>
 
-                    <h1>Fund</h1>
+                    <!-- <h1>Fund</h1>
 
                     <div class="grid-items">
                         <div class="card">
                             <div class="container">
                                 <h4><b>Fundraisers Count</b></h4>
-                                <p>2</p>
+                                <p>{{creator.projects.length}}</p>
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
                     <!-- <h1>Badges:</h1>
                     <div class="grid-items">
                         <div class="card">
@@ -116,7 +122,11 @@
                                 <p> {{ project.title }}...</p>
                             </div>
                         </div> -->
-                        <app-project-card *ngFor="let project of creator.projects" [projectid]="project"></app-project-card>
+                        <div *ngIf="creator.projects.length < 1">
+                            None were Created
+                        </div>
+                        <app-project-card *ngFor="let project of creator.projects" [projectid]="project">
+                        </app-project-card>
                     </div>
                 </div>
             </div>

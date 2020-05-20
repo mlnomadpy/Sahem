@@ -9,43 +9,95 @@
 
     <input type="text" id="username" name="username" formControlName="username" required>
     <!-- <span data-placeholder="Username"></span> -->
-    <!-- <div *ngIf="username.invalid" class="alert alert-danger">
+    <div *ngIf="submitted && f.username.errors" class="alert alert-danger">
 
-      <div *ngIf="username.errors.required">
+      <div *ngIf="f.username.errors.required">
         Username is required.
       </div>
-      <div *ngIf="username.errors.minlength">
-        Username must be at least 4 characters long.
+
+      <div *ngIf="f.username.errors.minlength">
+        Username must be at least 5 characters long.
       </div>
-      <div *ngIf="username.errors.forbiddenName">
-        Username cannot be Bob.
-      </div>
-    </div> -->
+
+    </div>
+
   </div>
 
   <div class="txtb">
     <label for="Email">Email</label>
 
-    <input type="email" id="email"  formControlName="email" required>
+    <input type="email" id="email" formControlName="email" required>
     <!-- <span data-placeholder="Email"></span> -->
+    <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
+
+      <div *ngIf="f.email.errors.required">
+        Email is required
+      </div>
+
+      <div *ngIf="f.email.errors.email">
+        Email must be a valid email address
+      </div>
+
+    </div>
   </div>
 
   <div class="txtb">
     <label for="Password">Password</label>
 
-    <input type="password" id="password"  formControlName="password" required>
-    <!-- <span data-placeholder="Password"></span> -->
-  </div>
+    <input type="password" id="password" formControlName="password" required>
 
+
+    <!-- <span data-placeholder="Password"></span> -->
+    <div *ngIf="submitted && f.password.errors" class="alert alert-danger">
+
+      <div *ngIf="f.password.errors.required">
+        Password is required.
+      </div>
+
+      <div *ngIf="f.password.errors.minlength">
+        Password must be at least 10 characters long.
+      </div>
+
+      <div *ngIf="f.password.errors.pattern">
+        Password strenght is low.
+      </div>
+
+    </div>
+  </div>
+  <div>
+    <div>At least one digit</div>
+    <div>At least one lowercase character</div>
+    <div>At least one uppercase character</div>
+    <div>At least one special character</div>
+    <div>At least 8 characters in length, but no more than 32</div>
+    <meter max="4" [value]="meterValue" id="password-strength-meter"></meter>
+    <p id="password-strength-text"></p>
+  </div>
   <div class="txtb">
     <label for="Password">Confirm Password</label>
 
-    <input type="password" id="confirmPassword"  formControlName="confirmPassword" required>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword" required>
     <!-- <span data-placeholder="Confirm Password"></span> -->
+    <div *ngIf="submitted && f.confirmPassword.errors" class="alert alert-danger">
+
+      <div *ngIf="f.confirmPassword.errors.required">
+        Password is required.
+      </div>
+
+      <div *ngIf="f.confirmPassword.errors.minlength">
+        Password must be at least 10 characters long.
+      </div>
+
+      <div *ngIf="f.confirmPassword.errors.pattern">
+        Password strenght is low.
+      </div>
+
+    </div>
   </div>
 
-  <input type="submit" class="logbtn" value="Register" >
+  <input type="submit" class="logbtn" value="Register" [disabled]="meterValue < 3 && !registerForm.valid">
   <!-- [disabled]="!loginForm.valid" -->
+
 
   <div class="bottom-text">
     Already have an account? <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active">Login</a>

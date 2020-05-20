@@ -18,7 +18,7 @@ export class FundComponent implements OnInit {
 
   // optional parameters
   elementsOptions: ElementsOptions = {
-    locale: 'es'
+    locale: 'en'
   };
 
   stripeTest: FormGroup;

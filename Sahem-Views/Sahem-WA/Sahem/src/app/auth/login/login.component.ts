@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
       [
         Validators.required,
         Validators.minLength(10),
+        Validators.pattern('^(?:(?:(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]))|(?:(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))|(?:(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]))).{8,32}$'),
+
         // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
       ]
     )
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
     exp: 0,
     iat: 0,
   };
+  submitted: boolean;
 
 
   constructor(private router: Router, private formBuilder: FormBuilder, private auth: AuthenticationService) { }
@@ -44,12 +47,17 @@ export class LoginComponent implements OnInit {
     console.log(value);
   }
 
+  get f() { return this.loginForm.controls; }
+
+
   public onLoginSubmit(): void {
+    this.submitted = true;
+
     this.formError = '';
     if (!this.loginForm.get('username').value || !this.loginForm.get('password').value) {
-      this.formError = 'All fields are required, please try again';
+      this.formError = 'All fields are required, please try again ';
     }
-    
+
     if (this.loginForm.invalid) {
       this.formError = 'Form is not valid';
 
