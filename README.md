@@ -37,3 +37,7 @@ This will hold our Backend logic and functions as well as a documentation folder
 ## Sahem-Views Folder
 
 For this folder there will be two folders, one which will hold our Angular Web Application, as for the other will hold our NativeScript Application that will be based on the reuse of our Angular Web Application code.
+
+## ReportPFE
+
+This folder contains the final end of project report. 
